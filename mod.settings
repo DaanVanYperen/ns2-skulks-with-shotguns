@@ -1,0 +1,6 @@
+name        = "Skulks With Shotguns [PRE ALPHA]"
+source_dir  = "source"
+output_dir  = "output"
+description = [=[Skulks With Shotguns [PRE ALPHA]]=]
+image       = "preview.jpg"
+publish_id = "c9673d7"

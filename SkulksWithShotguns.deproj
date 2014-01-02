@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+  <file>
+    <filename>source\lua\SWSClient.lua</filename>
+  </file>
+  <file>
+    <filename>source\lua\SWSPredict.lua</filename>
+  </file>
+  <file>
+    <filename>source\lua\SWSServer.lua</filename>
+  </file>
+  <file>
+    <filename>source\lua\SWSShared.lua</filename>
+  </file>
+  <file>
+    <filename>source\lua\SWSloading.lua</filename>
+  </file>
+</project>
