@@ -13,6 +13,6 @@
 
 Script.Load("lua/Override_Skulk.lua")
 Script.Load("lua/Override_Combat.lua")
-//Script.Load("lua/Override_Spawning.lua")
+Script.Load("lua/Override_Spawning.lua")
 Script.Load("lua/Override_Gamerules.lua")
 Script.Load("lua/Override_Commands.lua")

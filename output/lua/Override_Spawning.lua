@@ -1,12 +1,13 @@
 
 // allow eggs to spawn further away.
-local kEggMinRange = 4
-local kEggMaxRange = 5000
+//local kEggMinRange = 4
+//local kEggMaxRange = 5000
 
-kAlienEggsPerHive = 20
-kAlienSpawnTime = 4
-kEggGenerationRate = 0.5
+kAlienEggsPerHive = 5
+kAlienSpawnTime = 2
+kEggGenerationRate = 1
 
+/* unstable
 function Hive:GenerateEggSpawns(hiveLocationName)
 
     PROFILE("Hive:GenerateEggSpawns")
@@ -67,3 +68,4 @@ function Hive:GenerateEggSpawns(hiveLocationName)
     end
     
 end
+*/
