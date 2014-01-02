@@ -12,3 +12,7 @@ function Skulk:InitWeapons()
     self:GiveItem(Shotgun.kMapName)
     self:SetActiveWeapon(Shotgun.kMapName)
 end
+
+function LeapMixin:GetHasSecondary(player)
+    return true
+end
