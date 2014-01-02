@@ -13,6 +13,7 @@ Shotgun.kActivity = enum { 'None', 'Primary' }
 
 kShotgunHUDSlot = 2
 
+local kBulletSize = 0.016
 local kShotgunSize = 0.15 // size of parasite blob
 local kSpreadDistance = 10
 local kStartOffset = 0
@@ -105,6 +106,11 @@ function Shotgun:OnProcessMove(input)
 
 end
 
+// Only play weapon effects every other bullet to avoid sonic overload
+function Shotgun:GetTracerEffectFrequency()
+    return 0.5
+end
+
 function Shotgun:PerformShotgunFire(player)
     local viewAngles = player:GetViewAngles()
     viewAngles.roll = NetworkRandom() * math.pi * 2
@@ -155,7 +161,7 @@ function Shotgun:PerformShotgunFire(player)
             local impactPoint = trace.endPoint - direction * kHitEffectOffset
             local surfaceName = trace.surface
 
-            local effectFrequency = 0.5
+            local effectFrequency = self:GetTracerEffectFrequency()
             local showTracer = bullet % effectFrequency == 0
             
             self:ApplyBulletGameplayEffects(player, trace.entity, impactPoint, direction, kShotgunDamage, trace.surface, showTracer)
@@ -243,7 +249,6 @@ class 'Shotgun' (ClipWeapon)
 
 Shotgun.kMapName = "shotgun"
 
-local kBulletSize = 0.016
 
 local networkVars =
 {

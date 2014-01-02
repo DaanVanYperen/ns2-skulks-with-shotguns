@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
   <file>
-    <filename>source\lua\SWSClient.lua</filename>
+    <filename>output\lua\Override_Combat.lua</filename>
   </file>
   <file>
-    <filename>source\lua\SWSPredict.lua</filename>
+    <filename>output\lua\Override_Gamerules.lua</filename>
   </file>
   <file>
-    <filename>source\lua\SWSServer.lua</filename>
+    <filename>output\lua\Override_Skulk.lua</filename>
   </file>
   <file>
-    <filename>source\lua\SWSShared.lua</filename>
+    <filename>output\lua\Override_Spawning.lua</filename>
   </file>
   <file>
-    <filename>source\lua\SWSloading.lua</filename>
+    <filename>output\lua\SWSClient.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\SWSPredict.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\SWSServer.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\SWSShared.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\SWSloading.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\Weapons\Marine\Shotgun.lua</filename>
   </file>
 </project>
