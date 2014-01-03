@@ -168,7 +168,9 @@ local function UpdateHealing(self)
             
                 if player:GetIsAlive() and ((player:GetOrigin() - self:GetOrigin()):GetLength() < Hive.kHealRadius) then   
                     // min healing, affects skulk only             
-                    player:AddHealth(math.max(10, player:GetMaxHealth() * Hive.kHealthPercentage), true )                
+                    
+                    // SKULKS WITH SHOTGUNS: DECREASED MIN HEALING FOR SKULKS
+                    player:AddHealth(math.max(1, player:GetMaxHealth() * Hive.kHealthPercentage), true )                
                 end
                 
             end

@@ -72,8 +72,8 @@ Hive.kCompleteSound = PrecacheAsset("sound/NS2.fev/alien/voiceovers/hive_complet
 Hive.kUnderAttackSound = PrecacheAsset("sound/NS2.fev/alien/voiceovers/hive_under_attack")
 Hive.kDyingSound = PrecacheAsset("sound/NS2.fev/alien/voiceovers/hive_dying")
 
-Hive.kHealRadius = 5     // From NS1
-Hive.kHealthPercentage = .02
+Hive.kHealRadius = 2     // From NS1
+Hive.kHealthPercentage = .04
 Hive.kHealthUpdateTime = 1
 
 if Server then
