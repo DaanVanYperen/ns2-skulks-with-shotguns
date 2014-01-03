@@ -9,7 +9,7 @@ if (Server) then
             if  (playerCount > 0) then
                 if self:GetGameState() == kGameState.NotStarted then
                     self:SetGameState(kGameState.PreGame)
-                    Shared:ShotgunMessage("Round started!")
+                    Shared:ShotgunMessage("Lock and load!")
                 end
             else
                 if (self:GetGameState() == kGameState.PreGame) then
