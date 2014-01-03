@@ -1,3 +1,4 @@
+Script.Load("lua/SWS_Locale.lua")
 
     function Shared:ShotgunMessage(chatMessage)
         if (chatMessage == nil) then return end
