@@ -86,7 +86,7 @@ if (Server) then
     -- Force joining aliens.
     function NS2Gamerules:GetCanJoinTeamNumber(teamNumber)
        return  (teamNumber == self.team2:GetTeamNumber())
-    end
+    end     
 
     local kPlayerSkillUpdateRate = 10
     local function UpdatePlayerSkill(self)

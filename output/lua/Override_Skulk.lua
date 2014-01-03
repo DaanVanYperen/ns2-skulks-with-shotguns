@@ -23,3 +23,8 @@ end
 function LeapMixin:GetHasSecondary(player)
     return true
 end
+
+// Disable buy menu for skulks.
+function Skulk:Buy()
+    self:PlayEvolveErrorSound()
+end
