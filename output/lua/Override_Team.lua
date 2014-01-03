@@ -32,6 +32,10 @@ local function AssignPlayerToEgg(self, player, enemyTeamPosition)
     
 end
 
+function AlienTeam:GetHasAbilityToRespawn()
+    local eggs = GetEntitiesForTeam("Egg", self:GetTeamNumber())
+    return (table.count(eggs) > 0) or (self:GetTeamResources() > 0)
+end
 
 /** -- START UNMODIFIED CODE - JUST HERE FOR AssignPlayerToEgg -- **/
 

@@ -23,7 +23,7 @@ if (Server) then
     end
     
     local kGameEndCheckInterval = 0.75
-    local kTimeLimit = 120
+    local kTimeLimit = 60*5
           
     function NS2Gamerules:OnClientConnect(client)        
         Gamerules.OnClientConnect(self, client)
@@ -57,10 +57,20 @@ if (Server) then
     
         if self:GetGameStarted() and self.timeGameEnded == nil and not self.preventGameEnd then
         
+            local deadPlayers = self.team2:GetNumDeadPlayers()
+            local activePlayers = self.team2:GetNumPlayers() - deadPlayers
+            local abilityToRespawn = self.team2:GetHasAbilityToRespawn()
+            
+            // 
+            if (activePlayers <= 1) and (not abilityToRespawn) then 
+                    Shared:ShotgunMessage("Total Decimation!")
+                    self:DrawGame()
+            end
+                
             if self.timeLastGameEndCheck == nil or (Shared.GetTime() > self.timeLastGameEndCheck + kGameEndCheckInterval) then
             
                 if self.timeSinceGameStateChanged >= kTimeLimit then
-                    Shared:ShotgunMessage("Round timelimit reached!")
+                    Shared:ShotgunMessage("Time limit reached! For shame..")
                     self:DrawGame()
                 end
 
@@ -121,7 +131,7 @@ if (Server) then
     function NS2Gamerules:OnUpdate(timePassed)
     
         PROFILE("NS2Gamerules:OnUpdate")
-        
+         
         GetEffectManager():OnUpdate(timePassed)
         
         UpdatePlayerSkill(self)

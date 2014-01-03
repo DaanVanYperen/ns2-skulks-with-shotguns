@@ -11,6 +11,9 @@ Script.Load("lua/SWS_Locale.lua")
         Server.SendNetworkMessage(self, "Chat", BuildChatMessage(false, "Shotgun Mod", -1, kTeamReadyRoom, kNeutralTeamType, chatMessage), true)
     end      
 
+// number of eggs that can spawn in one round.
+kPlayingTeamInitialTeamRes = 80
+kTeamResourcePerTick = 0
 
 Script.Load("lua/Override_Skulk.lua")
 Script.Load("lua/Override_Combat.lua")

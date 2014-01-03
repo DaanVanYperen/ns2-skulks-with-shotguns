@@ -3,6 +3,7 @@ kCustomLocaleMessages = {
     HIVE = 'Stalk',
     HIVE_TOOLTIP = 'Produces eggs while alive.',
     HIVE_HINT = 'Produces eggs while alive.',
+    TEAM_RES = 'EGG RESERVE: %d',
 }
 
 if Locale then
