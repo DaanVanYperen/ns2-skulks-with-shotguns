@@ -174,10 +174,9 @@ function ScoringMixin:AddKill()
     self.killstreak = Clamp(self.killstreak + 1, 0, kMaxKills)
     self:SetScoreboardChanged(true)
 
-    if Server and self.killstreak == 4 then
-        self:SetOnFire()
-        Shared:ShotgunMessage(self:GetName() .. " is on fire!")
-    end
+    // Skulks With Shotguns: reward kills.
+    self:rewardKill()
+
 end
 
 function ScoringMixin:AddAssistKill()
