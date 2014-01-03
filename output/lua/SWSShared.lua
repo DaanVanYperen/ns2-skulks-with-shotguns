@@ -18,3 +18,10 @@ Script.Load("lua/Override_Gamerules.lua")
 Script.Load("lua/Override_Commands.lua")
 Script.Load("lua/Override_Structures.lua")
 Script.Load("lua/Override_Team.lua")
+
+
+
+// buy menu disabled.
+function Skulk:Buy()
+    self:PlayEvolveErrorSound()
+end
