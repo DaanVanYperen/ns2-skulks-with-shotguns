@@ -9,9 +9,15 @@ function GetAreEnemies(entityOne, entityTwo)
     return entityOne and entityTwo
 end
 
-// specifically allow command chair entry using original enemy logic.
+// we are not friends! (disables wallsight for teammates)
+function GetAreFriends(entityOne, entityTwo)
+    return false
+end
+
+// specifically allow entity usage by using original enemy logic.
 function TeamMixin:GetCanBeUsed(player, useSuccessTable)
-    if original_GetAreEnemies(player, self) then
         useSuccessTable.useSuccess = false
-    end
+//    if original_GetAreEnemies(player, self) then
+        //useSuccessTable.useSuccess = false
+    //end
 end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-  <command_arguments>-game "C:\Users\Daan\Documents\SkulksWithShotgunsMod\output" -hotload -map sws</command_arguments>
+  <command_arguments>-game "e:\PROJECTS\MODS\SkulksWithShotgunsMod\output" -hotload -map sws</command_arguments>
   <scc>
     <provider></provider>
     <user></user>

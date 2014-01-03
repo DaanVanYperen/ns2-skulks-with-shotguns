@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
   <file>
+    <filename>output\lua\Hive.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\Hive_Client.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\Hive_Server.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\Override_Combat.lua</filename>
   </file>
   <file>
+    <filename>output\lua\Override_Commands.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\Override_Gamerules.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\Override_Scoring.lua</filename>
   </file>
   <file>
     <filename>output\lua\Override_Skulk.lua</filename>
   </file>
   <file>
     <filename>output\lua\Override_Spawning.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\Override_Structures.lua</filename>
   </file>
   <file>
     <filename>output\lua\SWSClient.lua</filename>

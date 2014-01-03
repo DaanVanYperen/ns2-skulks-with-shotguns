@@ -84,7 +84,7 @@ function Shotgun:GetSecondaryTechId()
 end
 
 function Shotgun:GetEnergyCost(player)
-    return 1
+    return 15
 end
 
 function Shotgun:GetHUDSlot()

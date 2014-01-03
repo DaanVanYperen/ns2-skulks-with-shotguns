@@ -33,7 +33,26 @@ if (Server) then
         player:ShotgunMessage("You are playing custom mod: Skulks With Shotguns!")
         player:ShotgunMessage("This is not Vanilla NS2! Have fun!")
     end
+    
+    function NS2Gamerules:GetPregameLength()
+        return 0
+    end
 
+    function NS2Gamerules:UpdatePregame(timePassed)
+
+        if self:GetGameState() == kGameState.PreGame then
+           
+                self.team1:PlayPrivateTeamSound(ConditionalValue(self.team1:GetTeamType() == kAlienTeamType, NS2Gamerules.kAlienStartSound, NS2Gamerules.kMarineStartSound))
+                self.team2:PlayPrivateTeamSound(ConditionalValue(self.team2:GetTeamType() == kAlienTeamType, NS2Gamerules.kAlienStartSound, NS2Gamerules.kMarineStartSound))
+                
+                self:SetGameState(kGameState.Started)
+                self.sponitor:OnStartMatch()
+                self.playerRanking:StartGame()
+           
+        end
+        
+    end
+    
     function NS2Gamerules:CheckGameEnd()
     
         if self:GetGameStarted() and self.timeGameEnded == nil and not self.preventGameEnd then
