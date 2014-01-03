@@ -31,6 +31,9 @@
     <filename>output\lua\Override_Structures.lua</filename>
   </file>
   <file>
+    <filename>output\lua\Override_Team.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\SWSClient.lua</filename>
   </file>
   <file>
