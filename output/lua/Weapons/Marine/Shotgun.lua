@@ -125,6 +125,15 @@ function Shotgun:PerformShotgunFire(player)
         range = 5
     end
     
+    // disable umbra upon firing a shotty.
+    if Server then      
+        if ( HasMixin(player, "Umbra") ) then
+             // disable umbra.
+             player.dragsUmbra = false
+             player.timeUmbraExpires = 0
+        end
+    end
+    
     local numberBullets = self:GetBulletsPerShot()
     local startPoint = player:GetEyePos()
 

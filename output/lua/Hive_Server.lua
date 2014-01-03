@@ -203,7 +203,7 @@ local function SpawnEgg(self, eggCount)
     if self.eggSpawnPoints == nil or #self.eggSpawnPoints == 0 then
     
         //Print("Can't spawn egg. No spawn points!")
-        self:GenerateEggSpawns(locationName)
+        //self:GenerateEggSpawns(locationName)
         return nil
         
     end

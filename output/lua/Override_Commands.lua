@@ -1,26 +1,31 @@
-local function JoinTeam(player, teamIndex)
+if Server then 
 
-    if player ~= nil and player:GetTeamNumber() == kTeamReadyRoom then
+    local function JoinTeam(player, teamIndex)
     
-        // Auto team balance checks.
-        local allowed = GetGamerules():GetCanJoinTeamNumber(teamIndex)
-                
-        if allowed or Shared.GetCheatsEnabled() then
-            return GetGamerules():JoinTeam(player, teamIndex)
-        else
-            Server.SendNetworkMessage(player, "JoinError", BuildJoinErrorMessage(), false)
-            return false
-        end
+        if player ~= nil and player:GetTeamNumber() == kTeamReadyRoom then
         
-    end
+            // Auto team balance checks.
+            local allowed = GetGamerules():GetCanJoinTeamNumber(teamIndex)
+                
+            if allowed or Shared.GetCheatsEnabled() then
+                return GetGamerules():JoinTeam(player, teamIndex)
+            else
+                Server.SendNetworkMessage(player, "JoinError", BuildJoinErrorMessage(), false)
+                return false
+            end
+            
+        end 
     
-    return false
+        return false
     
-end
+    end 
 
-local function OnCommandJoinShotgun(client)
-    local player = client:GetControllingPlayer()
-    JoinTeam(player,kTeam2Index)
+
+    local function OnCommandJoinShotgun(client)
+        local player = client:GetControllingPlayer()
+        JoinTeam(player,kTeam2Index)
+    end
+    Event.Hook("Console_j1", OnCommandJoinShotgun)
+    Event.Hook("Console_j2", OnCommandJoinShotgun)
+
 end
-Event.Hook("Console_j1", OnCommandJoinShotgun)
-Event.Hook("Console_j2", OnCommandJoinShotgun)
