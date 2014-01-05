@@ -57,8 +57,10 @@ Hive.kMapName = "hive"
 
 Shared.PrecacheSurfaceShader("cinematics/vfx_materials/hive_frag.surface_shader")
 
-Hive.kModelName = PrecacheAsset("models/alien/harvester/harvester.model")
-local kAnimationGraph = PrecacheAsset("models/alien/harvester/harvester.animation_graph")
+Hive.kShadowModelName = PrecacheAsset("models/alien/harvester/harvester.model")
+local kShadowAnimationGraph = PrecacheAsset("models/alien/harvester/harvester.animation_graph")
+Hive.kModelName = PrecacheAsset("models/marine/extractor/extractor.model")
+local kAnimationGraph = PrecacheAsset("models/marine/extractor/extractor.animation_graph")
 
 Hive.kWoundSound = PrecacheAsset("sound/NS2.fev/alien/structures/hive_wound")
 // Play special sound for players on team to make it sound more dramatic or horrible
@@ -129,7 +131,11 @@ function Hive:OnInitialized()
     // Pre-compute list of egg spawn points.
     if Server then
         
-        self:SetModel(Hive.kModelName, kAnimationGraph)
+        if self:GetTeamNumber() == 1 then 
+            self:SetModel(Hive.kShadowModelName, kShadowAnimationGraph)
+        else
+            self:SetModel(Hive.kModelName, kAnimationGraph)
+        end
         
         // This Mixin must be inited inside this OnInitialized() function.
         if not HasMixin(self, "MapBlip") then
