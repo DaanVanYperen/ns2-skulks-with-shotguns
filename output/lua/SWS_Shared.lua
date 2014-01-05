@@ -12,7 +12,7 @@ Script.Load("lua/SWS_Locale.lua")
     end      
 
 // number of eggs that can spawn in one round.
-kPlayingTeamInitialTeamRes = 2
+kPlayingTeamInitialTeamRes = 60
 kTeamResourcePerTick = 0
 
 kTeam1Name = "Shadow"
