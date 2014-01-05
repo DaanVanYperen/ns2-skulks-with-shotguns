@@ -35,3 +35,6 @@ function UmbraMixin:ModifyDamageTaken(damageTable, attacker, doer, damageType)
 
 end
 
+function Egg:GetCanTakeDamageOverride()
+    return false
+end
