@@ -15,7 +15,7 @@ local kHiveDyingThreshold = 0.4
 local kCheckLowHealthRate = 12
 
 // A little bigger than we might expect because the hive origin isn't on the ground
-local kEggMinRange = 0.5
+local kEggMinRange = 2
 local kEggMaxRange = 5
 
 function Hive:OnResearchComplete(researchId)
@@ -529,7 +529,7 @@ function Hive:GenerateEggSpawns(hiveLocationName)
     end
     
     if #self.eggSpawnPoints < kAlienEggsPerHive then
-        Print("Hive in location \"%s\" only generated %d egg spawns (needs %d). Make room more open.", hiveLocationName, table.count(self.eggSpawnPoints), kAlienEggsPerHive)
+        Print("Stalk in location \"%s\" only generated %d egg spawns (needs %d). Make room more open.", hiveLocationName, table.count(self.eggSpawnPoints), kAlienEggsPerHive)
     end
     
 end
