@@ -53,12 +53,32 @@ if (Server) then
         
     end
     
+
+function Team:GetNumAlivePlayers()
+
+    local numPlayers = 0
+    
+    for index, playerId in ipairs(self.playerIds) do
+
+        local player = Shared.GetEntity(playerId)
+        if player ~= nil and player:GetId() ~= Entity.invalidId and player:GetIsAlive() == true then
+        
+            numPlayers = numPlayers + 1
+            
+        end
+        
+    end
+    
+    return numPlayers
+    
+end
+    
     function NS2Gamerules:CheckGameEnd()
     
         if self:GetGameStarted() and self.timeGameEnded == nil and not self.preventGameEnd then
         
             local deadPlayers = self.team2:GetNumDeadPlayers()
-            local activePlayers = self.team2:GetNumPlayers() - deadPlayers
+            local activePlayers = self.team2:GetNumAlivePlayers()
             local abilityToRespawn = self.team2:GetHasAbilityToRespawn()
             
             // 
