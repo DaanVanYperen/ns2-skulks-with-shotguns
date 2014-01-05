@@ -24,7 +24,7 @@ local function UpdateWaveTime(self)
         self.timeWaveSpawnEnd = 0
     end
     
-    Server.SendNetworkMessage(Server.GetOwner(self), "SetTimeWaveSpawnEnds", { time = self.timeWaveSpawnEnd }, true)
+    //Server.SendNetworkMessage(Server.GetOwner(self), "SetTimeWaveSpawnEnds", { time = self.timeWaveSpawnEnd }, true)
     
     if not self.sentRespawnMessage then
     
