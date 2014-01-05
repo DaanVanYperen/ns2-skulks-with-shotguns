@@ -287,6 +287,11 @@ function Hive:GetTechButtons(techId)
     
 end
 
+function Hive:GetIsOccupied()
+    return true
+end
+
+
 function Hive:OnSighted(sighted)
     CommandStructure.OnSighted(self, sighted)
 end
