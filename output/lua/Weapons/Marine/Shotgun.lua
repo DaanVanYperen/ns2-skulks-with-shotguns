@@ -44,7 +44,7 @@ local kSpreadVectors =
 }
 
 local kMuzzleEffect = PrecacheAsset("cinematics/marine/shotgun/muzzle_flash.cinematic")
-local kMuzzleAttachPoint = "fxnode_shotgunmuzzle"
+local kMuzzleAttachPoint = "Bone_Tongue"
 
 local networkVars =
 {
