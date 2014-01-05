@@ -34,13 +34,13 @@ end
 // set default levels for our abilities.
 
 function GetShellLevel(teamNumber)
-    return 2
+    return 3
 end
 
 function GetSpurLevel(teamNumber)
-    return 2
+    return 3
 end
 
 function GetVeilLevel(teamNumber) 
-    return 2
+    return 3
 end
