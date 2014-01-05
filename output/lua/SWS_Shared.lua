@@ -15,6 +15,9 @@ Script.Load("lua/SWS_Locale.lua")
 kPlayingTeamInitialTeamRes = 80
 kTeamResourcePerTick = 0
 
+kTeam1Name = "Shadow"
+kTeam2Name = "Vanilla"
+
 kTeamModeEnabled = true
 
 Script.Load("lua/SWS_GameInfo.lua")

@@ -1,3 +1,66 @@
+/** -- START UNMODIFIED CODE - JUST HERE TO disable team number in alien spectator -- **/
+
+local function UpdateQueuePosition(self)
+
+    if self:GetIsDestroyed() then
+        return false
+    end
+    
+    self.queuePosition = self:GetTeam():GetPlayerPositionInRespawnQueue(self)
+    return true
+    
+end
+
+local function UpdateWaveTime(self)
+
+    if self:GetIsDestroyed() then
+        return false
+    end
+    
+    if self.queuePosition <= self:GetTeam():GetEggCount() then
+        local entryTime = self:GetRespawnQueueEntryTime() or 0
+        self.timeWaveSpawnEnd = entryTime + kAlienSpawnTime
+    else
+        self.timeWaveSpawnEnd = 0
+    end
+    
+    Server.SendNetworkMessage(Server.GetOwner(self), "SetTimeWaveSpawnEnds", { time = self.timeWaveSpawnEnd }, true)
+    
+    if not self.sentRespawnMessage then
+    
+        Server.SendNetworkMessage(Server.GetOwner(self), "SetIsRespawning", { isRespawning = true }, true)
+        self.sentRespawnMessage = true
+        
+    end
+    
+    return true
+    
+end
+
+/** -- END UNMODIFIED CODE - JUST HERE TO disable team number in alien spectator -- **/
+
+function AlienSpectator:OnInitialized()
+
+    TeamSpectator.OnInitialized(self)
+
+    // SWS FIX: self:SetTeamNumber(2)
+    
+    self.eggId = Entity.invalidId
+    self.queuePosition = 0
+    self.autoSpawnTime = 0
+    self.movedToEgg = false
+    
+    if Server then
+    
+        self.evolveTechIds = { kTechId.Skulk }
+        self:AddTimedCallback(UpdateQueuePosition, 0.1)
+        self:AddTimedCallback(UpdateWaveTime, 0.1)
+        UpdateQueuePosition(self)
+        
+    end
+    
+end
+
 
 if Server then
 
