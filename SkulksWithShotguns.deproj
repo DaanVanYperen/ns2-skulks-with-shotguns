@@ -10,6 +10,9 @@
     <filename>output\lua\Hive_Server.lua</filename>
   </file>
   <file>
+    <filename>output\lua\NS2ConsoleCommands_Server.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\Override_Combat.lua</filename>
   </file>
   <file>
@@ -17,9 +20,6 @@
   </file>
   <file>
     <filename>output\lua\Override_Gamerules.lua</filename>
-  </file>
-  <file>
-    <filename>output\lua\Override_Scoring.lua</filename>
   </file>
   <file>
     <filename>output\lua\Override_Skulk.lua</filename>
@@ -46,7 +46,16 @@
     <filename>output\lua\SWSShared.lua</filename>
   </file>
   <file>
+    <filename>output\lua\SWS_Locale.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\SWS_Rewards.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\SWSloading.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\ScoringMixin.lua</filename>
   </file>
   <file>
     <filename>output\lua\Weapons\Marine\Shotgun.lua</filename>

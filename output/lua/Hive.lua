@@ -24,6 +24,8 @@ Script.Load("lua/HiveVisionMixin.lua")
 Script.Load("lua/BiomassMixin.lua")
 Script.Load("lua/IdleMixin.lua")
 
+kHiveInfestationRadius = 6
+
 class 'Hive' (CommandStructure)
 
 local networkVars =
