@@ -210,6 +210,7 @@ local function UpdateCystConstruction(self, deltaTime)
 
 end
 
+
 function AlienTeam:Update(timePassed)
 
     PROFILE("AlienTeam:Update")
