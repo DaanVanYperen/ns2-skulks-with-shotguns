@@ -15,11 +15,11 @@ Script.Load("lua/SWS_Locale.lua")
 kPlayingTeamInitialTeamRes = 80
 kTeamResourcePerTick = 0
 
-Script.Load("lua/Override_Skulk.lua")
-Script.Load("lua/Override_Combat.lua")
-Script.Load("lua/Override_Spawning.lua")
-Script.Load("lua/Override_Gamerules.lua")
-Script.Load("lua/Override_Commands.lua")
-Script.Load("lua/Override_Structures.lua")
-Script.Load("lua/Override_Team.lua")
+Script.Load("lua/SWS_Skulk.lua")
+Script.Load("lua/SWS_Combat.lua")
+Script.Load("lua/SWS_Spawning.lua")
+Script.Load("lua/SWS_Gamerules.lua")
+Script.Load("lua/SWS_Commands.lua")
+Script.Load("lua/SWS_Structures.lua")
+Script.Load("lua/SWS_Team.lua")
 Script.Load("lua/SWS_Rewards.lua")

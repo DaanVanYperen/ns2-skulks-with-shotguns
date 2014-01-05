@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
   <file>
+    <filename>output\lua\Babbler.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\Hive.lua</filename>
   </file>
   <file>
@@ -44,6 +47,9 @@
   </file>
   <file>
     <filename>output\lua\SWSShared.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\SWS_GameInfo.lua</filename>
   </file>
   <file>
     <filename>output\lua\SWS_Locale.lua</filename>

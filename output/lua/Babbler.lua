@@ -1,10 +1,5 @@
-// ======= Copyright (c) 2003-2013, Unknown Worlds Entertainment, Inc. All rights reserved. =======
-//
-// lua\Babbler.lua
-//
-//    Created by:   Andreas Urwalek (andi@unknownworlds.com)
-//
-// ========= For more information, visit us at http://www.unknownworlds.com =====================
+// Skulks With Shotguns: Babblers are now Shotguns. You should have seen them wag. MAGIC!
+// @TODO Remove this when we get the model working.
 
 Script.Load("lua/ScriptActor.lua")
 Script.Load("lua/Mixins/ClientModelMixin.lua")
