@@ -1,4 +1,10 @@
 if (Server) then  
+
+    // we always want aliens, because only aliens are shotgun worthy!
+    function NS2Gamerules:BuildTeam(teamType)
+       return AlienTeam()
+    end
+    
     function NS2Gamerules:CheckGameStart()
     
         if (self:GetGameState() == kGameState.NotStarted) or (self:GetGameState() == kGameState.PreGame) then
@@ -76,17 +82,25 @@ end
     function NS2Gamerules:CheckGameEnd()
     
         if self:GetGameStarted() and self.timeGameEnded == nil and not self.preventGameEnd then
-        
-            local deadPlayers = self.team2:GetNumDeadPlayers()
-            local activePlayers = self.team2:GetNumAlivePlayers()
-            local abilityToRespawn = self.team2:GetHasAbilityToRespawn()
-            
-            // 
-            if (activePlayers <= 1) and (not abilityToRespawn) then 
-                    Shared:ShotgunMessage("Total Decimation!")
-                    self:DrawGame()
-            end
                 
+            local team1Lost = (self.team2:GetNumAlivePlayers() <= 1) and (not self.team2:GetHasAbilityToRespawn())
+            local team2Lost = (self.team2:GetNumAlivePlayers() <= 1) and (not self.team2:GetHasAbilityToRespawn())
+            
+            if kTeamModeEnabled then 
+                if team1Lost then
+                    Shared:ShotgunMessage("Team Shadow Wins!")
+                    self:DrawGame()
+                    self:EndGame(self.team2)
+                end
+                if team2Lost then
+                    Shared:ShotgunMessage("Team Vanilla Wins!")
+                    self:EndGame(self.team1)
+                end                
+            elseif team2Lost then
+                Shared:ShotgunMessage("Total Decimation!")
+                self:DrawGame()
+            end
+            
             if self.timeLastGameEndCheck == nil or (Shared.GetTime() > self.timeLastGameEndCheck + kGameEndCheckInterval) then
             
                 if self.timeSinceGameStateChanged >= kTimeLimit then
@@ -115,8 +129,14 @@ end
     
     -- Force joining aliens.
     function NS2Gamerules:GetCanJoinTeamNumber(teamNumber)
+    
+        // we don't care about the teams in team mode!
+        if kTeamModeEnabled then
+            return true
+        end
+    
        return  (teamNumber == self.team2:GetTeamNumber())
-    end     
+    end
 
     local kPlayerSkillUpdateRate = 10
     local function UpdatePlayerSkill(self)

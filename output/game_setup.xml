@@ -1,5 +1,5 @@
 <game>
-    <name>ns2: Skulks With Shotguns</name>
+    <name>ns2</name>
     <description>Skulks With Shotguns</description>
     <client>lua/SWS_Client.lua</client>
     <predict>lua/SWS_Predict.lua</predict>
