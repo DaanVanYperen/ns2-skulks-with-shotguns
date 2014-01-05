@@ -229,7 +229,7 @@ function Hive:GetInfestationRadius()
 end
 
 function Hive:GetCanTakeDamageOverride()
-    return false
+    return kTeamModeEnabled
 end
 
 function Hive:GetCystParentRange()
