@@ -89,22 +89,24 @@ end
     
         if self:GetGameStarted() and self.timeGameEnded == nil and not self.preventGameEnd then
                 
-            local team1Lost = (self.team1:GetNumAlivePlayers() <= 1) and (not self.team1:GetHasAbilityToRespawn())
-            local team2Lost = (self.team2:GetNumAlivePlayers() <= 1) and (not self.team2:GetHasAbilityToRespawn())
+            local team1Lost = (self.team1:GetNumAlivePlayers() <= 0) and (not self.team1:GetHasAbilityToRespawn())
+            local team2Lost = (self.team2:GetNumAlivePlayers() <= 0) and (not self.team2:GetHasAbilityToRespawn())
             
             if kTeamModeEnabled then 
                 if team1Lost then
                     Shared:ShotgunMessage("Team Vanilla Wins!")
-                    self:DrawGame()
                     self:EndGame(self.team2)
                 end
                 if team2Lost then
                     Shared:ShotgunMessage("Team Shadow Wins!")
                     self:EndGame(self.team1)
                 end                
-            elseif team2Lost then
-                Shared:ShotgunMessage("Total Decimation!")
-                self:DrawGame()
+            else
+                local noFoesRemain = (self.team2:GetNumAlivePlayers() <= 1) and (not self.team2:GetHasAbilityToRespawn())
+                if noFoesRemain then
+                    Shared:ShotgunMessage("Total Decimation!")
+                    self:DrawGame()
+                end
             end
             
             if self.timeLastGameEndCheck == nil or (Shared.GetTime() > self.timeLastGameEndCheck + kGameEndCheckInterval) then
