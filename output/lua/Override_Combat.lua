@@ -21,3 +21,17 @@ function TeamMixin:GetCanBeUsed(player, useSuccessTable)
         //useSuccessTable.useSuccess = false
     //end
 end
+
+function UmbraMixin:ModifyDamageTaken(damageTable, attacker, doer, damageType)
+
+    if self:GetHasUmbra() then
+    
+        local modifier = 0.1
+    
+        damageTable.damage = damageTable.damage * modifier
+        
+    end
+    
+
+end
+

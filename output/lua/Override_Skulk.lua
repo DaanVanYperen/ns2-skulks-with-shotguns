@@ -5,7 +5,7 @@ function Alien:GetIsSprinting()
     return false
 end
 
-local kSpawnUmbraDuration = 3
+local kSpawnUmbraDuration = 1.25
 
 function Skulk:InitWeapons()
 
