@@ -15,6 +15,9 @@ Script.Load("lua/SWS_Locale.lua")
 kPlayingTeamInitialTeamRes = 80
 kTeamResourcePerTick = 0
 
+kTeamModeEnabled = true
+
+Script.Load("lua/SWS_GameInfo.lua")
 Script.Load("lua/SWS_Skulk.lua")
 Script.Load("lua/SWS_Combat.lua")
 Script.Load("lua/SWS_Spawning.lua")
