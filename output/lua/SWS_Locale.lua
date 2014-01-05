@@ -4,7 +4,9 @@ kCustomLocaleMessages = {
     HIVE_TOOLTIP = 'Produces eggs while alive.',
     HIVE_HINT = 'Produces eggs while alive.',
     TEAM_RES = 'EGG RESERVE: %d',
-    ALIEN_TEAM_GAME_STARTED = 'Objective: Kill all opposition'
+    ALIEN_TEAM_GAME_STARTED = 'Objective: Kill all opposition',
+    RESOURCE_NOZZLE = 'Dead Stalk',
+    RESOURCE_NOZZLE_TOOLTIP = 'No more eggs can span here.',
 }
 
 if Locale then

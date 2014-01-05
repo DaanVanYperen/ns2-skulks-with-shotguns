@@ -1,0 +1,6 @@
+shader = "models/alien/alien.surface_shader"
+albedoMap = "models/alien/harvester/harvester.dds"
+normalMap = "models/alien/harvester/harvester_normal.dds"
+emissiveMap = "models/alien/harvester/harvester_illum.dds"
+specularMap = "models/alien/harvester/harvester_spec.dds"
+surface = "organic"
