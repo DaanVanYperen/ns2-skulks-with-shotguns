@@ -1,9 +1,0 @@
-<game>
-    <name>ns2</name>
-    <description>Skulks With Shotguns</description>
-    <client>lua/SWS_Client.lua</client>
-    <predict>lua/SWS_Predict.lua</predict>
-    <server>lua/SWS_Server.lua</server>
-    <loading>lua/SWS_Loading.lua</loading>
-	<soundinfo>sound/NS2.soundinfo</soundinfo>
-</game>
