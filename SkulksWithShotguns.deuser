@@ -8,4 +8,30 @@
     <local_path></local_path>
     <aux_project_path></aux_project_path>
   </scc>
+  <files>
+    <file>
+      <filename>output\lua\SkulksWithShotguns\sws_Client.lua</filename>
+      <breakpoint>
+        <line>1</line>
+      </breakpoint>
+    </file>
+    <file>
+      <filename>output\lua\SkulksWithShotguns\sws_Predict.lua</filename>
+      <breakpoint>
+        <line>1</line>
+      </breakpoint>
+    </file>
+    <file>
+      <filename>output\lua\SkulksWithShotguns\sws_Server.lua</filename>
+      <breakpoint>
+        <line>0</line>
+      </breakpoint>
+    </file>
+    <file>
+      <filename>output\lua\SkulksWithShotguns\sws_Shared.lua</filename>
+      <breakpoint>
+        <line>2</line>
+      </breakpoint>
+    </file>
+  </files>
 </project>

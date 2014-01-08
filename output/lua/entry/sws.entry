@@ -1,0 +1,7 @@
+modEntry = [[
+    Client: lua/SkulksWithShotguns/sws_Client.lua,
+    Server: lua/SkulksWithShotguns/sws_Server.lua,
+    Predict: lua/SkulksWithShotguns/sws_Predict.lua,
+    Shared: lua/SkulksWithShotguns/sws_Shared.lua,
+    Priority: 3
+]]
