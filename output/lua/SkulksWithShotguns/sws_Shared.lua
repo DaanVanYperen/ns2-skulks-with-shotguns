@@ -14,6 +14,9 @@ Script.Load("lua/SkulksWithShotguns/sws_TeamMixin.lua")
 Script.Load("lua/SkulksWithShotguns/sws_ScoringMixin.lua")
 Script.Load("lua/SkulksWithShotguns/sws_LeapMixin.lua")
 
+// New Entities
+Script.Load("lua/SkulksWithShotguns/sws_Respawn.lua")
+
 // Entity overrides.
 Script.Load("lua/SkulksWithShotguns/sws_AlienSpectator.lua")
 Script.Load("lua/SkulksWithShotguns/sws_AlienTeam.lua")
