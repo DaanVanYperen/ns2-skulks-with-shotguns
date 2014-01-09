@@ -11,6 +11,51 @@ if Server then
         return (table.count(eggs) > 0) or ((self:GetTeamResources() > 0) and (table.count(hive) > 0))
     end
     
+    function AlienTeam:GetSpawnLocations()
+        if self:GetTeamNumber() == kVanillaTeamIndex then
+            return Server.vanillaSpawnList
+        else
+            return Server.shadowSpawnList
+        end
+    end
+    
+    
+    function AlienTeam:RespawnPlayer(player, origin, angles)
+
+        assert(self:GetIsPlayerOnTeam(player), "Player isn't on team!")
+    
+        if origin == nil or angles == nil then
+    
+            // Randomly choose unobstructed spawn points to respawn the player
+            local spawnPoint = nil
+            local spawnPoints = self:GetSpawnLocations()
+            local numSpawnPoints = table.maxn(spawnPoints)
+        
+            if numSpawnPoints > 0 then
+                    local spawnPoint = GetRandomClearSpawnPoint(player, spawnPoints)
+                    if spawnPoint ~= nil then
+                        origin = spawnPoint:GetOrigin()
+                        angles = spawnPoint:GetAngles()
+                    end
+            end 
+        end     
+            
+        // Move origin up and drop it to floor to prevent stuck issues with floating errors or slightly misplaced spawns
+        if origin ~= nil then
+        
+            SpawnPlayerAtPoint(player, origin, angles)
+            
+            player:ClearEffects()
+        
+            return true
+        
+        else
+            Print("Team:RespawnPlayer(player, %s, %s) - Must specify origin.", ToString(origin), ToString(angles))
+        end
+    
+        return false
+    end
+    
     function AlienTeam:placeRandomStalkForTeam( )
     
         local availableStalkSpots = { }
@@ -73,36 +118,21 @@ if Server then
             return nil
     end
 
-
-    // return all available eggs for a certain team.
-    local function GetFreeEggs( teamNumber )
-        local validEggs = {}
-        local eggs = GetEntitiesForTeam("Egg", teamNumber)        
-        
-        // Find the closest egg, doesn't matter which Hive owns it.
-        for _, egg in ipairs(eggs) do
-            if egg:GetIsFree() then
-                table.insert(validEggs, egg)
-            end
-        end
-    
-        return validEggs
-    end
-
     // randomized egg spawning, instead of desired / proximate to death like vanilla.
     local function CustomAssignPlayerToEgg(self, player, enemyTeamPosition)
-
-        local success = false    
-        local eggs = GetFreeEggs( self:GetTeamNumber() )    
-        local egg = eggs[math.random(1,#eggs)]
-    
-        if egg then
-            egg:SetQueuedPlayerId(player:GetId())
-            success = true
-        end
-    
-        return success
         
+        local team = player:GetTeam()
+        if team ~= nil then
+        
+            // manual replace respawn! We don't want the whole egg business.
+            local success, player = team:ReplaceRespawnPlayer(player, nil, nil)
+            player:SetCameraDistance(0)
+            player:SetHatched()
+            
+            return success
+        end
+
+        return nil
     end
     
     local updateAlienSpectators = GetLocalFunction(AlienTeam.Update, 'UpdateAlienSpectators')

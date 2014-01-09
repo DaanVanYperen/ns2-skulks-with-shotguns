@@ -70,6 +70,9 @@
     <filename>output\lua\SkulksWithShotguns\sws_Predict.lua</filename>
   </file>
   <file>
+    <filename>output\lua\SkulksWithShotguns\sws_Respawn.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\SkulksWithShotguns\sws_ScoringMixin.lua</filename>
   </file>
   <file>

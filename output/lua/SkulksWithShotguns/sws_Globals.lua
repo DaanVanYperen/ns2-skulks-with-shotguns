@@ -8,6 +8,9 @@ kSpawnUmbraDuration = 1.25
 kTeam1Name = "Shadow"
 kTeam2Name = "Vanilla"
 
+kShadowTeamIndex = kTeam1Index
+kVanillaTeamIndex = kTeam2Index
+
 // SWS team mode.
 kTeamModeEnabled = false
 
