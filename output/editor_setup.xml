@@ -5,12 +5,12 @@
 
 	<class name="vanilla_spawn">
 		<model>
-			<file>models/system/editor/team_location.model</file>
+			<file>models/alien/skulk/skulk.model</file>
 		</model>            
 	</class>
 	<class name="shadow_spawn">
 		<model>
-			<file>models/system/editor/team_location.model</file>
+			<file>models/alien/skulk/skulk_shadow.model</file>
 		</model>            
 	</class>
 	
