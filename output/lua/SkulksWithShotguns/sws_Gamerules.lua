@@ -143,6 +143,42 @@ if (Server) then
         end
         
     end
+    
+    
+    function NS2Gamerules:OnMapPostLoad()
+
+        Gamerules.OnMapPostLoad(self)
+        
+        // Now allow script actors to hook post load
+        local allScriptActors = Shared.GetEntitiesWithClassname("ScriptActor")
+        for index, scriptActor in ientitylist(allScriptActors) do
+            scriptActor:OnMapPostLoad()
+        end
+        
+        // fall back on resource points as spawns if none exist for the shadow team.
+        if table.maxn(Server.shadowSpawnList) <= 0 then
+            Shared:ShotgunWarning("Map lacks shadow_spawn entities on the map! Falling back on ResourcePoints.")        
+            for index, entity in ientitylist(Shared.GetEntitiesWithClassname("ResourcePoint")) do
+                local spawn = ShadowSpawn()
+                spawn:OnCreate()
+                spawn:SetAngles(entity:GetAngles())
+                spawn:SetOrigin(entity:GetOrigin())
+                table.insert(Server.shadowSpawnList, spawn)
+            end     
+        end
+        
+        // fall back on resource points as spawns if none exist for the vanilla team.
+        if table.maxn(Server.vanillaSpawnList) <= 0 then
+            Shared:ShotgunWarning("Map lacks vanilla_spawn entitities on the map! Falling back on ResourcePoints.")
+            for index, entity in ientitylist(Shared.GetEntitiesWithClassname("ResourcePoint")) do
+                local spawn = VanillaSpawn()
+                spawn:OnCreate()
+                spawn:SetAngles(entity:GetAngles())
+                spawn:SetOrigin(entity:GetOrigin())
+                table.insert(Server.vanillaSpawnList, spawn)
+            end     
+        end
+   end
 
     // disable these methods in OnUpdate, we don't want them to trigger.
     local function DisabledUpdateAutoTeamBalance(self, dt) end

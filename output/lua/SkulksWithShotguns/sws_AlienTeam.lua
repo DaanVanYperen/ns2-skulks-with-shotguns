@@ -30,14 +30,14 @@ if Server then
             local spawnPoint = nil
             local spawnPoints = self:GetSpawnLocations()
             local numSpawnPoints = table.maxn(spawnPoints)
-        
+            
             if numSpawnPoints > 0 then
                     local spawnPoint = GetRandomClearSpawnPoint(player, spawnPoints)
                     if spawnPoint ~= nil then
                         origin = spawnPoint:GetOrigin()
                         angles = spawnPoint:GetAngles()
                     end
-            end 
+            end
         end     
             
         // Move origin up and drop it to floor to prevent stuck issues with floating errors or slightly misplaced spawns
@@ -126,8 +126,10 @@ if Server then
         
             // manual replace respawn! We don't want the whole egg business.
             local success, player = team:ReplaceRespawnPlayer(player, nil, nil)
-            player:SetCameraDistance(0)
-            player:SetHatched()
+            if player ~= nil then
+                player:SetCameraDistance(0)
+                player:SetHatched()
+            end
             
             return success
         end

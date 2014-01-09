@@ -5,6 +5,18 @@ function Shared:ShotgunMessage(chatMessage)
     Server.AddChatToHistory(chatMessage, "Shotgun Mod", 0, kTeamReadyRoom, false)
 end
 
+function Shared:ShotgunError(errorMessage)
+    if (chatMessage == nil) then return end
+    self:ShotgunMessage("ERROR: " .. errorMessage)
+    Shared.Message("ERROR: " .. errorMessage)
+end
+
+function Shared:ShotgunWarning(errorMessage)
+    if (chatMessage == nil) then return end
+    self:ShotgunMessage("warning: " .. errorMessage)
+    Shared.Message("warning: " .. errorMessage)
+end
+
 function Player:ShotgunMessage(chatMessage)
     Server.SendNetworkMessage(self, "Chat", BuildChatMessage(false, "Shotgun Mod", -1, kTeamReadyRoom, kNeutralTeamType, chatMessage), true)
 end      
