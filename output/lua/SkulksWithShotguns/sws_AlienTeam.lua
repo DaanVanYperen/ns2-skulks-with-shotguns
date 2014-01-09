@@ -145,8 +145,21 @@ if Server then
         return false
     end
     
+
+    // we don't want egg generation.    
+    local function CustomUpdateEggGeneration(self) 
+    end
+
+    local function CustomUpdateEggCount(self)
+        // team resources count as eggs.
+        self.eggCount = self:GetTeamResources()
+    end
+
+    // we need to do this to replace egg spawning logic. 
     local updateAlienSpectators = GetLocalFunction(AlienTeam.Update, 'UpdateAlienSpectators')
-    ReplaceLocals( updateAlienSpectators, { AssignPlayerToEgg = CustomAssignPlayerToEgg } )
-        
+    ReplaceLocals( updateAlienSpectators, {  AssignPlayerToEgg = CustomAssignPlayerToEgg } )
+
+    // replace egg spawning and counting logic.            
+    ReplaceLocals( AlienTeam.Update, { UpdateEggGeneration = CustomUpdateEggGeneration, UpdateEggCount = CustomUpdateEggCount } )
 
 end
