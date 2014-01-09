@@ -135,6 +135,8 @@ if Server then
                 player:SetCameraDistance(0)
                 player:SetHatched()
                 
+                player:TriggerEffects("teleport_end", { classname = player:GetClassName() })
+                
                 // pay for the respawn. PAY!
                 team:AddTeamResources(-1)
             end

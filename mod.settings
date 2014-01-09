@@ -1,16 +1,16 @@
 name        = "Skulks With Shotguns [PRE ALPHA]"
 source_dir  = "source"
 output_dir  = "output"
-description = [=[What's even more awesome than skulks or shotguns? Skulks WITH Shotguns! Warm up your trigger finger and test your jousting skills in this deathmatch warmup mod!
-
-Currently in Early Alpha.
-
-Works on vanilla maps but best on NS2_SWS_IKEA or NS2_SWS_REFINERY! 
-
-Credits:
-HOWSER - Mod Founder, Mapper (NS2_SWS_IKEA), Models
-DAAN - Mod Founder, Coding
-FLATERECTOMY - Mapper (NS2_SWS_SKULLSHARK), Sounds
+description = [=[What's even more awesome than skulks or shotguns? Skulks WITH Shotguns! Warm up your trigger finger and test your jousting skills in this deathmatch warmup mod!
+
+Currently in Early Alpha.
+
+Works on vanilla maps but best on NS2_SWS_IKEA or NS2_SWS_REFINERY! 
+
+Credits:
+HOWSER - Mod Founder, Mapper (NS2_SWS_IKEA), Models
+DAAN - Mod Founder, Coding
+FLATERECTOMY - Mapper (NS2_SWS_SKULLSHARK), Sounds
 BLASPHEMY - Mapper (NS2_SWS_REFINERY)]=]
 image       = "preview.jpg"
 publish_id = "c9673d7"
