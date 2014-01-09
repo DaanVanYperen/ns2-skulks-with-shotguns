@@ -209,14 +209,7 @@ local function SpawnEgg(self, eggCount)
     if not eggCount then
         eggCount = 0
     end
-    
-    // Skulks With Shotguns: Decrease total egg count remaining.
-    if self:GetTeam():GetTeamResources() <= 0 then
-         // no resources to spawn eggs!
-        return nil
-    end
-    // END Skulks With Shotguns
-
+   
     for i = 1, #self.eggSpawnPoints do
 
         local position = eggCount == 0 and table.random(self.eggSpawnPoints) or self.eggSpawnPoints[i]  

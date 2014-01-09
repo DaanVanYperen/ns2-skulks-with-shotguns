@@ -123,18 +123,26 @@ if Server then
         
         local team = player:GetTeam()
         if team ~= nil then
-        
+            if team:GetTeamResources() <= 0 then
+                 // no resources remaining to spawn eggs! re-enter the queue with a big delay.
+                 player:SetRespawnQueueEntryTime(Shared.GetTime() + 5)
+                return false
+            end
+            
             // manual replace respawn! We don't want the whole egg business.
             local success, player = team:ReplaceRespawnPlayer(player, nil, nil)
             if player ~= nil then
                 player:SetCameraDistance(0)
                 player:SetHatched()
+                
+                // pay for the respawn. PAY!
+                team:AddTeamResources(-1)
             end
             
             return success
         end
 
-        return nil
+        return false
     end
     
     local updateAlienSpectators = GetLocalFunction(AlienTeam.Update, 'UpdateAlienSpectators')
