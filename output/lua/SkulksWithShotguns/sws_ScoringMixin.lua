@@ -15,11 +15,17 @@ function ScoringMixin:rewardKill()
         end
         if self.killstreak == 8 then 
             self:GiveUpgrade(kTechId.Caparace) 
-            Shared:ShotgunMessage("Megakill! " .. self:GetName() .. " gained carapace!") 
+            Shared:ShotgunMessage("MONSTERKILL!! " .. self:GetName() .. " gained carapace!") 
         end
-        if self.killstreak >= 10 then
+        
+        
+        // Give players that achieve quick successive kills the fire effect which gives 1.3x damage boost.
+        local now = Shared.GetTime()        
+        self.lastKillTime = self.lastKillTime or 0
+        if now - self.lastKillTime <= 3 then
             self:SetOnFire()
-            Shared:ShotgunMessage("MONSTERKILL!! " .. self:GetName() .. " is on fire!")
+            Shared:ShotgunMessage(self:GetName() .. " is on fire! (temporary Weapons III)")
         end
+        self.lastKillTime = now
     end
 end
