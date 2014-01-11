@@ -1,3 +1,27 @@
+-- @TODO currently disabled due to jerkyness while playing with this class.
+
+
+-- SWS START Remove this after we re-enable ShotgunSkulks
+function Skulk:InitWeapons()
+
+    Alien.InitWeapons(self)
+    
+    self:GiveItem(Shotgun.kMapName)
+    self:SetActiveWeapon(Shotgun.kMapName)
+    
+	// spawn aliens with several seconds of umbra, to get to a safe location.
+    if Server then
+        self:SetHasUmbra(true, kSpawnUmbraDuration)
+    end      
+end
+
+// Disable buy menu for skulks.
+function Skulk:Buy()
+    self:PlayEvolveErrorSound()
+end
+-- SWS END Remove this after we re-enable ShotgunSkulks
+
+
 Script.Load("lua/Skulk.lua")
 Script.Load("lua/SkulksWithShotguns/sws_FlagbearerMixin.lua")
 Script.Load("lua/SkulksWithShotguns/sws_EventMessageMixin.lua")
@@ -49,7 +73,7 @@ function ShotgunSkulk:GetMaxSpeed(possible)
 
     return speed
     
-end
+end 
 
 function ShotgunSkulk:InitWeapons()
 

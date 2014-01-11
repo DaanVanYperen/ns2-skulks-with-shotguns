@@ -13,7 +13,7 @@ if Server then
     
         PlayingTeam.Initialize(self, teamName, teamNumber)
         
-        self.respawnEntity = ShotgunSkulk.kMapName
+        self.respawnEntity = Skulk.kMapName
     
         // List stores all the structures owned by builder player types such as the Gorge.
         // This list stores them based on the player platform ID in order to maintain structure
