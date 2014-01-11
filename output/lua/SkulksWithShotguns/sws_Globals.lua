@@ -18,3 +18,34 @@ kTeamModeEnabled = false
 kAlienEggsPerHive = 5
 kAlienSpawnTime = 2
 kEggGenerationRate = 1
+
+local function ConcatEnum(e1, e2)
+   local values = {}
+   
+   for index, value in ipairs(e1) do
+       table.insert(values, value)
+   end
+
+   for index, value in ipairs(e2) do
+        table.insert(values, value)
+   end
+    
+   return enum(values)        
+end
+
+local newEntityClasses = enum(  { "ShotgunSkulk", "Flag" } )
+
+// Register shotgunskulk
+kPlayerStatus =  ConcatEnum(kPlayerStatus, newEntityClasses)
+kMinimapBlipType = ConcatEnum(kMinimapBlipType, newEntityClasses)
+
+// Introduce icons for new entities.
+local Original_BuildClassToGrid = BuildClassToGrid
+function BuildClassToGrid()
+   local result = Original_BuildClassToGrid()
+    
+    result["ShotgunSkulk"] = result["Skulk"]
+    result["Flag"] = result["Gorge"]
+    
+    return result
+end
