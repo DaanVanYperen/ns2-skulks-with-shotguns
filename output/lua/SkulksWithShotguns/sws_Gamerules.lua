@@ -4,7 +4,8 @@
 if (Server) then            
 
     local kGameEndCheckInterval = 0.75
-    local kTimeLimit = 60*15
+    local kDeathmatchTimeLimit = 60*15
+    local kCaptureTheGorgeTimeLimit = 60*60
 
     function NS2Gamerules:GetCanSpawnImmediately()
         // we want to force respawn via spawners.
@@ -121,11 +122,14 @@ if (Server) then
                     self:DrawGame()
                 end
             end
+    local kDeathmatchTimeLimit = 60*15
+    local kCaptureTheGorgeTimeLimit = 60*15
             
             // game is taking too long.
             if self.timeLastGameEndCheck == nil or (Shared.GetTime() > self.timeLastGameEndCheck + kGameEndCheckInterval) then
             
-                if self.timeSinceGameStateChanged >= kTimeLimit then
+                if (not kTeamModeEnabled and (self.timeSinceGameStateChanged >= kDeathmatchTimeLimit)) or
+                   (kTeamModeEnabled and (self.timeSinceGameStateChanged >= kCaptureTheGorgeTimeLimit)) then
                     Shared:ShotgunMessage("Time limit reached! For shame..")
                     self:DrawGame()
                 end

@@ -111,17 +111,21 @@ if Server then
     
     function AlienTeam:ResetRespawnFlag()
     
-        local flagSpawnpoint = self:GetFlagSpawnLocation()
+        if kTeamModeEnabled  then
+    
+            local flagSpawnpoint = self:GetFlagSpawnLocation()
         
-        for index, flag in ipairs(GetEntitiesForTeam("Flag", self:GetTeamNumber())) do
-            DestroyEntity(flag)
+            for index, flag in ipairs(GetEntitiesForTeam("Flag", self:GetTeamNumber())) do
+                DestroyEntity(flag)
+            end 
+            
+            local flag = CreateEntity(Flag.kMapName, flagSpawnpoint:GetOrigin(), self:GetTeamNumber())
+            flag:SetOrigin(flagSpawnpoint:GetOrigin())    
+            if flag:GetAngles() ~= nil then
+                flag:SetAngles(flagSpawnpoint:GetAngles())
+            end        
+        
         end
-        
-        local flag = CreateEntity(Flag.kMapName, flagSpawnpoint:GetOrigin(), self:GetTeamNumber())
-        flag:SetOrigin(flagSpawnpoint:GetOrigin())    
-        if flag:GetAngles() ~= nil then
-            flag:SetAngles(flagSpawnpoint:GetAngles())
-        end        
         
     end
     
