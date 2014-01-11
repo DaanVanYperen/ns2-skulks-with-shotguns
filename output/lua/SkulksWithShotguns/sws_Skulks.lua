@@ -44,7 +44,7 @@ function ShotgunSkulk:GetMaxSpeed(possible)
     
     // slow down flag bearing skulks just a tad so they can be effectively chased
     if self:IsBearingFlag() then
-        speed = speed * 0.9
+        speed = speed * kSkulkSpeedFactorWhileCarryGorge
     end
 
     return speed
