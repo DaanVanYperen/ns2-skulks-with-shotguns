@@ -14,6 +14,10 @@ kVanillaTeamIndex = kTeam2Index
 // Speed factor of shotgun skulks while carrying gorge (flag).
 kSkulkSpeedFactorWhileCarryGorge = 0.95
 
+// Seconds the gorge remains on the floor when dropped. 
+// important for if it gets lodged somewhere unreachable by accident.
+kFlagFloorTimeout = 45
+
 // SWS team mode.
 kTeamModeEnabled = false
 

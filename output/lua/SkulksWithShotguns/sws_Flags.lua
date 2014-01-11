@@ -61,8 +61,8 @@ function Flag:OnCreate()
     InitMixin(self, ClientModelMixin)
     InitMixin(self, TeamMixin)
     InitMixin(self, DetectableMixin)
+    
 end 
-
 
 // entity pickup self
 local function Pickup(self, entity)
@@ -101,7 +101,7 @@ local function Pickup(self, entity)
                 self:GetTeam():ResetRespawnFlag()
             else
                 // potential friendly delivery! :D CASH IN POINTSSSSSSSSSS
-                if entity:IsBearingFlag() then
+                if entity:IsBearingFlag() and not self.respawning then
 
                     // team recovered gorge
                     SendEventMessage(self:GetTeam(), kEventMessageTypes.TeamCapturedGorge, entity:GetId())
@@ -109,6 +109,7 @@ local function Pickup(self, entity)
                     
                     // @todo: capture message.
                     entity:GetFlag():GetTeam():ResetRespawnFlag()
+                    self.respawning = true
                 end                
             end
             
@@ -124,7 +125,7 @@ local function CheckEntityPickupFlag(self, entity)
     
     if not HasMixin(entity, "Flagbearer") then
         return false
-    end
+    end    
     
     // do not allow the dead to pick up flags.
     if  HasMixin(entity, "Live") and not entity:GetIsAlive() then
@@ -162,6 +163,8 @@ function Flag:OnDrop()
 
         self.active = false
 
+        self.droppedTime = Shared.GetTime()
+
         local proximityFunc = function(self)
                                  self.active = true
                                  CheckAllEntsInRangePickupFlag(self)
@@ -170,6 +173,9 @@ function Flag:OnDrop()
 end
 
 function Flag:OnInitialized()
+
+    self.offBase = false
+    self.respawning = false
 
     if self:GetTeamNumber() == kShadowTeamIndex then
         self:SetModel(Flag.kModelNameShadow, kAnimationGraph)
@@ -200,15 +206,26 @@ if Server then
      * We need to check when there are entities within the trigger area often.
      */
     function Flag:OnUpdate(dt)
-    
+
+        local now = Shared.GetTime()
+
         if self:GetParent() == nil then
+            // Move triggerbody if we lose parent
             self.triggerBody:SetCoords(self:GetCoords())
+            
+            // respawn flag if it is on the floor for too long
+            self.droppedTime = self.droppedTime or now
+            if not self.respawning and self.offBase and (now - self.droppedTime >= kFlagFloorTimeout) then 
+                self.respawning = true
+                SendEventMessage(self:GetTeam(), kEventMessageTypes.TeamTimeoutGorge)
+                SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.EnemyTimeoutGorge)                
+                self:GetTeam():ResetRespawnFlag()                
+            end
         end
         
         // The flags are always detected.
         self:SetDetected(true)
     
-        local now = Shared.GetTime()
         self.lastPickupUpdateTime = self.lastPickupUpdateTime or now
         if now - self.lastPickupUpdateTime >= 0.5 then
             CheckAllEntsInRangePickupFlag(self)

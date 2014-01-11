@@ -8,6 +8,8 @@ kEventMessageTypes = enum({
     'TeamCapturedGorge',
     'EnemyDroppedGorge',
     'TeamDroppedGorge',
+    'EnemyTimeoutGorge',
+    'TeamTimeoutGorge',
  })
 
 local kEventMessages = { }
@@ -41,6 +43,8 @@ kEventMessages[kEventMessageTypes.EnemyCapturedGorge] = { text = function(data) 
 kEventMessages[kEventMessageTypes.TeamCapturedGorge] = { text = function(data) return actorStringGen(data, "TEAM_CAPTURED_GORGE") end }
 kEventMessages[kEventMessageTypes.EnemyDroppedGorge] = { text = function(data) return actorStringGen(data, "ENEMY_DROPPED_GORGE") end }
 kEventMessages[kEventMessageTypes.TeamDroppedGorge] = { text = function(data) return actorStringGen(data, "TEAM_DROPPED_GORGE") end }
+kEventMessages[kEventMessageTypes.EnemyTimeoutGorge] = { text = function(data) return Locale.ResolveString("ENEMY_TIMEOUT_GORGE") end }
+kEventMessages[kEventMessageTypes.TeamTimeoutGorge] = { text = function(data) return Locale.ResolveString("TEAM_TIMEOUT_GORGE") end }
 
 // Silly name but it fits the convention.
 local kEventMessageMessage =

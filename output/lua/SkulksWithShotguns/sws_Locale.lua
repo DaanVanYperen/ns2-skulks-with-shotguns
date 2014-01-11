@@ -19,12 +19,14 @@ kCustomLocaleMessages = {
     ENEMY_RECOVERED_GORGE = "%s rescued their gorge!",
     ENEMY_CAPTURED_GORGE = "%s captured your gorge!",
     ENEMY_DROPPED_GORGE = "%s dropped enemy gorge!",   
+    ENEMY_TIMEOUT_GORGE = "enemy gorge walked back!",   
 
     // %s=You/Playername
     TEAM_STOLE_GORGE = "%s grabbed enemy gorge!",
     TEAM_RECOVERED_GORGE = "%s recovered our gorge!",
     TEAM_CAPTURED_GORGE = "%s captured enemy gorge!",
     TEAM_DROPPED_GORGE = "%s dropped your gorge!",   
+    TEAM_TIMEOUT_GORGE = "Your gorge walked back!",   
 }
 
 if Locale then
