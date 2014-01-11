@@ -24,7 +24,7 @@ Script.Load("lua/HiveVisionMixin.lua")
 Script.Load("lua/BiomassMixin.lua")
 Script.Load("lua/IdleMixin.lua")
 
-kHiveInfestationRadius = 6
+kHiveInfestationRadius = 0.5
 
 class 'Hive' (CommandStructure)
 
@@ -148,7 +148,7 @@ function Hive:OnInitialized()
     
         // Create glowy "plankton" swimming around hive, along with mist and glow
         local coords = self:GetCoords()
-        self:AttachEffect(Hive.kSpecksEffect, coords)
+        //self:AttachEffect(Hive.kSpecksEffect, coords)
         //self:AttachEffect(Hive.kGlowEffect, coords, Cinematic.Repeat_Loop)
         
         // For mist creation
