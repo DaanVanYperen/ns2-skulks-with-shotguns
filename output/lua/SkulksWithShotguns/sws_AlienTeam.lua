@@ -124,6 +124,10 @@ if Server then
         end        
         
     end
+    
+    function AlienTeam:FlagExists()
+        return next(GetEntitiesForTeam("Flag", self:GetTeamNumber())) ~= nil
+    end
         
     // override default spawning behaviour. we want to spawn at random location.
     function AlienTeam:ResetTeam()
@@ -206,8 +210,15 @@ if Server then
     end
     
 
-    // we don't want egg generation.    
-    local function CustomUpdateEggGeneration(self) 
+    // we don't want egg generation. Instead, we ensure our flag is still here.
+    local function ExtendedAlienTeamUpdateMethod(self) 
+    
+        // restore missing flag.
+        shouldCheckForFlag = (self.timeLastFlagCheck or 0) + 1 < Shared.GetTime()
+        if shouldCheckForFlag and not self:FlagExists() then
+            self.timeLastFlagCheck = Shared.GetTime()
+            self:ResetRespawnFlag()
+        end
     end
 
     local function CustomUpdateEggCount(self)
@@ -220,6 +231,6 @@ if Server then
     ReplaceLocals( updateAlienSpectators, {  AssignPlayerToEgg = CustomAssignPlayerToEgg } )
 
     // replace egg spawning and counting logic.            
-    ReplaceLocals( AlienTeam.Update, { UpdateEggGeneration = CustomUpdateEggGeneration, UpdateEggCount = CustomUpdateEggCount } )
+    ReplaceLocals( AlienTeam.Update, { UpdateEggGeneration = ExtendedAlienTeamUpdateMethod, UpdateEggCount = CustomUpdateEggCount } )
 
 end
