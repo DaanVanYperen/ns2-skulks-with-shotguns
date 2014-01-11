@@ -24,16 +24,17 @@ local kFlagAttachPoint = "babbler_attach1"
 
 FlagbearerMixin.networkVars =
 {
-    numFlags = "integer (0 to 1)"
+    hasFlag = "boolean"
 }
 
 function FlagbearerMixin:__initmixin()
 
     self.attachedFlag = nil
+    self.hasFlag = false
 end
 
-function FlagbearerMixin:GetNumBearedFlags()
-    return self.numFlags
+function FlagbearerMixin:IsBearingFlag()
+   return self.hasFlag
 end
 
 if Server then
@@ -46,15 +47,11 @@ if Server then
             flag:SetParent(self)
             flag:SetAttachPoint(kFlagAttachPoint)
             success = true
-
+            self.hasFlag = true
         end
         
         return success
     
-    end
-    
-    function FlagbearerMixin:IsBearingFlag()
-        return self.attachedFlag ~= nil
     end
     
     function FlagbearerMixin:DetachFlag(flag)
@@ -73,6 +70,7 @@ if Server then
 
         if (self.attachedFlag ~= nil) and (self.attachedFlag:GetId() == oldId )  then
             self.attachedFlag = nil
+            self.hasFlag = false
         end
 
     end
@@ -96,6 +94,7 @@ if Server then
             self.attachedFlag:OnDrop()
             self.attachedFlag:SetParent(nil)
             self.attachedFlag = nil
+            self.hasFlag = false
         end    
     end
     

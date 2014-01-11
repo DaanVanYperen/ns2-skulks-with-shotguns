@@ -11,6 +11,9 @@ kTeam2Name = "Vanilla"
 kShadowTeamIndex = kTeam1Index
 kVanillaTeamIndex = kTeam2Index
 
+// Speed factor of shotgun skulks while carrying gorge (flag).
+kSkulkSpeedFactorWhileCarryGorge = 0.95
+
 // SWS team mode.
 kTeamModeEnabled = false
 

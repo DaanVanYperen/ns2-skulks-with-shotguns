@@ -37,6 +37,20 @@ function ShotgunSkulk:OnInitialized()
     
 end
 
+
+function ShotgunSkulk:GetMaxSpeed(possible)
+
+    local speed = Skulk.GetMaxSpeed(self,possible)
+    
+    // slow down flag bearing skulks just a tad so they can be effectively chased
+    if self:IsBearingFlag() then
+        speed = speed * 0.9
+    end
+
+    return speed
+    
+end
+
 function ShotgunSkulk:InitWeapons()
 
     Alien.InitWeapons(self)
