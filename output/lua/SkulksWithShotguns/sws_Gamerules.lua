@@ -4,7 +4,7 @@
 if (Server) then            
 
     local kGameEndCheckInterval = 0.75
-    local kTimeLimit = 60*5
+    local kTimeLimit = 60*15
 
     function NS2Gamerules:GetCanSpawnImmediately()
         // we want to force respawn via spawners.
