@@ -93,6 +93,7 @@ if Server then
             SendEventMessage(flag:GetTeam(), kEventMessageTypes.TeamDroppedGorge, self:GetId())
             SendEventMessage(GetEnemyTeam(flag:GetTeam()), kEventMessageTypes.EnemyDroppedGorge, self:GetId())
         
+            self.attachedFlag:OnDrop()
             self.attachedFlag:SetParent(nil)
             self.attachedFlag = nil
         end    

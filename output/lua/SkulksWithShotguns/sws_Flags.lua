@@ -125,6 +125,11 @@ local function CheckEntityPickupFlag(self, entity)
     if not HasMixin(entity, "Flagbearer") then
         return false
     end
+    
+    // do not allow the dead to pick up flags.
+    if  HasMixin(entity, "Live") and not entity:GetIsAlive() then
+        return false
+    end
         
     local minePos = self:GetEngagementPoint()
     local targetPos = entity:GetEngagementPoint()
@@ -153,6 +158,17 @@ local function CheckAllEntsInRangePickupFlag(self)
     
 end
 
+function Flag:OnDrop()
+
+        self.active = false
+
+        local proximityFunc = function(self)
+                                 self.active = true
+                                 CheckAllEntsInRangePickupFlag(self)
+                             end
+        self:AddTimedCallback(proximityFunc, kFlagActiveTime)
+end
+
 function Flag:OnInitialized()
 
     if self:GetTeamNumber() == kShadowTeamIndex then
@@ -166,12 +182,8 @@ function Flag:OnInitialized()
         // prepare pickup logic.
         InitMixin(self, TriggerMixin)
         self:SetSphere(kFlagTriggerRange)
-    
-        local proximityFunc = function(self)
-                                 self.active = true
-                                 CheckAllEntsInRangePickupFlag(self)
-                             end
-        self:AddTimedCallback(proximityFunc, kFlagActiveTime)
+        
+        self:OnDrop()
     
         // This Mixin must be inited inside this OnInitialized() function.
         if not HasMixin(self, "MapBlip") then
