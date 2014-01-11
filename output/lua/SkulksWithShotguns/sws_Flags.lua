@@ -31,6 +31,8 @@ local kAnimationGraph = PrecacheAsset("models/alien/gorge/gorge.animation_graph"
 
 local networkVars =
 {
+    m_angles = "interpolated angles (by 10 [], by 10 [], by 10 [])",
+    m_origin = "compensated interpolated position (by 0.05 [2 3 5], by 0.05 [2 3 5], by 0.05 [2 3 5])",
 }
 
 AddMixinNetworkVars(BaseModelMixin, networkVars)
@@ -62,6 +64,7 @@ function Flag:OnCreate()
     InitMixin(self, TeamMixin)
     InitMixin(self, DetectableMixin)
     
+    self:SetRelevancyDistance(Math.infinity)
 end 
 
 // entity pickup self
