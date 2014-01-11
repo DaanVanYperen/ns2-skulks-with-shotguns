@@ -36,6 +36,7 @@ local networkVars =
 AddMixinNetworkVars(BaseModelMixin, networkVars)
 AddMixinNetworkVars(ClientModelMixin, networkVars)
 AddMixinNetworkVars(TeamMixin, networkVars)
+AddMixinNetworkVars(DetectableMixin, networkVars)
 
 
 local function CreateHitBox(self)
@@ -58,8 +59,8 @@ function Flag:OnCreate()
 
     InitMixin(self, BaseModelMixin)
     InitMixin(self, ClientModelMixin)
-    
     InitMixin(self, TeamMixin)
+    InitMixin(self, DetectableMixin)
 end 
 
 
@@ -172,6 +173,10 @@ function Flag:OnInitialized()
                              end
         self:AddTimedCallback(proximityFunc, kFlagActiveTime)
     
+        // This Mixin must be inited inside this OnInitialized() function.
+        if not HasMixin(self, "MapBlip") then
+            InitMixin(self, MapBlipMixin)
+        end
         
     end
 
@@ -187,6 +192,9 @@ if Server then
         if self:GetParent() == nil then
             self.triggerBody:SetCoords(self:GetCoords())
         end
+        
+        // The flags are always detected.
+        self:SetDetected(true)
     
         local now = Shared.GetTime()
         self.lastPickupUpdateTime = self.lastPickupUpdateTime or now
@@ -217,7 +225,6 @@ end
 function Flag:GetPhysicsModelAllowedOverride()
     return false
 end
-
 
 function Flag:OnDestroy()
 
