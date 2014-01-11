@@ -22,6 +22,9 @@
     <filename>output\lua\Weapons\Marine\Shotgun.lua</filename>
   </file>
   <file>
+    <filename>output\lua\Skulk.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\SkulkVariantMixin.lua</filename>
   </file>
   <file>
@@ -40,7 +43,7 @@
     <filename>output\lua\SkulksWithShotguns\sws_DamageTypes.lua</filename>
   </file>
   <file>
-    <filename>output\lua\SkulksWithShotguns\sws_Egg.lua</filename>
+    <filename>output\lua\SkulksWithShotguns\sws_Flags.lua</filename>
   </file>
   <file>
     <filename>output\lua\SkulksWithShotguns\sws_Gamerules.lua</filename>

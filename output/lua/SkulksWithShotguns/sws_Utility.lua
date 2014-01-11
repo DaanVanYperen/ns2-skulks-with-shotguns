@@ -5,6 +5,13 @@ function Shared:ShotgunMessage(chatMessage)
     Server.AddChatToHistory(chatMessage, "Shotgun Mod", 0, kTeamReadyRoom, false)
 end
 
+function Shared:ShotgunEgoStroke(player, chatMessagePlayer, chatMessageOthers)
+    if (chatMessage == nil) then return end
+    Server.SendNetworkMessage("Chat", BuildChatMessage(false, "Shotgun Mod", -1, kTeamReadyRoom, kNeutralTeamType, chatMessagePlayer), true)
+    Shared.Message("Chat All - Shotgun Mod: " .. chatMessage)
+    Server.AddChatToHistory(chatMessage, "Shotgun Mod", 0, kTeamReadyRoom, false)
+end
+
 function Shared:ShotgunError(errorMessage)
     if (chatMessage == nil) then return end
     self:ShotgunMessage("ERROR: " .. errorMessage)
@@ -20,6 +27,22 @@ end
 function Player:ShotgunMessage(chatMessage)
     Server.SendNetworkMessage(self, "Chat", BuildChatMessage(false, "Shotgun Mod", -1, kTeamReadyRoom, kNeutralTeamType, chatMessage), true)
 end      
+
+
+    
+    /**
+     * Return enemy team of passed in team.
+     */
+    function GetEnemyTeam(team)
+    
+        local rules = GetGamerules()
+    
+        if team == rules:GetTeam1() then 
+            return rules:GetTeam2()
+         else
+            return rules:GetTeam1()
+        end
+    end
 
 
 -- Retrieve local function in a non-local function

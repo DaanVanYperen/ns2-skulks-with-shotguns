@@ -1,5 +1,7 @@
 if Server then
 
+    Script.Load("lua/SkulksWithShotguns/sws_Flags.lua")
+
     // disable default structure spawning.   
     function AlienTeam:SpawnInitialStructures(techPoint)
         return nil,nil
@@ -19,6 +21,13 @@ if Server then
         end
     end
     
+    function AlienTeam:GetFlagSpawnLocation()
+        if self:GetTeamNumber() == kVanillaTeamIndex then
+            return Server.vanillaFlagSpawn
+        else
+            return Server.shadowFlagSpawn
+        end
+    end    
     
     function AlienTeam:RespawnPlayer(player, origin, angles)
 
@@ -75,11 +84,31 @@ if Server then
             return nil
         end
     end
+    
+    function AlienTeam:ResetRespawnFlag()
+    
+        local flagSpawnpoint = self:GetFlagSpawnLocation()
+        
+        for index, flag in ipairs(GetEntitiesForTeam("Flag", self:GetTeamNumber())) do
+            DestroyEntity(flag)
+        end
+        
+        local flag = CreateEntity(Flag.kMapName, flagSpawnpoint:GetOrigin(), self:GetTeamNumber())
+        flag:SetOrigin(flagSpawnpoint:GetOrigin())    
+        if flag:GetAngles() ~= nil then
+            flag:SetAngles(flagSpawnpoint:GetAngles())
+        end        
+        
+    end
         
     // override default spawning behaviour. we want to spawn at random location.
     function AlienTeam:ResetTeam()
 
-        self.conceded = false
+            self.conceded = false
+    
+            if kTeamModeEnabled then        
+                self:ResetRespawnFlag()
+            end
         
             local stalks = { }
 
@@ -92,27 +121,32 @@ if Server then
                  count = count - (count % 2)
                  count = count / 2
             end
+            
+            // don't spawn buildings for Shadow skulks in deathmatch mode.
+            if kTeamModeEnabled or (self:GetTeamNumber() == kVanillaTeamIndex) then
                 
-            // place stalks in a random order.
-            while count > 0 do
-                hive = self:placeRandomStalkForTeam(resourcePoints)
-                if hive ~= nil then
-                    stalks[(#stalks+1)] = hive
-                else
-                    Shared.Message("Error: Not enough resource Points available. Make sure there are at least 2 in the map")
-                end
-                count = count - 1
-            end
-
-            if #stalks > 0 then
-                local players = GetEntitiesForTeam("Player", self:GetTeamNumber())
-                for p = 1, #players do
-                    local player = players[p]
-                    player:OnInitialSpawn(stalks[math.random(1,#stalks)]:GetOrigin())
-                    player:SetResources(kPlayerInitialIndivRes)
+                // place stalks in a random order.
+                while count > 0 do
+                    hive = self:placeRandomStalkForTeam(resourcePoints)
+                    if hive ~= nil then
+                        stalks[(#stalks+1)] = hive
+                    else
+                        Shared.Message("Error: Not enough resource Points available. Make sure there are at least 2 in the map")
+                    end
+                    count = count - 1
                 end
     
-                return stalks[1]
+                if #stalks > 0 then
+                    local players = GetEntitiesForTeam("Player", self:GetTeamNumber())
+                    for p = 1, #players do
+                        local player = players[p]
+                        player:OnInitialSpawn(stalks[math.random(1,#stalks)]:GetOrigin())
+                        player:SetResources(kPlayerInitialIndivRes)
+                    end
+        
+                    return stalks[1]
+                end
+               
             end
     
             return nil

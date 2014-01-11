@@ -10,6 +10,8 @@ function GetCreateEntityOnStart(mapName, groupName, values)
 
     return mapName ~= ShadowSpawn.kMapName
        and mapName ~= VanillaSpawn.kMapName
+       and mapName ~= ShadowFlagSpawn.kMapName
+       and mapName ~= VanillaFlagSpawn.kMapName
        and OriginalGetCreateEntityOnStart(mapName, groupName, values)
 
 end
@@ -39,7 +41,25 @@ function GetLoadSpecial(mapName, groupName, values)
         table.insert(Server.vanillaSpawnList, entity)
         success = true
         
-    else 
+    elseif mapName == ShadowFlagSpawn.kMapName then
+    
+        local entity = ShadowFlagSpawn()
+        entity:OnCreate()
+        LoadEntityFromValues(entity, values)
+        Server.shadowFlagSpawn = entity
+        kTeamModeEnabled = true
+        success = true
+        
+    elseif mapName == VanillaFlagSpawn.kMapName then
+    
+        local entity = VanillaFlagSpawn()
+        entity:OnCreate()
+        LoadEntityFromValues(entity, values)
+        Server.vanillaFlagSpawn = entity
+        kTeamModeEnabled = true
+        success = true
+
+    else
         return OriginalLoadSpecial(mapName, groupName, values)
     end
     

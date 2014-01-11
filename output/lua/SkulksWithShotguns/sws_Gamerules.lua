@@ -12,14 +12,8 @@ if (Server) then
     end
 
     function NS2Gamerules:BuildTeam(teamType)
-
         // TEAM MODE - we always want aliens, because only aliens are shotgun worthy!
-        if (teamType == kAlienTeamType) or kTeamModeEnabled  then
-            return AlienTeam()
-        end
-        
-        // DEATHMATCH MODE - for deathmatch mode spawn marine team, to abuse the fact it doesn't spawn any structures.
-        return MarineTeam()
+        return AlienTeam()
     end
 
     // Force joining aliens.

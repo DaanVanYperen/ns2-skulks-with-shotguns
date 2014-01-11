@@ -13,6 +13,16 @@
 			<file>models/alien/skulk/skulk_shadow.model</file>
 		</model>            
 	</class>
+	<class name="vanilla_flag_spawn">
+		<model>
+			<file>models/alien/gorge/gorge.model</file>
+		</model>            
+	</class>
+	<class name="shadow_flag_spawn">
+		<model>
+			<file>models/alien/gorge/gorge_shadow.model</file>
+		</model>            
+	</class>
 	
 	<!-- END Skulks with Shotguns classes, everything below is stock. -->
     

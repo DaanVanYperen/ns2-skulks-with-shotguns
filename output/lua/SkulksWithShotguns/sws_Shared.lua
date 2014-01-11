@@ -7,6 +7,7 @@ Script.Load("lua/SkulksWithShotguns/sws_DamageTypes.lua")
 Script.Load("lua/SkulksWithShotguns/sws_Locale.lua")
 Script.Load("lua/SkulksWithShotguns/sws_Utility.lua")
 Script.Load("lua/SkulksWithShotguns/sws_NS2Utility.lua")
+Script.Load("lua/SkulksWithShotguns/sws_EventMessenger.lua")
 
 // Mixin overrides
 Script.Load("lua/SkulksWithShotguns/sws_UmbraMixin.lua")
@@ -14,8 +15,9 @@ Script.Load("lua/SkulksWithShotguns/sws_TeamMixin.lua")
 Script.Load("lua/SkulksWithShotguns/sws_ScoringMixin.lua")
 Script.Load("lua/SkulksWithShotguns/sws_LeapMixin.lua")
 
-// New Entities
-Script.Load("lua/SkulksWithShotguns/sws_Respawn.lua")
+// New Mixins
+Script.Load("lua/SkulksWithShotguns/sws_FlagbearerMixin.lua")
+Script.Load("lua/SkulksWithShotguns/sws_EventMessageMixin.lua")
 
 // Entity overrides.
 Script.Load("lua/SkulksWithShotguns/sws_AlienSpectator.lua")
@@ -25,3 +27,6 @@ Script.Load("lua/SkulksWithShotguns/sws_MarineTeam.lua")
 Script.Load("lua/SkulksWithShotguns/sws_PlayingTeam.lua")
 Script.Load("lua/SkulksWithShotguns/sws_Skulks.lua")
 
+// New Entities
+Script.Load("lua/SkulksWithShotguns/sws_Respawn.lua")
+Script.Load("lua/SkulksWithShotguns/sws_Flags.lua")
