@@ -113,6 +113,8 @@ local function Pickup(self, entity)
                     // @todo: capture message.
                     entity:GetFlag():GetTeam():ResetRespawnFlag()
                     self.respawning = true
+                    
+                    RewardOnFireEffect(entity)
                 end                
             end
             

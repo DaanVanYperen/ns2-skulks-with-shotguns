@@ -23,9 +23,13 @@ function ScoringMixin:rewardKill()
         local now = Shared.GetTime()        
         self.lastKillTime = self.lastKillTime or 0
         if now - self.lastKillTime <= 3 then
-            self:SetOnFire()
-            Shared:ShotgunMessage(self:GetName() .. " is on fire! (temporary Weapons III)")
+            RewardOnFireEffect(self)
         end
         self.lastKillTime = now
     end
+end
+
+function RewardOnFireEffect(self)
+   self:SetOnFire()
+   Shared:ShotgunMessage(self:GetName() .. " is on fire! (temporary Weapons III)")
 end

@@ -68,6 +68,16 @@ if (Server) then
         return 0
     end
 
+    local function ResetPlayerScores()
+
+        for _, player in ientitylist(Shared.GetEntitiesWithClassname("Player")) do            
+            if player.ResetScores then
+                player:ResetScores()
+            end            
+        end
+    
+    end
+
     function NS2Gamerules:UpdatePregame(timePassed)
 
         if self:GetGameState() == kGameState.PreGame then
@@ -75,6 +85,7 @@ if (Server) then
                 self.team1:PlayPrivateTeamSound(ConditionalValue(self.team1:GetTeamType() == kAlienTeamType, NS2Gamerules.kAlienStartSound, NS2Gamerules.kMarineStartSound))
                 self.team2:PlayPrivateTeamSound(ConditionalValue(self.team2:GetTeamType() == kAlienTeamType, NS2Gamerules.kAlienStartSound, NS2Gamerules.kMarineStartSound))
                 
+                ResetPlayerScores()
                 self:SetGameState(kGameState.Started)
                 self.sponitor:OnStartMatch()
                 self.playerRanking:StartGame()
