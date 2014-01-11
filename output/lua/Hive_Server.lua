@@ -170,7 +170,7 @@ local function UpdateHealing(self)
                     // min healing, affects skulk only             
                     
                     // SKULKS WITH SHOTGUNS: DECREASED MIN HEALING FOR SKULKS
-                    player:AddHealth(math.max(1, player:GetMaxHealth() * Hive.kHealthPercentage), true )                
+                    player:AddHealth(math.max(5, player:GetMaxHealth() * Hive.kHealthPercentage), true )                
                 end
                 
             end

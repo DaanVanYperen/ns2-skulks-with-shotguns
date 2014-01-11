@@ -76,9 +76,9 @@ Hive.kCompleteSound = PrecacheAsset("sound/NS2.fev/alien/voiceovers/hive_complet
 Hive.kUnderAttackSound = PrecacheAsset("sound/NS2.fev/alien/voiceovers/hive_under_attack")
 Hive.kDyingSound = PrecacheAsset("sound/NS2.fev/alien/voiceovers/hive_dying")
 
-Hive.kHealRadius = 2     // From NS1
-Hive.kHealthPercentage = .04
-Hive.kHealthUpdateTime = 1
+Hive.kHealRadius = 2.25     // From NS1
+Hive.kHealthPercentage = .16
+Hive.kHealthUpdateTime = 2
 
 if Server then
     Script.Load("lua/Hive_Server.lua")
