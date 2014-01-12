@@ -66,7 +66,9 @@ function GUIAuraDisplay:Update(deltaTime)
         
         for _, enemyPlayer in ientitylist(Shared.GetEntitiesWithClassname("Flag")) do
         
-              if viewDirection:DotProduct(GetNormalizedVector(enemyPlayer:GetOrigin() - eyePos)) > 0 then
+              // looking in the right direction but obscured?
+              if viewDirection:DotProduct(GetNormalizedVector(enemyPlayer:GetOrigin() - eyePos)) > 0 and
+                 not GetCanSeeEntity(player, enemyPlayer) then
                    table.insert(players, enemyPlayer)    
               end
                 
