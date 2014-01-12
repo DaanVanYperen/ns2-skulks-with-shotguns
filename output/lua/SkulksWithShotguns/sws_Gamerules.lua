@@ -34,6 +34,55 @@ if (Server) then
         RewardOnFireEffect(entity)
     end
     
+    
+    local kPauseToSocializeBeforeMapcycle = 30
+    function NS2Gamerules:SetGameState(state)
+    
+        if state ~= self.gameState then
+        
+            self.gameState = state
+            self.gameInfo:SetState(state)
+            self.timeGameStateChanged = Shared.GetTime()
+            self.timeSinceGameStateChanged = 0
+            
+            local frozenState = (state == kGameState.Countdown) and (not Shared.GetDevMode())
+            self.team1:SetFrozenState(frozenState)
+            self.team2:SetFrozenState(frozenState)
+            
+            if self.gameState == kGameState.Started then
+            
+                PostGameViz("Game started")
+                self.gameStartTime = Shared.GetTime()
+                
+                self.gameInfo:SetStartTime(self.gameStartTime)
+                
+                if kTeamModeEnabled then
+                    SendEventMessage(self.team1, kEventMessageTypes.StartTeamGame)
+                    SendEventMessage(self.team2, kEventMessageTypes.StartTeamGame)
+                else
+                    SendEventMessage(self.team1, kEventMessageTypes.StartDeathmatchGame)
+                    SendEventMessage(self.team2, kEventMessageTypes.StartDeathmatchGame)
+                end
+                
+                // Reset disconnected player resources when a game starts to prevent shenanigans.
+                self.disconnectedPlayerResources = { }
+                
+            end
+            
+            // On end game, check for map switch conditions
+            if state == kGameState.Team1Won or state == kGameState.Team2Won then
+            
+                if MapCycle_TestCycleMap() then
+                    self.timeToCycleMap = Shared.GetTime() + kPauseToSocializeBeforeMapcycle
+                else
+                    self.timeToCycleMap = nil
+                end
+                
+            end
+            
+        end
+        
+    end    
     function NS2Gamerules:CheckGameStart()
     
         if (self:GetGameState() == kGameState.NotStarted) or (self:GetGameState() == kGameState.PreGame) then
