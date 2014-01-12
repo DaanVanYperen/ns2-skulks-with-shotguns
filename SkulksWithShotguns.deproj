@@ -10,13 +10,7 @@
     <filename>output\lua\GUIEventMessage.lua</filename>
   </file>
   <file>
-    <filename>output\lua\Hive.lua</filename>
-  </file>
-  <file>
-    <filename>output\lua\Hive_Client.lua</filename>
-  </file>
-  <file>
-    <filename>output\lua\Hive_Server.lua</filename>
+    <filename>output\lua\GUIFlagScore.lua</filename>
   </file>
   <file>
     <filename>output\lua\NS2ConsoleCommands_Server.lua</filename>
@@ -50,6 +44,9 @@
   </file>
   <file>
     <filename>output\lua\SkulksWithShotguns\sws_ClientUI.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\SkulksWithShotguns\sws_Crag.lua</filename>
   </file>
   <file>
     <filename>output\lua\SkulksWithShotguns\sws_DamageTypes.lua</filename>

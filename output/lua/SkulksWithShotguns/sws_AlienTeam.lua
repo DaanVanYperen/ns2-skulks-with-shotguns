@@ -45,9 +45,7 @@ if Server then
     
     
     function AlienTeam:GetHasAbilityToRespawn()
-        local eggs = GetEntitiesForTeam("Egg", self:GetTeamNumber())
-        local hive = GetEntitiesForTeam("Hive", self:GetTeamNumber())
-        return (table.count(eggs) > 0) or ((self:GetTeamResources() > 0) and (table.count(hive) > 0))
+        return kTeamModeEnabled or (self:GetTeamResources() > 0)
     end
     
     function AlienTeam:GetSpawnLocations()
