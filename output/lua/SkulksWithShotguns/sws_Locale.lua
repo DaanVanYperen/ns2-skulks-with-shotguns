@@ -14,6 +14,9 @@ kCustomLocaleMessages = {
     HIVE_LOW_HEALTH = "%s Stalk Death Imminent",
     HIVE_UNDER_ATTACK = "%s Stalk under attack",
     
+    MARINE_VICTORY = "Team Shadow Wins!",
+    ALIEN_VICTORY = "Team Vanilla Wins!",
+    
     // %s=Playername
     ENEMY_STOLE_GORGE = "%s stole your gorge!",
     ENEMY_RECOVERED_GORGE = "%s rescued their gorge!",

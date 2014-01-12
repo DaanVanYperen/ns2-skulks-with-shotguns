@@ -29,13 +29,20 @@ if Server then
         
         self.updateAlienArmorInTicks = nil
         
+        
+        self.points = 0
         self.timeLastWave = 0
         self.bioMassLevel = 0
         self.bioMassAlertLevel = 0
         self.maxBioMassLevel = 0
         self.bioMassFraction = 0
-    
+        
     end
+    
+    function AlienTeam:GetPoints()
+        return self.points
+    end
+    
     
     function AlienTeam:GetHasAbilityToRespawn()
         local eggs = GetEntitiesForTeam("Egg", self:GetTeamNumber())
@@ -143,6 +150,7 @@ if Server then
     function AlienTeam:ResetTeam()
 
             self.conceded = false
+            self.points = 0
     
             if kTeamModeEnabled then        
                 self:ResetRespawnFlag()
@@ -195,7 +203,7 @@ if Server then
         
         local team = player:GetTeam()
         if team ~= nil then
-            if team:GetTeamResources() <= 0 then
+            if (team:GetTeamResources() <= 0) and not kTeamModeEnabled then
                  // no resources remaining to spawn eggs! re-enter the queue with a big delay.
                  player:SetRespawnQueueEntryTime(Shared.GetTime() + 5)
                 return false
@@ -209,8 +217,10 @@ if Server then
                 
                 player:TriggerEffects("teleport_end", { classname = player:GetClassName() })
                 
-                // pay for the respawn. PAY!
-                team:AddTeamResources(-1)
+                // pay for the respawn. PAY!                
+                if not kTeamModeEnabled then
+                    team:AddTeamResources(-1)
+                end
             end
             
             return success

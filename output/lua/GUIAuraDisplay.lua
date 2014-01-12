@@ -16,6 +16,12 @@ local kIconSize = Vector(80, 80, 0)
 local kHeartOffset = Vector(0, 0.5, 0)
 local kTexture = "ui/Gorge.dds"
 
+local kBlueColor = ColorIntToColor(kMarineTeamColor)
+local kBlueHighlightColor = Color(0.30, 0.69, 1, 1)
+local kRedColor = kRedColor--ColorIntToColor(kAlienTeamColor)
+local kRedHighlightColor = Color(1, 0.79, 0.23, 1)
+
+
 local function CreateAuaIcon(self)
 
     local icon = GetGUIManager():CreateGraphicItem()
@@ -98,12 +104,7 @@ function GUIAuraDisplay:Update(deltaTime)
         local enemy = players[i]
         local icon = self.icons[i]
         
-        local color = Color(0, 1, 0, 1)
-        
-        // color our own gorge green
-        if (enemy:GetTeamNumber() ~= player:GetTeamNumber()) then
-             color = Color(1,0,0,1)
-        end
+        local color = enemy:GetTeamNumber() == kVanillaTeamIndex and kRedColor or kBlueColor
        
         local offset = kHeartOffset
         

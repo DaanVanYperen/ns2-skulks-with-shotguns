@@ -18,7 +18,9 @@ ShotgunAlienTeamInfo.kMapName = "ShotgunAlienTeamInfo"
 
 local networkVars =
 {
-    points = "integer (0 to 5)",
+    points = "integer (0 to 99)",
+    enemyPoints = "integer (0 to 99)",
+    teamMode = "boolean"
 }
 
 function ShotgunAlienTeamInfo:OnCreate()
@@ -26,6 +28,8 @@ function ShotgunAlienTeamInfo:OnCreate()
     AlienTeamInfo.OnCreate(self)
 
     self.points = 0
+    self.enemyPoints = 0
+    self.teamMode = kTeamModeEnabled
 
 end
 
@@ -33,6 +37,8 @@ function ShotgunAlienTeamInfo:Reset()
     
         AlienTeamInfo.Reset(self)
         self.points = 0
+        self.enemyPoints = 0
+        self.teamMode = kTeamModeEnabled
         
 end
 
@@ -42,14 +48,24 @@ function ShotgunAlienTeamInfo:OnUpdate(deltaTime)
         
     local team = self:GetTeam()
     if team then
-        self.points   = math.random(0,5)
-        self.eggCount = team:GetTeamResources() // We work with teamres instead.
+        self.points      = team.points or 0
+        self.enemyPoints = GetEnemyTeam(team).points or 0
+        self.eggCount    = team:GetTeamResources() // We work with teamres instead.
+        self.teamMode    = kTeamModeEnabled
     end
 
 end
 
+function AlienTeamInfo:GetTeamMode()
+    return self.teamMode
+end
+
 function AlienTeamInfo:GetPoints()
-    return self.eggCount
+    return self.points
+end
+
+function AlienTeamInfo:GetEnemyPoints()
+    return self.enemyPoints
 end
 
 Shared.LinkClassToMap("ShotgunAlienTeamInfo", ShotgunAlienTeamInfo.kMapName, networkVars)

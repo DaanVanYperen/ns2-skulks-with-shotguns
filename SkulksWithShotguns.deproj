@@ -43,7 +43,13 @@
     <filename>output\lua\SkulksWithShotguns\sws_AlienTeam.lua</filename>
   </file>
   <file>
+    <filename>output\lua\SkulksWithShotguns\sws_AlienTeamInfo.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\SkulksWithShotguns\sws_Client.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\SkulksWithShotguns\sws_ClientUI.lua</filename>
   </file>
   <file>
     <filename>output\lua\SkulksWithShotguns\sws_DamageTypes.lua</filename>

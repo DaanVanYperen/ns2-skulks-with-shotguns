@@ -104,17 +104,15 @@ local function Pickup(self, entity)
                 self:GetTeam():ResetRespawnFlag()
             else
                 // potential friendly delivery! :D CASH IN POINTSSSSSSSSSS
-                if entity:IsBearingFlag() and not self.respawning then
+                if entity:IsBearingFlag() then
 
                     // team recovered gorge
                     SendEventMessage(self:GetTeam(), kEventMessageTypes.TeamCapturedGorge, entity:GetId())
                     SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.EnemyCapturedGorge, entity:GetId())
                     
                     // @todo: capture message.
+                    GetGamerules():ScorePoint(entity)
                     entity:GetFlag():GetTeam():ResetRespawnFlag()
-                    self.respawning = true
-                    
-                    RewardOnFireEffect(entity)
                 end                
             end
             
@@ -180,7 +178,6 @@ end
 function Flag:OnInitialized()
 
     self.offBase = false
-    self.respawning = false
 
     if self:GetTeamNumber() == kShadowTeamIndex then
         self:SetModel(Flag.kModelNameShadow, kAnimationGraph)
@@ -220,8 +217,7 @@ if Server then
             
             // respawn flag if it is on the floor for too long
             self.droppedTime = self.droppedTime or now
-            if not self.respawning and self.offBase and (now - self.droppedTime >= kFlagFloorTimeout) then 
-                self.respawning = true
+            if self.offBase and (now - self.droppedTime >= kFlagFloorTimeout) then 
                 SendEventMessage(self:GetTeam(), kEventMessageTypes.TeamTimeoutGorge)
                 SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.EnemyTimeoutGorge)                
                 self:GetTeam():ResetRespawnFlag()                

@@ -29,6 +29,11 @@ if (Server) then
        return  (teamNumber == self.team2:GetTeamNumber())
     end
     
+    function NS2Gamerules:ScorePoint( entity )
+        entity:GetTeam().points = entity:GetTeam().points + 1
+        RewardOnFireEffect(entity)
+    end
+    
     function NS2Gamerules:CheckGameStart()
     
         if (self:GetGameState() == kGameState.NotStarted) or (self:GetGameState() == kGameState.PreGame) then
@@ -39,6 +44,7 @@ if (Server) then
             if  (playerCount > 0) then
                 if self:GetGameState() == kGameState.NotStarted then
                     self:SetGameState(kGameState.PreGame)
+                    self.score = 0
                     Shared:ShotgunMessage("Lock and load!")
                 end
             else
@@ -112,19 +118,20 @@ if (Server) then
     
         if self:GetGameStarted() and self.timeGameEnded == nil and not self.preventGameEnd then
                 
-            // no more living players on team, and out of spawns? game lost/deathmatch over!
-            local team1Lost = (GetNumAlivePlayers(self.team1) <= 0) and (not self.team1:GetHasAbilityToRespawn())
-            local team2Lost = (GetNumAlivePlayers(self.team2) <= 0) and (not self.team2:GetHasAbilityToRespawn())
-            
             if kTeamModeEnabled then                            
-                if team1Lost then
+            
+                // no more living players on team, and out of spawns? game lost/deathmatch over!
+                local team1Won = (self.team1:GetPoints() >= kCaptureWinPoints)
+                local team2Won = (self.team2:GetPoints() >= kCaptureWinPoints)
+            
+                if team1Won then
                     Shared:ShotgunMessage("Team Vanilla Wins!")
-                    self:EndGame(self.team2)
-                end
-                if team2Lost then
-                    Shared:ShotgunMessage("Team Shadow Wins!")
                     self:EndGame(self.team1)
                 end                
+                if team2Won then
+                    Shared:ShotgunMessage("Team Shadow Wins!")
+                    self:EndGame(self.team2)
+                end
             else
                 // no foes remain.
                 local noFoesRemain = (GetNumAlivePlayers(self.team2) <= 1) and (not self.team2:GetHasAbilityToRespawn())
