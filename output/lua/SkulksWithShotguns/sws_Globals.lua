@@ -28,7 +28,7 @@ kAlienEggsPerHive = 5
 kAlienSpawnTime = 2
 kEggGenerationRate = 1
 
-local function ConcatEnum(e1, e2)
+function ConcatEnum(e1, e2)
    local values = {}
    
    for index, value in ipairs(e1) do

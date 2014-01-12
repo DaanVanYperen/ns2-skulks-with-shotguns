@@ -21,6 +21,9 @@ Script.Load("lua/TeamMixin.lua")
 kFlagTriggerRange = 2
 kFlagActiveTime = 1
 
+local kFlagTakenSound = "sound/NS2.fev/alien/gorge/taunt"
+local kFlagDroppedSound = "sound/NS2.fev/alien/gorge/taunt"
+
 class 'Flag' (ScriptActor)
 
 Flag.kMapName = "sws_flag"
@@ -78,6 +81,8 @@ local function Pickup(self, entity)
             if not self.offBase then
                 self.offBase = true
                 
+                self:OnTaken()
+                                
                 // enemy team is taking gorge from base!
                 SendEventMessage(self:GetTeam(), kEventMessageTypes.EnemyStoleGorge, entity:GetId())
                 SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.TeamStoleGorge, entity:GetId())
@@ -85,6 +90,8 @@ local function Pickup(self, entity)
                 // pickup flag.                
                 entity:AttachFlag(self)
             elseif self:GetParent() == nil then
+            
+                self:OnTaken()
 
                 // enemy team is taking gorge from off base!
                 SendEventMessage(self:GetTeam(), kEventMessageTypes.EnemyStoleGorge, entity:GetId())
@@ -162,7 +169,14 @@ local function CheckAllEntsInRangePickupFlag(self)
     
 end
 
+function Flag:OnTaken()
+   StartSoundEffectOnEntity(kFlagTakenSound, self)
+
+end
+
 function Flag:OnDrop()
+
+       StartSoundEffectOnEntity(kFlagDroppedSound, self)
 
         self.active = false
 
@@ -175,6 +189,16 @@ function Flag:OnDrop()
         self:AddTimedCallback(proximityFunc, kFlagActiveTime)
 end
 
+/*
+function Flag:OnUpdateAnimationInput(modelMixin)
+
+    if self.offBase then
+        modelMixin:SetAnimationInput("move", "belly")  
+    else
+        modelMixin:SetAnimationInput("move", "idle")  
+    end
+end*/
+    
 function Flag:OnInitialized()
 
     self.offBase = false
