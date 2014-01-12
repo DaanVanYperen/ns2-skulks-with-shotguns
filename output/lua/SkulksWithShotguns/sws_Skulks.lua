@@ -21,6 +21,22 @@ function Skulk:Buy()
 end
 -- SWS END Remove this after we re-enable ShotgunSkulks
 
+-- add support for TWO alien teams.
+function AlienUI_GetEggCount()
+
+    local eggCount = 0
+    local player = Client.GetLocalPlayer()
+
+    if player then     
+        local teamInfo = GetTeamInfoEntity(player:GetTeamNumber())
+        if teamInfo then
+            eggCount = teamInfo:GetEggCount()
+        end
+    end
+    
+    return eggCount
+    
+end
 
 Script.Load("lua/Skulk.lua")
 Script.Load("lua/SkulksWithShotguns/sws_FlagbearerMixin.lua")

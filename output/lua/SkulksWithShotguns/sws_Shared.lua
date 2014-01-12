@@ -20,6 +20,7 @@ Script.Load("lua/SkulksWithShotguns/sws_FireMixin.lua")
 Script.Load("lua/SkulksWithShotguns/sws_FlagbearerMixin.lua")
 Script.Load("lua/SkulksWithShotguns/sws_EventMessageMixin.lua")
 
+
 // Entity overrides.
 Script.Load("lua/SkulksWithShotguns/sws_AlienSpectator.lua")
 Script.Load("lua/SkulksWithShotguns/sws_AlienTeam.lua")
@@ -32,3 +33,11 @@ Script.Load("lua/SkulksWithShotguns/sws_MapBlip.lua")
 Script.Load("lua/SkulksWithShotguns/sws_Skulks.lua") -- shotgun skulks
 Script.Load("lua/SkulksWithShotguns/sws_Respawn.lua")
 Script.Load("lua/SkulksWithShotguns/sws_Flags.lua")
+Script.Load("lua/SkulksWithShotguns/sws_AlienTeamInfo.lua")
+
+
+// Client Specific Stuff
+// loading it here, so we don't get strange precedence issues.
+if Client then
+    Script.Load("lua/SkulksWithShotguns/sws_ClientUI.lua")
+end

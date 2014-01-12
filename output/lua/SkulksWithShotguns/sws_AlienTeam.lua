@@ -2,10 +2,16 @@ if Server then
 
     Script.Load("lua/SkulksWithShotguns/sws_Flags.lua")
     Script.Load("lua/SkulksWithShotguns/sws_Skulks.lua")
+    Script.Load("lua/SkulksWithShotguns/sws_AlienTeamInfo.lua")
     
     // disable default structure spawning.   
     function AlienTeam:SpawnInitialStructures(techPoint)
         return nil,nil
+    end
+
+
+    function AlienTeam:GetTeamInfoMapName()
+        return ShotgunAlienTeamInfo.kMapName
     end
 
 
