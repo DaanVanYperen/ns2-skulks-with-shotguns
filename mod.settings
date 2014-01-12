@@ -5,12 +5,15 @@ description = [=[What's even more awesome than skulks or shotguns? Skulks WITH S
 
 Currently in Early Alpha.
 
+v0.0.10
++ Added Capture The Gorge mode!
+
 Works on vanilla maps but best on NS2_SWS_IKEA or NS2_SWS_REFINERY! 
 
 Credits:
 HOWSER - Mod Founder, Mapper (NS2_SWS_IKEA), Models
 DAAN - Mod Founder, Coding
 FLATERECTOMY - Mapper (NS2_SWS_SKULLSHARK), Sounds
-BLASPHEMY - Mapper (NS2_SWS_REFINERY)]=]
+BLASPHEMY - Mapper (NS2_SWS_REFINERY) ]=]
 image       = "preview.jpg"
 publish_id = "c9673d7"

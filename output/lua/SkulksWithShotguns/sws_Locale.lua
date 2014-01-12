@@ -15,7 +15,10 @@ kCustomLocaleMessages = {
     HIVE_UNDER_ATTACK = "%s Stalk under attack",
     
     MARINE_VICTORY = "Team Shadow Wins!",
+    MARINE_DEFEAT = "Team Shadow loses",
+
     ALIEN_VICTORY = "Team Vanilla Wins!",
+    ALIEN_DEFEAT = "Team Vanilla loses",
     
     // %s=Playername
     ENEMY_STOLE_GORGE = "%s stole your gorge!",
