@@ -104,7 +104,10 @@ function GUIAuraDisplay:Update(deltaTime)
         local enemy = players[i]
         local icon = self.icons[i]
         
-        local color = enemy:GetTeamNumber() == kVanillaTeamIndex and kRedColor or kBlueColor
+        local color = kBlueColor
+        if (enemy:GetTeamNumber() == kVanillaTeamIndex) then
+            color = kRedColor
+        end
        
         local offset = kHeartOffset
         

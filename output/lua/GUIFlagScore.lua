@@ -144,8 +144,13 @@ function GUIFlagScore:Update(deltaTime)
     
         local teamNumber = player:GetTeamNumber()
         
-        local myTeamColor = (teamNumber == kVanillaTeamIndex) and kRedColor or kBlueColor 
-        local enemyTeamColor = (teamNumber == kVanilaTeamIndex) and kBlueColor or kRedColor 
+        local myTeamColor = kBlueColor 
+        local enemyTeamColor = kRedColor 
+        
+        if (teamNumber == kVanillaTeamIndex) then
+            myTeamColor = kRedColor
+            enemyTeamColor = kBlueColor
+        end
         
         local points = AlienUI_GetPoints( teamNumber )
 
