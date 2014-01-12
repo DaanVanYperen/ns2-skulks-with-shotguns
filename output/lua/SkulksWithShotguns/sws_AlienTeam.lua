@@ -114,8 +114,9 @@ if Server then
         end
         
         if #availableStalkSpots > 0 then        
+        
             // success! pick a random spot.
-            return availableStalkSpots[math.random(1,#availableStalkSpots)]:SpawnResourceTowerForTeam(self, kTechId.Hive)
+            return availableStalkSpots[math.random(1,#availableStalkSpots)]:SpawnResourceTowerForTeam(self, kTechId.Crag)
         else
             // error!
             return nil
@@ -145,6 +146,10 @@ if Server then
     function AlienTeam:FlagExists()
         return next(GetEntitiesForTeam("Flag", self:GetTeamNumber())) ~= nil
     end
+    
+    function AlienTeam:UpdateTeamAutoHeal(timePassed)
+        // disable infestation tracking/healing/damage completely.
+    end
         
     // override default spawning behaviour. we want to spawn at random location.
     function AlienTeam:ResetTeam()
@@ -160,13 +165,6 @@ if Server then
 
             // count the number of stalk spots available..            local count = 0
             local count = Shared.GetEntitiesWithClassname("ResourcePoint"):GetSize() 
-                
-            if kTeamModeEnabled then
-                 // for team based mode, we want to divide the stalks between the teams.
-                 // round it down to 2's.
-                 count = count - (count % 2)
-                 count = count / 2
-            end
             
             // don't spawn buildings for Shadow skulks in deathmatch mode.
             if kTeamModeEnabled or (self:GetTeamNumber() == kVanillaTeamIndex) then
@@ -177,7 +175,7 @@ if Server then
                     if hive ~= nil then
                         stalks[(#stalks+1)] = hive
                     else
-                        Shared.Message("Error: Not enough resource Points available. Make sure there are at least 2 in the map")
+                        Shared.Message("Error: Not enough resource Points available.")
                     end
                     count = count - 1
                 end

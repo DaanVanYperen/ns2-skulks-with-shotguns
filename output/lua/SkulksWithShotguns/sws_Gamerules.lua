@@ -189,8 +189,6 @@ if (Server) then
                     self:DrawGame()
                 end
             end
-    local kDeathmatchTimeLimit = 60*15
-    local kCaptureTheGorgeTimeLimit = 60*15
             
             // game is taking too long.
             if self.timeLastGameEndCheck == nil or (Shared.GetTime() > self.timeLastGameEndCheck + kGameEndCheckInterval) then

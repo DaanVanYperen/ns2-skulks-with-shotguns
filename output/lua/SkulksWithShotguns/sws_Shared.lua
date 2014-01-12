@@ -28,6 +28,7 @@ Script.Load("lua/SkulksWithShotguns/sws_Gamerules.lua")
 Script.Load("lua/SkulksWithShotguns/sws_MarineTeam.lua")
 Script.Load("lua/SkulksWithShotguns/sws_PlayingTeam.lua")
 Script.Load("lua/SkulksWithShotguns/sws_MapBlip.lua")
+Script.Load("lua/SkulksWithShotguns/sws_Crag.lua")
 
 // New Entities
 Script.Load("lua/SkulksWithShotguns/sws_Skulks.lua") -- shotgun skulks
