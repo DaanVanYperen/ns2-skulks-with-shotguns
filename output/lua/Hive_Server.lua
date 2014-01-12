@@ -361,40 +361,7 @@ local function UpdateEggs(self)
 end
 
 local function FireImpulses(self) 
-
-    local now = Shared.GetTime()
-    
-    if not self.lastImpulseFireTime then
-        self.lastImpulseFireTime = now
-    end    
-    
-    if now - self.lastImpulseFireTime > kImpulseInterval then
-    
-        local removals = {}
-        for key, id in pairs(self.cystChildren) do
         
-            local child = Shared.GetEntity(id)
-            if child == nil then
-                removals[key] = true
-            else
-                if child.TriggerImpulse and child:isa("Cyst") then
-                    child:TriggerImpulse(now)
-                else
-                    Print("Hive.cystChildren contained a: %s", ToString(child))
-                    removals[key] = true
-                end
-            end
-            
-        end
-        
-        for key,_ in pairs(removals) do
-            self.cystChildren[key] = nil
-        end
-        
-        self.lastImpulseFireTime = now
-        
-    end
-    
 end
 
 local function CheckLowHealth(self)
@@ -534,13 +501,6 @@ function Hive:OnLocationChange(locationName)
 
 end
 
-function Hive:OnOverrideSpawnInfestation(infestation)
-
-    infestation.hostAlive = true
-    infestation:SetMaxRadius(kHiveInfestationRadius)
-    
-end
-
 function Hive:GetDamagedAlertId()
 
     // Trigger "hive dying" on less than 40% health, otherwise trigger "hive under attack" alert every so often
@@ -586,7 +546,6 @@ end
 function Hive:OnTeleportEnd()
 
     // lets the old infestation die and creates a new one
-    self:SpawnInfestation()
     
     local commander = self:GetCommander()
     

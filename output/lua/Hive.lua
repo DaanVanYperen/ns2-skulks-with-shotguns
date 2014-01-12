@@ -11,7 +11,6 @@ Script.Load("lua/CloakableMixin.lua")
 Script.Load("lua/DetectableMixin.lua")
 
 Script.Load("lua/CommandStructure.lua")
-Script.Load("lua/InfestationMixin.lua")
 Script.Load("lua/FireMixin.lua")
 Script.Load("lua/CatalystMixin.lua")
 Script.Load("lua/UnitStatusMixin.lua")
@@ -23,8 +22,6 @@ Script.Load("lua/TeleportMixin.lua")
 Script.Load("lua/HiveVisionMixin.lua")
 Script.Load("lua/BiomassMixin.lua")
 Script.Load("lua/IdleMixin.lua")
-
-kHiveInfestationRadius = 0.5
 
 class 'Hive' (CommandStructure)
 
@@ -43,7 +40,6 @@ AddMixinNetworkVars(MaturityMixin, networkVars)
 AddMixinNetworkVars(TeleportMixin, networkVars)
 AddMixinNetworkVars(HiveVisionMixin, networkVars)
 AddMixinNetworkVars(DetectableMixin, networkVars)
-AddMixinNetworkVars(InfestationMixin, networkVars)
 AddMixinNetworkVars(IdleMixin, networkVars)
 
 kResearchToHiveType =
@@ -124,7 +120,6 @@ end
 
 function Hive:OnInitialized()
 
-    InitMixin(self, InfestationMixin)
     
     CommandStructure.OnInitialized(self)
 
@@ -163,7 +158,6 @@ function Hive:OnInitialized()
     
     InitMixin(self, IdleMixin)
     
-//    self:SetInfestationFullyGrown()    
 end
 
 local kHelpArrowsCinematicName = PrecacheAsset("cinematics/alien/commander_arrow.cinematic")
@@ -202,9 +196,6 @@ function Hive:GetMatureMaxArmor()
     return kMatureHiveArmor
 end
 
-function Hive:GetInfestationMaxRadius()
-    return kHiveInfestationRadius
-end
 
 function Hive:GetMatureMaxEnergy()
     return kMatureHiveMaxEnergy
@@ -228,10 +219,6 @@ function GetHiveTypeResearchAllowed(self, techId)
     local hiveTypeTechId = kResearchToHiveType[techId]
     return not GetHasTech(self, hiveTypeTechId) and not GetIsTechResearching(self, techId)
 
-end
-
-function Hive:GetInfestationRadius()
-    return kHiveInfestationRadius
 end
 
 function Hive:GetCanTakeDamageOverride()
@@ -329,10 +316,7 @@ end
  */
 function GetTechPointInfested(techId, origin, normal, commander)
 
-    local attachClass = LookupTechData(techId, kStructureAttachClass)  
-    local attachEntity = GetNearestFreeAttachEntity(techId, origin, kStructureSnapRadius)
-    
-    return attachEntity and attachEntity:GetGameEffectMask(kGameEffect.OnInfestation)
+    return true
     
 end
 
@@ -340,10 +324,6 @@ end
 // used for initial entry point for the commander
 function Hive:GetDefaultEntryOrigin()
     return self:GetOrigin() + Vector(2,0,2)
-end
-
-function Hive:GetInfestationBlobMultiplier()
-    return 5
 end
 
 Shared.LinkClassToMap("Hive", Hive.kMapName, networkVars)
