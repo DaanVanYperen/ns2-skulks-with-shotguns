@@ -14,7 +14,7 @@ class 'GUIAuraDisplay' (GUIScript)
 
 local kIconSize = Vector(80, 80, 0)
 local kHeartOffset = Vector(0, 0.5, 0)
-local kTexture = "ui/aura.dds"
+local kTexture = "ui/Gorge.dds"
 
 local function CreateAuaIcon(self)
 

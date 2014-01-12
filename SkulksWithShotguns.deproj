@@ -4,6 +4,9 @@
     <filename>output\lua\Babbler.lua</filename>
   </file>
   <file>
+    <filename>output\lua\GUIAuraDisplay.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\GUIEventMessage.lua</filename>
   </file>
   <file>
@@ -23,6 +26,9 @@
   </file>
   <file>
     <filename>output\lua\Weapons\Marine\Shotgun.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\Skulk.lua</filename>
   </file>
   <file>
     <filename>output\lua\SkulkVariantMixin.lua</filename>
@@ -49,6 +55,9 @@
     <filename>output\lua\SkulksWithShotguns\sws_EventMessenger.lua</filename>
   </file>
   <file>
+    <filename>output\lua\SkulksWithShotguns\sws_FireMixin.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\SkulksWithShotguns\sws_FlagbearerMixin.lua</filename>
   </file>
   <file>
@@ -65,6 +74,9 @@
   </file>
   <file>
     <filename>output\lua\SkulksWithShotguns\sws_Locale.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\SkulksWithShotguns\sws_MapBlip.lua</filename>
   </file>
   <file>
     <filename>output\lua\SkulksWithShotguns\sws_MarineTeam.lua</filename>
@@ -89,6 +101,9 @@
   </file>
   <file>
     <filename>output\lua\SkulksWithShotguns\sws_Server.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\SkulksWithShotguns\sws_Server_Hooks.lua</filename>
   </file>
   <file>
     <filename>output\lua\SkulksWithShotguns\sws_Shared.lua</filename>
