@@ -88,8 +88,8 @@ if Server then
             end
         
             // warn the gorge has been dropped.
-            SendEventMessage(flag:GetTeam(), kEventMessageTypes.TeamDroppedGorge, self:GetId())
-            SendEventMessage(GetEnemyTeam(flag:GetTeam()), kEventMessageTypes.EnemyDroppedGorge, self:GetId())
+            SendEventMessage(flag:GetTeam(), kEventMessageTypes.TeamDroppedGorge, self:GetClientIndex())
+            SendEventMessage(GetEnemyTeam(flag:GetTeam()), kEventMessageTypes.EnemyDroppedGorge, self:GetClientIndex())
         
             self.attachedFlag:OnDrop()
             self.attachedFlag:SetParent(nil)

@@ -16,22 +16,18 @@ kEventMessageTypes = enum({
 
 local kEventMessages = { }
 
-// This function will generate the string to display based on a Player Id.
-local actorStringGen = function(playerId, messageString) 
+// This function will generate the string to display based on a clientIndex.
+local actorStringGen = function(clientIndex, messageString) 
 
     // Unknown person.
     local name = "Someone "
     
+    name = Scoreboard_GetPlayerName(clientIndex) or name
+    
     // Keyword self as 'you'
-    local localPlayer = Client.GetLocalPlayer() 
-    if localPlayer ~= nil and playerId == localPlayer:GetId() then
+    local localPlayer = Client.GetLocalPlayer()
+    if localPlayer ~= nil and clientIndex == localPlayer:GetClientIndex() then
         name = "You"
-    else
-        // get entity name.
-        local entity = Shared.GetEntity(playerId)    
-        if entity then
-            name = entity:GetName()
-        end
     end
     
     return string.format(Locale.ResolveString(messageString), name) 

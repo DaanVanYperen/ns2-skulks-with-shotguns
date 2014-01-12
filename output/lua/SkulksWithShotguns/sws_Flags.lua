@@ -84,8 +84,8 @@ local function Pickup(self, entity)
                 self:OnTaken()
                                 
                 // enemy team is taking gorge from base!
-                SendEventMessage(self:GetTeam(), kEventMessageTypes.EnemyStoleGorge, entity:GetId())
-                SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.TeamStoleGorge, entity:GetId())
+                SendEventMessage(self:GetTeam(), kEventMessageTypes.EnemyStoleGorge, entity:GetClientIndex())
+                SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.TeamStoleGorge, entity:GetClientIndex())
                 
                 // pickup flag.                
                 entity:AttachFlag(self)
@@ -94,8 +94,8 @@ local function Pickup(self, entity)
                 self:OnTaken()
 
                 // enemy team is taking gorge from off base!
-                SendEventMessage(self:GetTeam(), kEventMessageTypes.EnemyStoleGorge, entity:GetId())
-                SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.TeamStoleGorge, entity:GetId())
+                SendEventMessage(self:GetTeam(), kEventMessageTypes.EnemyStoleGorge, entity:GetClientIndex())
+                SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.TeamStoleGorge, entity:GetClientIndex())
 
                 entity:AttachFlag(self)
             end
@@ -104,8 +104,8 @@ local function Pickup(self, entity)
             if self.offBase then
             
                 // team recovered gorge
-                SendEventMessage(self:GetTeam(), kEventMessageTypes.TeamRecoveredGorge, entity:GetId())
-                SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.EnemyRecoveredGorge, entity:GetId())
+                SendEventMessage(self:GetTeam(), kEventMessageTypes.TeamRecoveredGorge, entity:GetClientIndex())
+                SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.EnemyRecoveredGorge, entity:GetClientIndex())
             
                 self.offBase = false
                 self:GetTeam():ResetRespawnFlag()
@@ -114,8 +114,8 @@ local function Pickup(self, entity)
                 if entity:IsBearingFlag() then
 
                     // team recovered gorge
-                    SendEventMessage(self:GetTeam(), kEventMessageTypes.TeamCapturedGorge, entity:GetId())
-                    SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.EnemyCapturedGorge, entity:GetId())
+                    SendEventMessage(self:GetTeam(), kEventMessageTypes.TeamCapturedGorge, entity:GetClientIndex())
+                    SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.EnemyCapturedGorge, entity:GetClientIndex())
                     
                     // @todo: capture message.
                     GetGamerules():ScorePoint(entity)
