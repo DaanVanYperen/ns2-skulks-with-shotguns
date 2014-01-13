@@ -44,6 +44,7 @@ if Server then
         local success = false
         if self.attachedFlag == nil then
             self.attachedFlag = flag
+            self.attachedFlagId = flag:GetId()
             flag:SetParent(self)
             flag:SetAttachPoint(kFlagAttachPoint)
             success = true
@@ -55,7 +56,7 @@ if Server then
     end
     
     function FlagbearerMixin:DetachFlag(flag)
-        DetachAll(self)
+        self:DetachAll()
     end
 
 /*    
@@ -68,8 +69,9 @@ if Server then
 
     function FlagbearerMixin:OnEntityChange(oldId, newId)
 
-        if (self.attachedFlag ~= nil) and (self.attachedFlag:GetId() == oldId )  then
+        if (self.attachedFlagId ~= nil) and (self.attachedFlagId == oldId )  then
             self.attachedFlag = nil
+            self.attachedFlagId = nil
             self.hasFlag = false
         end
 
@@ -79,7 +81,7 @@ if Server then
         return self.attachedFlag
     end
     
-    local function DetachAll(self)
+    function FlagbearerMixin:DetachAll()
         if (self.attachedFlag ~= nil) then
             local flag = self.attachedFlag
             local origin, success = self:GetAttachPointOrigin(kFlagAttachPoint)
@@ -90,25 +92,26 @@ if Server then
             // warn the gorge has been dropped.
             SendEventMessage(flag:GetTeam(), kEventMessageTypes.TeamDroppedGorge, self:GetClientIndex())
             SendEventMessage(GetEnemyTeam(flag:GetTeam()), kEventMessageTypes.EnemyDroppedGorge, self:GetClientIndex())
-        
+
+                    
             self.attachedFlag:OnDrop()
             self.attachedFlag:SetParent(nil)
+            self.attachedFlagId = nil
             self.attachedFlag = nil
             self.hasFlag = false
         end    
     end
     
     function FlagbearerMixin:OnLeap()
-        DetachAll(self)    
+        self:DetachAll()    
     end
 
-
     function FlagbearerMixin:OnKill()
-        DetachAll(self)    
+        self:DetachAll()    
     end
 
     function FlagbearerMixin:OnDestroy()
-        DetachAll(self)
+        self:DetachAll()
     end
     
     function FlagbearerMixin:GetFreeFlagAttachPointOrigin()

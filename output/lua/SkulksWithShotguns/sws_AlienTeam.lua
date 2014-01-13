@@ -121,15 +121,19 @@ if Server then
         end
     end
     
+    function AlienTeam:ClearAllFlags()
+            for index, flag in ipairs(GetEntitiesForTeam("Flag", self:GetTeamNumber())) do
+                DestroyEntity(flag)
+            end 
+    end
+    
     function AlienTeam:ResetRespawnFlag()
     
         if kTeamModeEnabled  then
     
             local flagSpawnpoint = self:GetFlagSpawnLocation()
         
-            for index, flag in ipairs(GetEntitiesForTeam("Flag", self:GetTeamNumber())) do
-                DestroyEntity(flag)
-            end 
+            self:ClearAllFlags()
             
             local flag = CreateEntity(Flag.kMapName, flagSpawnpoint:GetOrigin(), self:GetTeamNumber())
             flag:SetOrigin(flagSpawnpoint:GetOrigin())    

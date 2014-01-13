@@ -123,4 +123,7 @@
   <file>
     <filename>output\lua\SkulksWithShotguns\sws_Utility.lua</filename>
   </file>
+  <file>
+    <filename>output\lua\SkulksWithShotguns\sws_VoiceOver.lua</filename>
+  </file>
 </project>

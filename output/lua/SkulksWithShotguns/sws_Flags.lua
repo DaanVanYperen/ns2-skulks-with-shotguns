@@ -108,7 +108,7 @@ local function Pickup(self, entity)
                 SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.EnemyRecoveredGorge, entity:GetClientIndex())
             
                 self.offBase = false
-                self:GetTeam():ResetRespawnFlag()
+                DestroyEntity(self)
             else
                 // potential friendly delivery! :D CASH IN POINTSSSSSSSSSS
                 if entity:IsBearingFlag() then
@@ -119,7 +119,7 @@ local function Pickup(self, entity)
                     
                     // @todo: capture message.
                     GetGamerules():ScorePoint(entity)
-                    entity:GetFlag():GetTeam():ResetRespawnFlag()
+                    DestroyEntity(entity:GetFlag())
                 end                
             end
             
@@ -164,29 +164,35 @@ local function CheckAllEntsInRangePickupFlag(self)
 
         local ents = self:GetEntitiesInTrigger()
         for e = 1, #ents do
-            CheckEntityPickupFlag(self, ents[e])
+            if CheckEntityPickupFlag(self, ents[e]) then
+                // abort checking if the entity has just been picked up /removed /whatever.
+                return
+            end
         end
     
 end
 
 function Flag:OnTaken()
-   StartSoundEffectOnEntity(kFlagTakenSound, self)
-
+   if not self:GetIsDestroyed() then
+       StartSoundEffectOnEntity(kFlagTakenSound, self)
+   end
 end
 
 function Flag:OnDrop()
 
-       StartSoundEffectOnEntity(kFlagDroppedSound, self)
+        if not self:GetIsDestroyed() then
+            StartSoundEffectOnEntity(kFlagDroppedSound, self)
 
-        self.active = false
+            self.active = false
 
-        self.droppedTime = Shared.GetTime()
+            self.droppedTime = Shared.GetTime()
 
-        local proximityFunc = function(self)
+            local proximityFunc = function(self)
                                  self.active = true
                                  CheckAllEntsInRangePickupFlag(self)
                              end
-        self:AddTimedCallback(proximityFunc, kFlagActiveTime)
+            self:AddTimedCallback(proximityFunc, kFlagActiveTime)
+        end
 end
 
 /*
