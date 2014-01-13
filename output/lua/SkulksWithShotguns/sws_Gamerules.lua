@@ -98,6 +98,12 @@ if (Server) then
                     self:SetGameState(kGameState.PreGame)
                     self.score = 0
                     Shared:ShotgunMessage("Lock and load!")
+                    
+                    // @todo find a good location for this.
+                    if kTeamModeEnabled then
+                        // team mode requires longer spawn time.
+                        kAlienSpawnTime = kTeamAlienSpawnTime
+                    end
                 end
             else
                 if (self:GetGameState() == kGameState.PreGame) then
