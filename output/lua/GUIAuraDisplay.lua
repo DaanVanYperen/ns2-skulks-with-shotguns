@@ -110,6 +110,20 @@ function GUIAuraDisplay:Update(deltaTime)
         if (enemy:GetTeamNumber() == kVanillaTeamIndex) then
             color = kRedColor
         end
+            
+        local yellTime = enemy:GetLastTimeYelled()
+        if (enemy:GetTeamNumber() ~= player:GetTeamNumber()) or (yellTime == 0) then
+            -- Can always see the enemy team gorge, or a gorge that is out of danger.
+            icon:SetIsVisible(true)
+            color.a = 1
+        else
+            local secondsSinceYell = Shared.GetTime() - yellTime
+            --  Only see your abducted gorge when it yells.
+            icon:SetIsVisible(secondsSinceYell < 2)
+            if icon:GetIsVisible() then
+                color.a = Clamp(2-secondsSinceYell,0,1)
+            end
+        end
        
         local offset = kHeartOffset
         

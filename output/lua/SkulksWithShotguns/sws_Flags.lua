@@ -22,7 +22,6 @@ kFlagTriggerRange = 2
 kFlagActiveTime = 1
 
 local kFlagTakenSound = "sound/NS2.fev/alien/gorge/taunt"
-local kFlagDroppedSound = "sound/NS2.fev/alien/gorge/taunt"
 
 class 'Flag' (ScriptActor)
 
@@ -34,6 +33,7 @@ local kAnimationGraph = PrecacheAsset("models/alien/gorge/gorge.animation_graph"
 
 local networkVars =
 {
+    lastTimeYelled = "time",
     m_angles = "interpolated angles (by 10 [], by 10 [], by 10 [])",
     m_origin = "compensated interpolated position (by 0.05 [2 3 5], by 0.05 [2 3 5], by 0.05 [2 3 5])",
 }
@@ -43,6 +43,8 @@ AddMixinNetworkVars(ClientModelMixin, networkVars)
 AddMixinNetworkVars(TeamMixin, networkVars)
 AddMixinNetworkVars(DetectableMixin, networkVars)
 
+
+kAbductionYellInterval = 4
 
 local function CreateHitBox(self)
 
@@ -67,7 +69,14 @@ function Flag:OnCreate()
     InitMixin(self, TeamMixin)
     InitMixin(self, DetectableMixin)
     
+    self:SetUpdates(true)
     self:SetRelevancyDistance(Math.infinity)
+    
+    self.lastTimeYelled = 0
+    
+    if Server then
+        self:AddTimedCallback(Flag.UpdateAbductionYell, 0.5)
+    end
 end 
 
 // entity pickup self
@@ -172,16 +181,21 @@ local function CheckAllEntsInRangePickupFlag(self)
     
 end
 
-function Flag:OnTaken()
+function Flag:Yell()
+    self.lastTimeYelled = Shared.GetTime()
    if not self:GetIsDestroyed() then
        StartSoundEffectOnEntity(kFlagTakenSound, self)
    end
 end
 
+function Flag:OnTaken()
+    self:Yell()
+end
+
 function Flag:OnDrop()
 
         if not self:GetIsDestroyed() then
-            StartSoundEffectOnEntity(kFlagDroppedSound, self)
+            self:Yell()
 
             self.active = false
 
@@ -232,8 +246,25 @@ function Flag:OnInitialized()
 
 end
 
+    function Flag:GetLastTimeYelled()
+        return self.lastTimeYelled
+    end
+
 
 if Server then 
+
+    /**
+     * Yell at certain intervals, which will show up on aura.
+     */
+    function Flag:UpdateAbductionYell()
+        if self:GetParent() ~= nil and Shared.GetTime() - self.lastTimeYelled > kAbductionYellInterval then
+            self:Yell()
+        end
+        
+        return true
+    end
+    
+
     /**
      * We need to check when there are entities within the trigger area often.
      */
@@ -242,6 +273,9 @@ if Server then
         local now = Shared.GetTime()
 
         if self:GetParent() == nil then
+        
+            self.lastTimeYelled = 0
+        
             // Move triggerbody if we lose parent
             self.triggerBody:SetCoords(self:GetCoords())
             
