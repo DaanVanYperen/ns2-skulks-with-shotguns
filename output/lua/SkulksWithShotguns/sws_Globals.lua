@@ -5,8 +5,8 @@ kTeamResourcePerTick = 0
 // Duration the spawn umbra is in effect.
 kSpawnUmbraDuration = 1.25
 
-kTeam1Name = "Shadow"
-kTeam2Name = "Vanilla"
+kTeam1Name = "Blue"
+kTeam2Name = "Red"
 
 kShadowTeamIndex = kTeam1Index
 kVanillaTeamIndex = kTeam2Index

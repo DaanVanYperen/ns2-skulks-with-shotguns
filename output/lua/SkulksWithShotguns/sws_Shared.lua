@@ -2,6 +2,7 @@
 // Constants
 Script.Load("lua/SkulksWithShotguns/sws_Globals.lua")
 Script.Load("lua/SkulksWithShotguns/sws_DamageTypes.lua")
+Script.Load("lua/SkulksWithShotguns/sws_Sounds.lua")
 
 // Utilities
 Script.Load("lua/SkulksWithShotguns/sws_Locale.lua")
@@ -35,7 +36,6 @@ Script.Load("lua/SkulksWithShotguns/sws_Skulks.lua") -- shotgun skulks
 Script.Load("lua/SkulksWithShotguns/sws_Respawn.lua")
 Script.Load("lua/SkulksWithShotguns/sws_Flags.lua")
 Script.Load("lua/SkulksWithShotguns/sws_AlienTeamInfo.lua")
-
 
 // Client Specific Stuff
 // loading it here, so we don't get strange precedence issues.

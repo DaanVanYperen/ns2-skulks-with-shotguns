@@ -95,6 +95,10 @@ local function Pickup(self, entity)
                 // enemy team is taking gorge from base!
                 SendEventMessage(self:GetTeam(), kEventMessageTypes.EnemyStoleGorge, entity:GetClientIndex())
                 SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.TeamStoleGorge, entity:GetClientIndex())
+
+                // corresponding vocals.
+                self:GetTeam():PlayPrivateTeamSound(kSfxGorgeStolenOur)
+                GetEnemyTeam(self:GetTeam()):PlayPrivateTeamSound(kSfxGorgeStolenTheir)
                 
                 // pickup flag.                
                 entity:AttachFlag(self)
@@ -125,6 +129,19 @@ local function Pickup(self, entity)
                     // team recovered gorge
                     SendEventMessage(self:GetTeam(), kEventMessageTypes.TeamCapturedGorge, entity:GetClientIndex())
                     SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.EnemyCapturedGorge, entity:GetClientIndex())
+                    
+                    // play vocals, but only if player is not about to win (which will spam sounds)
+                    local teamWon = (entity:GetTeam():GetPoints() >= kCaptureWinPoints-1)
+                    if not teamWon then
+                        // corresponding vocals.
+                        if entity:GetTeamNumber() == kVanillaTeamIndex then
+                            entity:GetTeam():PlayPrivateTeamSound(kSfxRedScores)
+                            GetEnemyTeam(entity:GetTeam()):PlayPrivateTeamSound(kSfxRedScores)
+                        else
+                            entity:GetTeam():PlayPrivateTeamSound(kSfxBlueScores)
+                            GetEnemyTeam(entity:GetTeam()):PlayPrivateTeamSound(kSfxBlueScores)
+                        end
+                    end
                     
                     // @todo: capture message.
                     GetGamerules():ScorePoint(entity)

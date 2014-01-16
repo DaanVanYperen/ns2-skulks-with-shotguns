@@ -183,11 +183,15 @@ if (Server) then
                 local team2Won = (self.team2:GetPoints() >= kCaptureWinPoints)
             
                 if team1Won then
-                    Shared:ShotgunMessage("Team Vanilla Wins!")
+                    Shared:ShotgunMessage("Blue Team Wins!")
+                    self.team1:PlayPrivateTeamSound(kSfxBlueWins)
+                    self.team2:PlayPrivateTeamSound(kSfxBlueWins)                    
                     self:EndGame(self.team1)
                 end                
                 if team2Won then
-                    Shared:ShotgunMessage("Team Shadow Wins!")
+                    Shared:ShotgunMessage("Red Team Wins!")
+                    self.team1:PlayPrivateTeamSound(kSfxRedWins)
+                    self.team2:PlayPrivateTeamSound(kSfxRedWins)
                     self:EndGame(self.team2)
                 end
             else
