@@ -5,6 +5,10 @@ description = [=[What's even more awesome than skulks or shotguns? Skulks WITH S
 
 Currently in Early Alpha.
 
+v0.0.12
++ Added new SFX.
++Shotgun surgically removed from heads.
+
 v0.0.11
 + Abducted gorge now only visible while 'yelling' for help, allowing the enemy team to deceive a bit.
 + Added spawn delay of 5 seconds for team based games to make kills more meaningful.

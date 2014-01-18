@@ -110,6 +110,10 @@ AddMixinNetworkVars(FlagbearerMixin, networkVars)
 
 function Skulk:OnCreate()
 
+    if Client then
+        Player.screenEffects.darkVision = nil
+    end
+
     InitMixin(self, BaseMoveMixin, { kGravity = Player.kGravity })
     InitMixin(self, GroundMoveMixin)
     InitMixin(self, JumpMoveMixin)
