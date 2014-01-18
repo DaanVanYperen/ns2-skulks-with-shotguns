@@ -115,6 +115,9 @@
     <filename>output\lua\SkulksWithShotguns\sws_Skulks.lua</filename>
   </file>
   <file>
+    <filename>output\lua\SkulksWithShotguns\sws_Sounds.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\SkulksWithShotguns\sws_TeamMixin.lua</filename>
   </file>
   <file>
