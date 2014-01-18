@@ -1,0 +1,5 @@
+shader = "models/marine/marine.surface_shader"
+albedoMap = "models/marine/shotgun/shotgun.dds"
+specularMap = "materials/dev/black.dds"
+normalMap = "materials/dev/dev_normal.dds"
+emissiveMap = "materials/dev/black.dds"
