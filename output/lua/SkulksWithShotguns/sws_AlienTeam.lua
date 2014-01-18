@@ -148,6 +148,16 @@ if Server then
     function AlienTeam:FlagExists()
         return next(GetEntitiesForTeam("Flag", self:GetTeamNumber())) ~= nil
     end
+
+    function AlienTeam:GetTeamFlag()
+        local flags = GetEntitiesForTeam("Flag", self:GetTeamNumber())
+        if flags and #flags > 0 then
+            return flags[1]
+        end
+        
+        return nil
+    end
+    
     
     function AlienTeam:UpdateTeamAutoHeal(timePassed)
         // disable infestation tracking/healing/damage completely.

@@ -315,6 +315,9 @@ if Server then
         end
     end
     
+    function Flag:GetCarrier()
+        return self:GetParent()
+    end
 
     function Flag:OnProcessMove(input)
     

@@ -20,6 +20,8 @@ local networkVars =
 {
     points = "integer (0 to 99)",
     enemyPoints = "integer (0 to 99)",
+    carrierId = "integer",
+    enemyCarrierId = "integer",
     teamMode = "boolean"
 }
 
@@ -30,6 +32,8 @@ function ShotgunAlienTeamInfo:OnCreate()
     self.points = 0
     self.enemyPoints = 0
     self.teamMode = kTeamModeEnabled
+    self.carrierId = nil
+    self.enemyCarrierId = nil
 
 end
 
@@ -38,8 +42,23 @@ function ShotgunAlienTeamInfo:Reset()
         AlienTeamInfo.Reset(self)
         self.points = 0
         self.enemyPoints = 0
+        self.carrierId = nil
+        self.enemyCarrierId = nil
         self.teamMode = kTeamModeEnabled
         
+end
+
+
+// determine who is carrying the enemy flag for passed team.
+local function GetFlagCarrierFor(team)
+    local flag = GetEnemyTeam(team):GetTeamFlag()
+    if flag ~= nil then
+        local carrier = flag:GetCarrier()
+        if carrier ~= nil then
+            return carrier:GetClientIndex()
+        end
+    end
+    return nil
 end
 
 function ShotgunAlienTeamInfo:OnUpdate(deltaTime)
@@ -52,6 +71,9 @@ function ShotgunAlienTeamInfo:OnUpdate(deltaTime)
         self.enemyPoints = GetEnemyTeam(team).points or 0
         self.eggCount    = team:GetTeamResources() // We work with teamres instead.
         self.teamMode    = kTeamModeEnabled
+        
+        self.carrierId      = GetFlagCarrierFor(team)
+        self.enemyCarrierId = GetFlagCarrierFor(GetEnemyTeam(team))
     end
 
 end
@@ -66,6 +88,14 @@ end
 
 function AlienTeamInfo:GetEnemyPoints()
     return self.enemyPoints
+end
+
+function AlienTeamInfo:GetCarrierId()
+    return self.carrierId
+end
+
+function AlienTeamInfo:GetEnemyCarrierId()
+    return self.enemyCarrierId
 end
 
 Shared.LinkClassToMap("ShotgunAlienTeamInfo", ShotgunAlienTeamInfo.kMapName, networkVars)

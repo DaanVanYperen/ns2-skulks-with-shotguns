@@ -6,10 +6,12 @@ local kTextFontName = "fonts/AgencyFB_large.fnt"
 local kFontColor = Color(1, 1, 1, 1)
 
 local kEggSize = GUIScale( Vector(64, 64, 0) )
+local kCarrySize = GUIScale( Vector(200, 200, 0) )
 
 local kPadding = GUIScale(32)
 local kEggTopOffset = GUIScale(8)
 local kEggSideOffset = GUIScale(8)
+local kNameOffset = GUIScale(32)
 
 local kNoEggsColor = Color(1, 0, 0, 1)
 local kWhite = Color(1, 1, 1, 1)
@@ -49,6 +51,45 @@ function AlienUI_GetEnemyPoints( teamNumber )
 end
 
 
+function AlienUI_GetCarrierName( teamNumber )
+
+    local teamInfo = GetTeamInfoEntity(teamNumber)
+    if teamInfo then
+        local clientIndex = teamInfo:GetCarrierId()
+        if clientIndex ~= nil then
+            return Scoreboard_GetPlayerName(clientIndex)
+        end
+    end
+    
+    return nil
+end
+
+function AlienUI_GetIsCarrier( teamNumber )
+
+    local teamInfo = GetTeamInfoEntity(teamNumber)
+    if teamInfo then
+        local clientIndex = teamInfo:GetCarrierId()
+        if clientIndex ~= nil then
+            return clientIndex == Client.GetLocalPlayer():GetClientIndex()
+        end
+    end
+    
+    return false
+end
+
+function AlienUI_GetEnemyCarrierName( teamNumber )
+
+    local teamInfo = GetTeamInfoEntity(teamNumber)
+    if teamInfo then
+        local clientIndex = teamInfo:GetEnemyCarrierId()
+        if clientIndex ~= nil then
+            return Scoreboard_GetPlayerName(clientIndex)
+        end
+    end
+    
+    return nil
+end
+
 function AlienUI_GetTeamMode( teamNumber )
 
     local teamMode = false
@@ -73,11 +114,20 @@ function GUIFlagScore:Initialize()
     self.spawnText:SetColor(kFontColor)
     self.spawnText:SetPosition(kSpawnInOffset) */
     
+    self.carryGorgeIcon = GUIManager:CreateGraphicItem()
+    self.carryGorgeIcon:SetAnchor(GUIItem.Middle, GUIItem.Bottom)
+    self.carryGorgeIcon:SetPosition(Vector(-kCarrySize.x/2,-kCarrySize.y*2, 0))
+    self.carryGorgeIcon:SetTexture(kEggTexture)
+    self.carryGorgeIcon:SetSize(kCarrySize)
+    
+    
     self.teamIcon = GUIManager:CreateGraphicItem()
     self.teamIcon:SetAnchor(GUIItem.Left, GUIItem.Top)
     self.teamIcon:SetPosition(Vector(kEggSideOffset, kEggTopOffset, 0))
     self.teamIcon:SetTexture(kEggTexture)
     self.teamIcon:SetSize(kEggSize)
+    
+    // Points
     
     self.teamPoints = GUIManager:CreateTextItem()
     self.teamPoints:SetFontName(kTextFontName)
@@ -88,8 +138,22 @@ function GUIFlagScore:Initialize()
     self.teamPoints:SetColor(kFontColor)
     self.teamPoints:SetScale(kFontScale)
     self.teamPoints:SetFontName(kTextFontName)
-    
+
     self.teamIcon:AddChild(self.teamPoints)
+    
+    // Carrier 
+    
+    self.teamCarrier = GUIManager:CreateTextItem()
+    self.teamCarrier:SetFontName(kTextFontName)
+    self.teamCarrier:SetAnchor(GUIItem.Right, GUIItem.Center)
+    self.teamCarrier:SetPosition(Vector(kPadding * 0.5, kNameOffset, 0))
+    self.teamCarrier:SetTextAlignmentX(GUIItem.Align_Min)
+    self.teamCarrier:SetTextAlignmentY(GUIItem.Align_Center)
+    self.teamCarrier:SetColor(kFontColor)
+    self.teamCarrier:SetScale(kFontScale)
+    self.teamCarrier:SetFontName(kTextFontName)
+    
+    self.teamIcon:AddChild(self.teamCarrier)
     
     // ENEMY
     
@@ -98,6 +162,8 @@ function GUIFlagScore:Initialize()
     self.enemyTeamIcon:SetPosition(Vector(-kEggSideOffset - kEggSize.x, kEggTopOffset, 0))
     self.enemyTeamIcon:SetTexture(kEggTexture)
     self.enemyTeamIcon:SetSize(kEggSize)
+    
+    // Points
     
     self.enemyTeamPoints = GUIManager:CreateTextItem()
     self.enemyTeamPoints:SetFontName(kTextFontName)
@@ -110,6 +176,20 @@ function GUIFlagScore:Initialize()
     self.enemyTeamPoints:SetFontName(kTextFontName)
     
     self.enemyTeamIcon:AddChild(self.enemyTeamPoints)
+    
+    // Carrier
+
+    self.enemyTeamCarrier = GUIManager:CreateTextItem()
+    self.enemyTeamCarrier:SetFontName(kTextFontName)
+    self.enemyTeamCarrier:SetAnchor(GUIItem.Left, GUIItem.Center)
+    self.enemyTeamCarrier:SetPosition(Vector(-kPadding * 0.5, kNameOffset, 0))
+    self.enemyTeamCarrier:SetTextAlignmentX(GUIItem.Align_Max)
+    self.enemyTeamCarrier:SetTextAlignmentY(GUIItem.Align_Center)
+    self.enemyTeamCarrier:SetColor(kFontColor)
+    self.enemyTeamCarrier:SetScale(kFontScale)
+    self.enemyTeamCarrier:SetFontName(kTextFontName)
+    
+    self.enemyTeamIcon:AddChild(self.enemyTeamCarrier)
 end
 
 function GUIFlagScore:Uninitialize()
@@ -117,8 +197,14 @@ function GUIFlagScore:Uninitialize()
     GUI.DestroyItem(self.teamIcon)
     self.teamIcon = nil
     
+    GUI.DestroyItem(self.carryGorgeIcon)
+    self.carryGorgeIcon = nil
+    
     GUI.DestroyItem(self.teamPoints)
     self.teamPoints = nil
+    
+    GUI.DestroyItem(self.teamCarrier)
+    self.teamCarrier = nil
     
     GUI.DestroyItem(self.enemyTeamIcon)
     self.enemyTeamIcon = nil
@@ -126,6 +212,9 @@ function GUIFlagScore:Uninitialize()
     GUI.DestroyItem(self.enemyTeamPoints)
     self.enemyTeamPoints = nil
 
+    GUI.DestroyItem(self.enemyTeamCarrier)
+    self.enemyTeamCarrier = nil
+    
     eggCount = nil
     
 end
@@ -135,9 +224,12 @@ function GUIFlagScore:Update(deltaTime)
     local player = Client.GetLocalPlayer()
     isVisible = (player ~= nil) and AlienUI_GetTeamMode(player:GetTeamNumber())
 
+    self.carryGorgeIcon:SetIsVisible(isVisible)
     self.enemyTeamPoints:SetIsVisible(isVisible)
+    self.enemyTeamCarrier:SetIsVisible(isVisible)
     self.enemyTeamIcon:SetIsVisible(isVisible)
     self.teamPoints:SetIsVisible(isVisible)
+    self.teamCarrier:SetIsVisible(isVisible)
     self.teamIcon:SetIsVisible(isVisible)
         
     if player then
@@ -146,23 +238,40 @@ function GUIFlagScore:Update(deltaTime)
         
         local myTeamColor = kBlueColor 
         local enemyTeamColor = kRedColor 
-        
+
         if (teamNumber == kVanillaTeamIndex) then
             myTeamColor = kRedColor
             enemyTeamColor = kBlueColor
         end
+
+        self.carryGorgeIcon:SetIsVisible(AlienUI_GetIsCarrier(teamNumber))
+        self.carryGorgeIcon:SetColor(enemyTeamColor)    
         
         local points = AlienUI_GetPoints( teamNumber )
 
         self.teamPoints:SetText(string.format("x %s", ToString(points))) 
         self.teamPoints:SetColor(myTeamColor)
         self.teamIcon:SetColor(myTeamColor)
+
+        local carrier = AlienUI_GetCarrierName( teamNumber )
+        self.teamCarrier:SetIsVisible(carrier ~= nil)
+        if carrier ~= nil then
+            self.teamCarrier:SetText(carrier) 
+            self.teamCarrier:SetColor(myTeamColor)
+        end
         
         local enemyPoints = AlienUI_GetEnemyPoints( teamNumber )
 
         self.enemyTeamPoints:SetText(string.format("x %s", ToString(enemyPoints)))           
         self.enemyTeamPoints:SetColor(enemyTeamColor)
         self.enemyTeamIcon:SetColor(enemyTeamColor)
+
+        local enemyCarrier = AlienUI_GetEnemyCarrierName( teamNumber )
+        self.enemyTeamCarrier:SetIsVisible(enemyCarrier ~= nil)
+        if enemyCarrier ~= nil then
+            self.enemyTeamCarrier:SetText(enemyCarrier) 
+            self.enemyTeamCarrier:SetColor(enemyTeamColor)
+        end
     end
     
 end

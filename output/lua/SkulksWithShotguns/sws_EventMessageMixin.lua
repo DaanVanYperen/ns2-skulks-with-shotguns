@@ -1,10 +1,3 @@
-// ======= Copyright (c) 2012, Unknown Worlds Entertainment, Inc. All rights reserved. ============
-//    
-// lua\EventMessageMixin.lua    
-//    
-//    Created by:   Brian Cronin (brianc@unknownworlds.com)    
-//    
-// ========= For more information, visit us at http://www.unknownworlds.com =====================
 
 EventMessageMixin = CreateMixin( EventMessageMixin )
 EventMessageMixin.type = "EventMessage"
