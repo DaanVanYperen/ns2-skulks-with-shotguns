@@ -5,6 +5,13 @@ description = [=[What's even more awesome than skulks or shotguns? Skulks WITH S
 
 Currently in Early Alpha.
 
+v0.0.13
++ Removed outlines on skulks.
++ Linked sounds to sfx volume. No more yelling!
++ Added team support for death trigger.
++ Gorge indicator while carrying the flag.
++ name indicators to scoreboard.
+
 v0.0.12
 + Added new SFX.
 +Shotgun surgically removed from heads.

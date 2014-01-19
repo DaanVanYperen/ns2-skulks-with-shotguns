@@ -1,6 +1,5 @@
 -- @TODO currently disabled due to jerkyness while playing with this class.
 
-
 -- SWS START Remove this after we re-enable ShotgunSkulks
 function Skulk:InitWeapons()
 

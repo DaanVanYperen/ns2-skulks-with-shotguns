@@ -4,6 +4,9 @@
     <filename>output\lua\Babbler.lua</filename>
   </file>
   <file>
+    <filename>output\lua\DeathTrigger.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\GUIAuraDisplay.lua</filename>
   </file>
   <file>

@@ -37,7 +37,10 @@ class 'Skulk' (Alien)
 Skulk.kMapName = "skulk"
 
 Skulk.kModelName = PrecacheAsset("models/alien/skulk/skulk.model")
-local kViewModelName = PrecacheAsset("models/alien/skulk/skulk_view.model")
+-- SWS START
+local kViewModelName = PrecacheAsset("models/alien/skulk/skulk_vred.model")
+local kBlueViewModelName = PrecacheAsset("models/alien/skulk/skulk_vblu.model")
+-- SWS END
 local kSkulkAnimationGraph = PrecacheAsset("models/alien/skulk/skulk.animation_graph")
 
 // Balance, movement, animation
@@ -278,6 +281,11 @@ function Skulk:GetCanWallJump()
 end
 
 function Skulk:GetViewModelName()
+
+    if self:GetTeamNumber() == kShadowTeamIndex then
+        return kBlueViewModelName
+    end
+
     return kViewModelName
 end
 

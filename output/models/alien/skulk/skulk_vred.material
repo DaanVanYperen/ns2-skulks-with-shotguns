@@ -1,0 +1,6 @@
+shader = "models/alien/alien.surface_shader"
+albedoMap = "models/alien/skulk/skulk_view_red.dds"
+normalMap = "models/alien/skulk/skulk_view_normal.dds"
+specularMap = "models/alien/skulk/skulk_view_spec.dds"
+emissiveMap = "materials/dev/black.dds"
+surface = "organic"
