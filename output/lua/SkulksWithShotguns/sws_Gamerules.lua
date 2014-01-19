@@ -9,7 +9,7 @@ if (Server) then
 
     function NS2Gamerules:GetCanSpawnImmediately()
         // we want to force respawn via spawners.
-        return true
+        return false
     end
 
     function NS2Gamerules:BuildTeam(teamType)

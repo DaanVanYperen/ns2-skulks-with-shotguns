@@ -1,5 +1,5 @@
 // number of eggs that can spawn in one round.
-kPlayingTeamInitialTeamRes = 60
+kPlayingTeamInitialTeamRes = 99
 kTeamResourcePerTick = 0
 
 // Duration the spawn umbra is in effect.
