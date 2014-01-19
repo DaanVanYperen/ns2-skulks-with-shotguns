@@ -523,6 +523,14 @@
         
         <parameter name="enabled" type="boolean" label="Trigger enabled" help="Will not kill when disabled." default="true"/>
         <parameter name="damageOverTime" type="real" label="Damage over time" help="If set to any value greater than 0, this amount of damage will be applied per second." default="0"/>
+		
+        <!-- SWS START Team number -->
+        <parameter name="teamNumber" type="choice" label="Target Team Number" default="0" help="Team to target.">
+            <choice label="Any" value="0"/>
+            <choice label="Shadow (Blue)" value="1"/>
+            <choice label="Vanilla (Red)" value="2"/>
+        </parameter>
+        <!-- SWS START Team number -->
         
     </class>
 	

@@ -1,37 +1,42 @@
-name        = "Skulks With Shotguns [EARLY ALPHA]"
+name        = "Skulks With Shotguns [ALPHA]"
 source_dir  = "source"
 output_dir  = "output"
-description = [=[What's even more awesome than skulks or shotguns? Skulks WITH Shotguns! Warm up your trigger finger and test your jousting skills in this deathmatch warmup mod!
+description = [=[What's even more awesome than skulks or shotguns? Skulks WITH Shotguns! Warm up your trigger finger and test your jousting skills in this deathmatch warmup and capture the gorge mod! 
 
-Currently in Early Alpha.
+Deathmap works on vanilla maps but best on NS2_SWS_REFINERY,  NS2_SWS_METRO or NS2_SWS_IKEA! 
+Our favorite Capture The Gorge Maps: NS2_SWS_GORGEFORTRESS, NS2_SWS_EDEN!
 
-v0.0.13
+v0.0.14.1 [Alpha]
++ Small fix to death trigger.
+
+v0.0.14 [Alpha]
++ Fixed game->lobby->game respawn workaround glitch.
++ Added glow to skulk models to make them easier to spot.
++ Added distinct view models for each team.
++ Slightly increased volume on gorge sfx.
+
+v0.0.13 [Pre Alpha]
 + Removed outlines on skulks.
 + Linked sounds to sfx volume. No more yelling!
 + Added team support for death trigger.
 + Gorge indicator while carrying the flag.
 + name indicators to scoreboard.
 
-v0.0.12
+v0.0.12 [Pre Alpha]
 + Added new SFX.
 +Shotgun surgically removed from heads.
 
-v0.0.11
+v0.0.11 [Pre Alpha]
 + Abducted gorge now only visible while 'yelling' for help, allowing the enemy team to deceive a bit.
 + Added spawn delay of 5 seconds for team based games to make kills more meaningful.
 
-v0.0.10.1
+v0.0.10.1 [Pre Alpha]
 + Fixed several gorge related crash bugs.
-
-v0.0.10
-+ Added Capture The Gorge mode!
-
-Works on vanilla maps but best on NS2_SWS_IKEA or NS2_SWS_REFINERY! 
 
 Credits:
 HOWSER - Mod Founder, Mapper (NS2_SWS_IKEA), Models
 DAAN - Mod Founder, Coding
-FLATERECTOMY - Mapper (NS2_SWS_SKULLSHARK), Sounds
-BLASPHEMY - Mapper (NS2_SWS_REFINERY) ]=]
+FLATERECTOMY - Mapper (NS2_SWS_REFINERY), Sounds
+LOKI - Mapper (NS2_SWS_EDEN), Sounds]=]
 image       = "preview.jpg"
 publish_id = "c9673d7"
