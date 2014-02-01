@@ -3,8 +3,20 @@ source_dir  = "source"
 output_dir  = "output"
 description = [=[What's even more awesome than skulks or shotguns? Skulks WITH Shotguns! Warm up your trigger finger and test your jousting skills in this deathmatch warmup and capture the gorge mod! 
 
-Deathmap works on vanilla maps but best on NS2_SWS_REFINERY,  NS2_SWS_METRO or NS2_SWS_IKEA! 
-Our favorite Capture The Gorge Maps: NS2_SWS_GORGEFORTRESS, NS2_SWS_EDEN!
+Want to play? Find a server with gamemode SWS, or ask your server admin to install it now!
+
+Deathmap works on vanilla maps but best on NS2_SWS_REFINERY,  NS2_SWS_METRO! 
+Our favorite Capture The Gorge Maps: ns2_sws_2gorge, NS2_SWS_EDEN!
+
+Modids for admins:
+c9673d7 Skulks With Shotguns
+d12b1e6 ns2_sws_2gorge
+cb11261 ns2_sws_refinery
+cfffdc2 ns2_sws_eden
+cb225ba ns2_sws_metro
+
+v0.0.14.2 [Alpha]
++ Fix to improve compatibility with other mods (like Shine). Thanks Ghoul for helping us out!
 
 v0.0.14.1 [Alpha]
 + Small fix to death trigger.
@@ -37,6 +49,8 @@ Credits:
 HOWSER - Mod Founder, Mapper (NS2_SWS_IKEA), Models
 DAAN - Mod Founder, Coding
 FLATERECTOMY - Mapper (NS2_SWS_REFINERY), Sounds
-LOKI - Mapper (NS2_SWS_EDEN), Sounds]=]
+LOKI - Mapper (NS2_SWS_EDEN), Sounds
+
+]=]
 image       = "preview.jpg"
 publish_id = "c9673d7"
