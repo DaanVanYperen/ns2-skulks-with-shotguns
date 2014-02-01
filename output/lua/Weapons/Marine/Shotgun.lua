@@ -139,6 +139,51 @@ function Shotgun:PerformShotgunFire(player)
 
     self:TriggerEffects("shotgun_attack_sound")
     self:TriggerEffects("shotgun_attack")
+        
+    -- SWS START: Determine if we should cause explosive trauma to anyone hit by pellets, before the target gets killed.
+    if Server then
+    
+        local totalDamage = {}
+        local totalBullets = math.min(numberBullets, #kSpreadVectors)
+        
+        for bullet = 1, totalBullets do    
+            if not kSpreadVectors[bullet] then
+                break
+            end    
+    
+            local spreadDirection = shootCoords:TransformVector(kSpreadVectors[bullet])
+
+            local endPoint = startPoint + spreadDirection * range
+            startPoint = player:GetEyePos() + shootCoords.xAxis * kSpreadVectors[bullet].x * kStartOffset + shootCoords.yAxis * kSpreadVectors[bullet].y * kStartOffset
+        
+            local trace = Shared.TraceRay(startPoint, endPoint, CollisionRep.Damage, PhysicsMask.Bullets, filter)
+            if not trace.entity then 
+                -- Limit the box trace to the point where the ray hit as an optimization.
+                local boxTraceEndPoint = trace.fraction ~= 1 and trace.endPoint or endPoint
+                local extents = GetDirectedExtentsForDiameter(spreadDirection, kBulletSize)
+                trace = Shared.TraceBox(extents, startPoint, boxTraceEndPoint, CollisionRep.Damage, PhysicsMask.Bullets, filter)
+            end
+                
+            if (trace.fraction < 1 or GetIsVortexed(player)) and trace.entity then
+                local entityId = trace.entity:GetId()
+                if totalDamage[entityId] == nil then
+                    totalDamage[entityId] = 0
+                end
+                totalDamage[entityId] = totalDamage[entityId] + kShotgunDamage
+            end              
+        end
+                
+        for entityId, value in pairs(totalDamage) do
+            local entity = Shared.GetEntity(entityId)
+            if (entity ~= nil) and HasMixin(entity, "ExplosiveTrauma") then
+                // prime if all pellets but one strike the target (perfect hit).
+                entity:SetPrimed(value >= kShotgunDamage * (totalBullets-6))
+            end
+        end
+        
+    end
+    -- SWS END: Explosive Trauma.
+    
     
     for bullet = 1, math.min(numberBullets, #kSpreadVectors) do
     

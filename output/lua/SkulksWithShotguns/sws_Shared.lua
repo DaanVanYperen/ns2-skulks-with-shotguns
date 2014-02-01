@@ -20,7 +20,7 @@ Script.Load("lua/SkulksWithShotguns/sws_FireMixin.lua")
 // New Mixins
 Script.Load("lua/SkulksWithShotguns/sws_FlagbearerMixin.lua")
 Script.Load("lua/SkulksWithShotguns/sws_EventMessageMixin.lua")
-
+Script.Load("lua/SkulksWithShotguns/sws_ExplosiveTraumaMixin.lua")
 
 // Entity overrides.
 Script.Load("lua/SkulksWithShotguns/sws_AlienSpectator.lua")

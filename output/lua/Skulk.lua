@@ -29,6 +29,7 @@ Script.Load("lua/SkulkVariantMixin.lua")
 -- SWS START
 Script.Load("lua/SkulksWithShotguns/sws_FlagbearerMixin.lua")
 Script.Load("lua/SkulksWithShotguns/sws_EventMessageMixin.lua")
+Script.Load("lua/SkulksWithShotguns/sws_ExplosiveTraumaMixin.lua")
 kSkulkSpeedFactorWhileCarryGorge = 0.95
 -- SWS END
 
@@ -109,6 +110,7 @@ AddMixinNetworkVars(SkulkVariantMixin, networkVars)
 
 -- SWS START
 AddMixinNetworkVars(FlagbearerMixin, networkVars)
+AddMixinNetworkVars(ExplosiveTraumaMixin, networkVars)
 -- SWS END
 
 function Skulk:OnCreate()
@@ -138,6 +140,7 @@ function Skulk:OnCreate()
     end
     
     -- SWS START
+    InitMixin(self, ExplosiveTraumaMixin)
     InitMixin(self, FlagbearerMixin)
 
     if Client then
