@@ -40,5 +40,6 @@ Script.Load("lua/SkulksWithShotguns/sws_AlienTeamInfo.lua")
 // Client Specific Stuff
 // loading it here, so we don't get strange precedence issues.
 if Client then
+    Script.Load("lua/SkulksWithShotguns/sws_Player_Client.lua")
     Script.Load("lua/SkulksWithShotguns/sws_ClientUI.lua")
 end

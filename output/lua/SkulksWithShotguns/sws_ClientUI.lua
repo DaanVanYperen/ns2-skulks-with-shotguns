@@ -6,6 +6,7 @@ local kShowOnTeam = GetLocalFunction(RemoveScripts, 'kShowOnTeam')
 // information not needed for our gamemode.
 kShowAsClass["Alien"].GUIBioMassDisplay = false
 kShowAsClass["Alien"].GUIUpgradeChamberDisplay = false
+kShowAsClass["Alien"].GUI = false
 
 kShowAsClass["Alien"]["GUIFlagScore"] = true
 kShowAsClass["AlienSpectator"]["GUIFlagScore"] = true
