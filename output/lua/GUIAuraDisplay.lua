@@ -129,6 +129,12 @@ function GUIAuraDisplay:Update(deltaTime)
         
         local worldPos = enemy:GetOrigin() + offset
         local screenPos = Client.WorldToScreen(worldPos)
+        
+        // hide when too close.
+        if ( (worldPos - eyePos):GetLength() < 2 ) then
+            icon:SetIsVisible(false)
+        end
+        
         local distanceFraction = (1 - Clamp((worldPos - eyePos):GetLength() / 30, 0, 0.75)) * 1.5
 
         local size = Vector(kIconSize.x, kIconSize.y, 0) * distanceFraction
