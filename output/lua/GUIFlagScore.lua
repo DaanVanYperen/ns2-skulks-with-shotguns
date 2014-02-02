@@ -10,7 +10,8 @@ local kCarrySize = GUIScale( Vector(200, 200, 0) )
 
 local kPadding = GUIScale(32)
 local kEggTopOffset = GUIScale(8)
-local kEggSideOffset = GUIScale(8)
+local kBarTopOffset = GUIScale(7)
+local kEggSideOffset = GUIScale(72)
 local kNameOffset = GUIScale(32)
 
 local kNoEggsColor = Color(1, 0, 0, 1)
@@ -105,25 +106,28 @@ end
 
 
 function GUIFlagScore:Initialize()
-/*
-    self.spawnText = GUIManager:CreateTextItem()
-    self.spawnText:SetFontName(kTextFontName)
-    self.spawnText:SetAnchor(GUIItem.Middle, GUIItem.Center)
-    self.spawnText:SetTextAlignmentX(GUIItem.Align_Center)
-    self.spawnText:SetTextAlignmentY(GUIItem.Align_Center)
-    self.spawnText:SetColor(kFontColor)
-    self.spawnText:SetPosition(kSpawnInOffset) */
     
     self.carryGorgeIcon = GUIManager:CreateGraphicItem()
     self.carryGorgeIcon:SetAnchor(GUIItem.Middle, GUIItem.Bottom)
     self.carryGorgeIcon:SetPosition(Vector(-kCarrySize.x/2,-kCarrySize.y*2, 0))
     self.carryGorgeIcon:SetTexture(kEggTexture)
     self.carryGorgeIcon:SetSize(kCarrySize)
+
+    self.pointsDash = GUIManager:CreateTextItem()
+    self.pointsDash:SetFontName(kTextFontName)
+    self.pointsDash:SetAnchor(GUIItem.Middle, GUIItem.Top)
+    self.pointsDash:SetPosition(Vector(0, kBarTopOffset + kEggSize.y / 2, 0))
+    self.pointsDash:SetTextAlignmentX(GUIItem.Align_Center)
+    self.pointsDash:SetTextAlignmentY(GUIItem.Align_Center)
+    self.pointsDash:SetColor(kFontColor)
+    self.pointsDash:SetScale(kFontScale)
+    self.pointsDash:SetFontName(kTextFontName)        
     
-    
+    ///////////////////
+        
     self.teamIcon = GUIManager:CreateGraphicItem()
-    self.teamIcon:SetAnchor(GUIItem.Left, GUIItem.Top)
-    self.teamIcon:SetPosition(Vector(kEggSideOffset, kEggTopOffset, 0))
+    self.teamIcon:SetAnchor(GUIItem.Middle, GUIItem.Top)
+    self.teamIcon:SetPosition(Vector(-kEggSideOffset-kEggSize.x, kEggTopOffset, 0))
     self.teamIcon:SetTexture(kEggTexture)
     self.teamIcon:SetSize(kEggSize)
     
@@ -146,8 +150,8 @@ function GUIFlagScore:Initialize()
     self.teamCarrier = GUIManager:CreateTextItem()
     self.teamCarrier:SetFontName(kTextFontName)
     self.teamCarrier:SetAnchor(GUIItem.Right, GUIItem.Center)
-    self.teamCarrier:SetPosition(Vector(kPadding * 0.5, kNameOffset, 0))
-    self.teamCarrier:SetTextAlignmentX(GUIItem.Align_Min)
+    self.teamCarrier:SetPosition(Vector(-kPadding * 0.5 - kEggSize.x, 0, 0))
+    self.teamCarrier:SetTextAlignmentX(GUIItem.Align_Max)
     self.teamCarrier:SetTextAlignmentY(GUIItem.Align_Center)
     self.teamCarrier:SetColor(kFontColor)
     self.teamCarrier:SetScale(kFontScale)
@@ -158,8 +162,8 @@ function GUIFlagScore:Initialize()
     // ENEMY
     
     self.enemyTeamIcon = GUIManager:CreateGraphicItem()
-    self.enemyTeamIcon:SetAnchor(GUIItem.Right, GUIItem.Top)
-    self.enemyTeamIcon:SetPosition(Vector(-kEggSideOffset - kEggSize.x, kEggTopOffset, 0))
+    self.enemyTeamIcon:SetAnchor(GUIItem.Middle, GUIItem.Top)
+    self.enemyTeamIcon:SetPosition(Vector(kEggSideOffset, kEggTopOffset, 0))
     self.enemyTeamIcon:SetTexture(kEggTexture)
     self.enemyTeamIcon:SetSize(kEggSize)
     
@@ -182,8 +186,8 @@ function GUIFlagScore:Initialize()
     self.enemyTeamCarrier = GUIManager:CreateTextItem()
     self.enemyTeamCarrier:SetFontName(kTextFontName)
     self.enemyTeamCarrier:SetAnchor(GUIItem.Left, GUIItem.Center)
-    self.enemyTeamCarrier:SetPosition(Vector(-kPadding * 0.5, kNameOffset, 0))
-    self.enemyTeamCarrier:SetTextAlignmentX(GUIItem.Align_Max)
+    self.enemyTeamCarrier:SetPosition(Vector(kPadding * 0.5 + kEggSize.x, 0, 0))
+    self.enemyTeamCarrier:SetTextAlignmentX(GUIItem.Align_Min)
     self.enemyTeamCarrier:SetTextAlignmentY(GUIItem.Align_Center)
     self.enemyTeamCarrier:SetColor(kFontColor)
     self.enemyTeamCarrier:SetScale(kFontScale)
@@ -214,6 +218,9 @@ function GUIFlagScore:Uninitialize()
 
     GUI.DestroyItem(self.enemyTeamCarrier)
     self.enemyTeamCarrier = nil
+
+    GUI.DestroyItem(self.pointsDash)
+    self.pointsDash = nil
     
     eggCount = nil
     
@@ -231,6 +238,7 @@ function GUIFlagScore:Update(deltaTime)
     self.teamPoints:SetIsVisible(isVisible)
     self.teamCarrier:SetIsVisible(isVisible)
     self.teamIcon:SetIsVisible(isVisible)
+    self.pointsDash:SetIsVisible(isVisible)
         
     if player then
     
@@ -249,7 +257,7 @@ function GUIFlagScore:Update(deltaTime)
         
         local points = AlienUI_GetPoints( teamNumber )
 
-        self.teamPoints:SetText(string.format("x %s", ToString(points))) 
+        self.teamPoints:SetText(ToString(points)) 
         self.teamPoints:SetColor(myTeamColor)
         self.teamIcon:SetColor(myTeamColor)
 
@@ -262,9 +270,12 @@ function GUIFlagScore:Update(deltaTime)
         
         local enemyPoints = AlienUI_GetEnemyPoints( teamNumber )
 
-        self.enemyTeamPoints:SetText(string.format("x %s", ToString(enemyPoints)))           
+        self.enemyTeamPoints:SetText(ToString(enemyPoints))           
         self.enemyTeamPoints:SetColor(enemyTeamColor)
         self.enemyTeamIcon:SetColor(enemyTeamColor)
+        
+        self.pointsDash:SetText("-")
+        self.pointsDash:SetColor(kWhite)
 
         local enemyCarrier = AlienUI_GetEnemyCarrierName( teamNumber )
         self.enemyTeamCarrier:SetIsVisible(enemyCarrier ~= nil)
