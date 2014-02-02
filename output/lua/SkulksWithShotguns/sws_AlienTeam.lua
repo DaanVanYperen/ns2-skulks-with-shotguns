@@ -140,7 +140,9 @@ if Server then
             if flag:GetAngles() ~= nil then
                 flag:SetAngles(flagSpawnpoint:GetAngles())
             end        
-        
+            
+            self:PlayPrivateTeamSound(kSfxGorgeReturn)
+            GetEnemyTeam(self):PlayPrivateTeamSound(kSfxGorgeReturn)
         end
         
     end

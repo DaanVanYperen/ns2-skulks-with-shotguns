@@ -213,6 +213,8 @@ function Flag:OnDrop()
 
         if not self:GetIsDestroyed() then
             self:Yell()
+            self:GetTeam():PlayPrivateTeamSound(kSfxGorgeDrop)
+            GetEnemyTeam(self:GetTeam()):PlayPrivateTeamSound(kSfxGorgeDrop)
 
             self.active = false
 
