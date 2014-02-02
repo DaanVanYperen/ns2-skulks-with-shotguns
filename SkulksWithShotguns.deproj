@@ -7,6 +7,9 @@
     <filename>output\lua\DeathTrigger.lua</filename>
   </file>
   <file>
+    <filename>output\lua\GUIAlienHUD.lua</filename>
+  </file>
+  <file>
     <filename>output\lua\GUIAuraDisplay.lua</filename>
   </file>
   <file>
@@ -14,6 +17,9 @@
   </file>
   <file>
     <filename>output\lua\GUIFlagScore.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\GUISpeedometer.lua</filename>
   </file>
   <file>
     <filename>output\lua\NS2ConsoleCommands_Server.lua</filename>
@@ -59,6 +65,9 @@
   </file>
   <file>
     <filename>output\lua\SkulksWithShotguns\sws_EventMessenger.lua</filename>
+  </file>
+  <file>
+    <filename>output\lua\SkulksWithShotguns\sws_ExplosiveTraumaMixin.lua</filename>
   </file>
   <file>
     <filename>output\lua\SkulksWithShotguns\sws_FireMixin.lua</filename>
