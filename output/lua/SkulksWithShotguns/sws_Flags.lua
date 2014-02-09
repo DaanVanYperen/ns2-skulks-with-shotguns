@@ -313,7 +313,7 @@ if Server then
         self:SetDetected(true)
     
         self.lastPickupUpdateTime = self.lastPickupUpdateTime or now
-        if now - self.lastPickupUpdateTime >= 0.5 then
+        if now - self.lastPickupUpdateTime >= (1/30) then
             CheckAllEntsInRangePickupFlag(self)
             self.lastPickupUpdateTime = now
         end
