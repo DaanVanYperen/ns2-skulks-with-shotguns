@@ -146,8 +146,13 @@ if (Server) then
 
         if self:GetGameState() == kGameState.PreGame then
            
-                self.team1:PlayPrivateTeamSound(ConditionalValue(self.team1:GetTeamType() == kAlienTeamType, NS2Gamerules.kAlienStartSound, NS2Gamerules.kMarineStartSound))
-                self.team2:PlayPrivateTeamSound(ConditionalValue(self.team2:GetTeamType() == kAlienTeamType, NS2Gamerules.kAlienStartSound, NS2Gamerules.kMarineStartSound))
+                if kTeamModeEnabled then
+                    self.team1:PlayPrivateTeamSound(kSfxCaptureStart)
+                    self.team2:PlayPrivateTeamSound(kSfxCaptureStart)                                        
+                else
+                    self.team1:PlayPrivateTeamSound(kSfxDeathmatchStart)
+                    self.team2:PlayPrivateTeamSound(kSfxDeathmatchStart)                                        
+                end
                 
                 ResetPlayerScores()
                 self:SetGameState(kGameState.Started)
