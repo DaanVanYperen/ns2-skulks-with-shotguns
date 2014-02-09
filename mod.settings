@@ -15,6 +15,16 @@ cb11261 ns2_sws_refinery
 cfffdc2 ns2_sws_eden
 cb225ba ns2_sws_metro
 
+v0.0.15 [Alpha]
++ Skulks that die from massive trauma (high pellet hits) explode.
++ Cleaned up HUD by removing res indicators.
++  Improved readability of CTF score display.
++ Gorge aura icon invisible for flag carrier.
++ Added sound effects for dropping and returning gorges, and obtaining skill upgrades.
+
+v0.0.14.2 [Alpha]
++ Fix to improve compatibility with other mods (like Shine). Thanks Ghoul for helping us out!
+
 v0.0.14.2 [Alpha]
 + Fix to improve compatibility with other mods (like Shine). Thanks Ghoul for helping us out!
 

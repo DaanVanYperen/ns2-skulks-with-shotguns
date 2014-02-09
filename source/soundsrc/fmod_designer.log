@@ -1,0 +1,367 @@
+Warning: QPainter::begin: Paint device returned engine == 0, type: 1
+Warning: QPainter::setPen: Painter not active
+Warning: QPainter::setBrush: Painter not active
+Warning: QPainter::setRenderHint: Painter must be active to set rendering hints
+Warning: QPainter::setPen: Painter not active
+Debug: "02:23:07 c:\anthill_jobs\job545662\fmod4\tools\fmod_designer\src\mainform.ui.h:748 DY: Create Events" 
+Debug: "02:23:19 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "02:23:23 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "02:23:26 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:40 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:41 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:41 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:41 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:41 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:47 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:47 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:47 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:48 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:48 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:48 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:48 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:48 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:48 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:48 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:48 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:48 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
+Debug: "02:23:59 ..\..\src\propertyslider.cpp:315 EV: Set Pitch" 
+Debug: "02:24:00 ..\..\src\propertyslider.cpp:315 EV: Set Pitch" 
+Debug: "02:24:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch" 
+Debug: "02:24:06 ..\..\src\propertyslider.cpp:315 EV: Set Pitch" 
+Debug: "02:24:06 ..\..\src\propertyslider.cpp:315 EV: Set Pitch" 
+Debug: "02:24:06 ..\..\src\propertyslider.cpp:315 EV: Set Pitch" 
+Debug: "02:24:07 ..\..\src\propertyslider.cpp:315 EV: Set Pitch" 
+Debug: "02:24:12 ..\..\src\propertyeditor.cpp:2619 EO: Set Pitch" 
+Debug: "02:25:08 c:\anthill_jobs\job545662\fmod4\tools\fmod_designer\src\eventform.ui.h:1983 CG: Paste Event" 
+Debug: "02:25:16 ..\..\src\propertyeditor.cpp:1865 GU: Set Category" 
+Debug: "02:25:20 ..\..\src\propertyeditor.cpp:1865 GU: Set Category" 
+Debug: "02:25:23 ..\..\src\propertyeditor.cpp:1865 GU: Set Category" 
+Debug: "02:25:29 ..\..\src\propertyeditor.cpp:1865 GU: Set Category" 
+Debug: "02:25:39 ..\..\src\propertyeditor.cpp:1508 EM: Set Name" 
+Debug: "02:25:47 ..\..\src\eventlistview.cpp:451 CB: Move Event to Group" 
+Debug: "02:25:53 ..\..\src\propertyeditor.cpp:2619 EO: Set Pitch" 
+Debug: "02:25:59 ..\..\src\propertyeditor.cpp:2619 EO: Set Pitch" 
+Debug: "02:26:07 c:\anthill_jobs\job545662\fmod4\tools\fmod_designer\src\eventform.ui.h:1983 CG: Paste Event" 
+Debug: "02:26:09 ..\..\src\eventlistview.cpp:451 CB: Move Event to Group" 
+Debug: "02:26:11 ..\..\src\propertyeditor.cpp:1508 EM: Set Name" 
+Debug: "02:26:14 ..\..\src\propertyeditor.cpp:2619 EO: Set Pitch" 
+Debug: "02:26:18 c:\anthill_jobs\job545662\fmod4\tools\fmod_designer\src\eventform.ui.h:1983 CG: Paste Event" 
+Debug: "02:26:19 ..\..\src\eventlistview.cpp:451 CB: Move Event to Group" 
+Debug: "02:26:22 ..\..\src\propertyeditor.cpp:1508 EM: Set Name" 
+Debug: "02:26:24 ..\..\src\propertyeditor.cpp:2619 EO: Set Pitch" 
+Debug: "02:26:38 ..\..\src\propertyeditor.cpp:2619 EO: Set Pitch" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:26:57 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:02 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:03 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Wet Level" 
+Debug: "02:27:06 ..\..\src\propertyeditor.cpp:2619 EO: Set Reverb Wet Level" 
+Debug: "02:27:08 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:08 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:08 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:08 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:08 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:13 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: "02:27:14 ..\..\src\propertyslider.cpp:315 EV: Set Reverb Dry Level" 
+Debug: 
+Cleaning project 'sws2'...
+Debug: Deleting file E:\projects\mods\SkulksWithShotgunsMod\source\soundsrc\sws2.fev...
+Debug: Deleting file E:\projects\mods\SkulksWithShotgunsMod\source\soundsrc\sws2_common.fsb...
+Debug: Done.
+Debug: 
+Building project 'sws2'...
+Debug: Building project E:\projects\mods\SkulksWithShotgunsMod\source\soundsrc\sws2.fev...
+Debug: Unique sound defs 1/12
+Debug: Retrieving sound file info...
+Debug: Retrieving reverb info...
+Debug: FEV file written ok
+Debug: Unique Envelope Points: 0 of 0
+Debug: Unique Strings: 656 characters of 656
+Debug: Caching sound file details for ''...
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_scores.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_wins.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_drop.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_return.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_kill.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_our.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_their.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_scores.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_wins.mp3
+Debug: Building 'sws2_common.fsb'
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_wins.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_scores.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_drop.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_kill.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_return.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_our.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_their.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_scores.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_wins.mp3
+Debug: Writing FSB...
+Debug: Finished building FSB
+Debug: 
+Debug: 
+Summary of build:
+SUCCESS: E:/projects/mods/SkulksWithShotgunsMod/source/soundsrc/sws2.fev
+SUCCESS: sws2_common.fsb
+Debug: "02:48:32 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "02:48:35 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "02:48:38 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "02:48:43 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "02:49:16 c:\anthill_jobs\job545662\fmod4\tools\fmod_designer\src\mainform.ui.h:1531 EA: Apply Templates Changes" 
+Debug: MainForm::slotApplyTemplate start
+Debug: MainForm::slotApplyTemplate end
+Debug: "02:49:19 c:\anthill_jobs\job545662\fmod4\tools\fmod_designer\src\mainform.ui.h:1531 EA: Apply Templates Changes" 
+Debug: MainForm::slotApplyTemplate start
+Debug: MainForm::slotApplyTemplate end
+Debug: 
+Cleaning project 'sws2'...
+Debug: Deleting file E:\projects\mods\SkulksWithShotgunsMod\source\soundsrc\sws2.fev...
+Debug: Deleting file E:\projects\mods\SkulksWithShotgunsMod\source\soundsrc\sws2_common.fsb...
+Debug: Done.
+Debug: 
+Building project 'sws2'...
+Debug: Building project E:\projects\mods\SkulksWithShotgunsMod\source\soundsrc\sws2.fev...
+Debug: Unique sound defs 1/12
+Debug: Retrieving sound file info...
+Debug: Retrieving reverb info...
+Debug: FEV file written ok
+Debug: Unique Envelope Points: 0 of 0
+Debug: Unique Strings: 656 characters of 656
+Debug: Caching sound file details for ''...
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_scores.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_wins.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_drop.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_return.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_kill.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_our.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_their.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_scores.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_wins.mp3
+Debug: Building 'sws2_common.fsb'
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_scores.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_wins.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_drop.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_kill.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_return.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_our.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_their.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_scores.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_wins.mp3
+Debug: Writing FSB...
+Debug: Finished building FSB
+Debug: 
+Debug: 
+Summary of build:
+SUCCESS: E:/projects/mods/SkulksWithShotgunsMod/source/soundsrc/sws2.fev
+SUCCESS: sws2_common.fsb
+Debug: "02:56:02 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "02:56:05 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "02:56:08 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "02:56:11 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "02:56:35 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
+Debug: "02:56:35 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
+Debug: "02:56:39 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
+Debug: "02:56:40 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
+Debug: "02:56:42 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
+Debug: "02:56:42 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
+Debug: "02:56:46 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
+Debug: "02:56:46 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
+Debug: "02:56:51 ..\..\src\propertyeditor.cpp:3444 EQ: Set Priority" 
+Debug: "02:56:51 ..\..\src\propertyeditor.cpp:3444 EQ: Set Priority" 
+Debug: "02:57:41 c:\anthill_jobs\job545662\fmod4\tools\fmod_designer\src\mainform.ui.h:1531 EA: Apply Templates Changes" 
+Debug: MainForm::slotApplyTemplate start
+Debug: MainForm::slotApplyTemplate end
+Debug: 
+Cleaning project 'sws2'...
+Debug: Deleting file E:\projects\mods\SkulksWithShotgunsMod\source\soundsrc\sws2.fev...
+Debug: Deleting file E:\projects\mods\SkulksWithShotgunsMod\source\soundsrc\sws2_common.fsb...
+Debug: Done.
+Debug: 
+Building project 'sws2'...
+Debug: Building project E:\projects\mods\SkulksWithShotgunsMod\source\soundsrc\sws2.fev...
+Debug: Unique sound defs 1/12
+Debug: Retrieving sound file info...
+Debug: Retrieving reverb info...
+Debug: FEV file written ok
+Debug: Unique Envelope Points: 0 of 0
+Debug: Unique Strings: 656 characters of 656
+Debug: Caching sound file details for ''...
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_scores.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_wins.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_drop.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_return.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_kill.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_our.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_their.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_scores.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_wins.mp3
+Debug: Building 'sws2_common.fsb'
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_scores.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_wins.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_drop.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_return.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_kill.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_our.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_scores.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_wins.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_their.mp3
+Debug: Writing FSB...
+Debug: Finished building FSB
+Debug: 
+Debug: 
+Summary of build:
+SUCCESS: E:/projects/mods/SkulksWithShotgunsMod/source/soundsrc/sws2.fev
+SUCCESS: sws2_common.fsb
+Debug: 
+Building project 'sws2'...
+Debug: Building project E:\projects\mods\SkulksWithShotgunsMod\source\soundsrc\sws2.fev...
+Debug: Unique sound defs 1/12
+Debug: Retrieving sound file info...
+Debug: Retrieving reverb info...
+Debug: FEV file written ok
+Debug: Unique Envelope Points: 0 of 0
+Debug: Unique Strings: 656 characters of 656
+Debug: Caching sound file details for ''...
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_scores.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_wins.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_drop.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_return.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_kill.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_our.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_their.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_scores.mp3
+Debug: ..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_wins.mp3
+Debug: Building 'sws2_common.fsb'
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_scores.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\blue_wins.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_drop.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_kill.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\fx_gorge_return.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_our.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\gorge_stolen_their.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_scores.mp3
+Debug: Encoded E:\games\steam\SteamApps\common\Natural Selection 2\assets\soundsrc\..\..\..\..\..\..\..\projects\mods\skulkswithshotgunsmod\source\soundsrc\red_wins.mp3
+Debug: Writing FSB...
+Debug: Finished building FSB
+Debug: 
+Debug: 
+Summary of build:
+SUCCESS: E:/projects/mods/SkulksWithShotgunsMod/source/soundsrc/sws2.fev
+SUCCESS: sws2_common.fsb
