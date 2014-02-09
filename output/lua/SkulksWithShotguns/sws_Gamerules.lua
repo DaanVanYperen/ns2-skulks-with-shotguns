@@ -32,9 +32,8 @@ if (Server) then
     function NS2Gamerules:ScorePoint( entity )
         entity:GetTeam().points = entity:GetTeam().points + 1
         RewardOnFireEffect(entity)
-        if entity and entity:isa("Player") and HasMixin(entity, "Scoring") then
-            entity:AddScore(25, 0)
-        end
+        entity:GetTeam():TeamRewardPoints( kScorePointsTeamCapture )
+        rewardPoints(entity, kScorePointsCapture)
     end
     
     

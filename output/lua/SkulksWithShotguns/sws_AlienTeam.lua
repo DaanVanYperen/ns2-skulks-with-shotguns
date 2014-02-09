@@ -56,6 +56,20 @@ if Server then
         end
     end
     
+    /** 
+ * Play sound for every player on the team.
+ */
+function AlienTeam:TeamRewardPoints( points )
+
+    local function Payout(player)
+       rewardPoints(player, points )
+    end
+    
+    self:ForEachPlayer(Payout)
+    
+end
+
+    
     function AlienTeam:GetFlagSpawnLocation()
         if self:GetTeamNumber() == kVanillaTeamIndex then
             return Server.vanillaFlagSpawn

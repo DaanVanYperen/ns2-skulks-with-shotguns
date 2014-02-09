@@ -16,6 +16,7 @@ Script.Load("lua/SkulksWithShotguns/sws_TeamMixin.lua")
 Script.Load("lua/SkulksWithShotguns/sws_ScoringMixin.lua")
 Script.Load("lua/SkulksWithShotguns/sws_LeapMixin.lua")
 Script.Load("lua/SkulksWithShotguns/sws_FireMixin.lua")
+Script.Load("lua/SkulksWithShotguns/sws_PointGiverMixin.lua")
 
 // New Mixins
 Script.Load("lua/SkulksWithShotguns/sws_FlagbearerMixin.lua")

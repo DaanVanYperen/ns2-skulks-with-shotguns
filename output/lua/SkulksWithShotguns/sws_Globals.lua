@@ -11,6 +11,14 @@ kTeam2Name = "Red"
 kShadowTeamIndex = kTeam1Index
 kVanillaTeamIndex = kTeam2Index
 
+
+// Personal points awarded for actions.
+kScorePointsCapture = 75
+kScorePointsKillGorgeCarrier = 10
+kScorePointsRecoverGorge = 10
+kScorePointsTeamCapture = 25
+
+// Team captures required for win
 kCaptureWinPoints = 5
 
 // Speed factor of shotgun skulks while carrying gorge (flag).
@@ -59,3 +67,9 @@ function BuildClassToGrid()
     
     return result
 end 
+
+function rewardPoints( entity, score )
+    if entity and entity:isa("Player") and HasMixin(entity, "Scoring") then
+        entity:AddScore(score, 0)
+    end
+end

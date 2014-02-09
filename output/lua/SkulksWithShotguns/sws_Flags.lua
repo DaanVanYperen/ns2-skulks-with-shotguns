@@ -79,6 +79,7 @@ function Flag:OnCreate()
     end
 end 
 
+
 // entity pickup self
 local function Pickup(self, entity)
 
@@ -119,6 +120,7 @@ local function Pickup(self, entity)
                 // team recovered gorge
                 SendEventMessage(self:GetTeam(), kEventMessageTypes.TeamRecoveredGorge, entity:GetClientIndex())
                 SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.EnemyRecoveredGorge, entity:GetClientIndex())
+                rewardPoints(entity, kScorePointsRecoverGorge)
             
                 self.offBase = false
                 DestroyEntity(self)
