@@ -15,6 +15,14 @@ cb11261 ns2_sws_refinery
 cfffdc2 ns2_sws_eden
 cb225ba ns2_sws_metro
 
+v0.0.17 [Alpha]
++ Fixes for 263 (DROPSHIP)
+
+v0.0.16 [Alpha]
++ Game announcer voice for CTG and deathmatch game start.
++ Point system for Capture the Gorge revised.
++ Gorges can be picked up more easily at higher speeds.
+
 v0.0.15 [Alpha]
 + Skulks that die from massive trauma (high pellet hits) explode.
 + Cleaned up HUD by removing res indicators.
