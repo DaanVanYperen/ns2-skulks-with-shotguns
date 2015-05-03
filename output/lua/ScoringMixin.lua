@@ -89,7 +89,10 @@ if Server then
         self.commanderTime = player.commanderTime or 0
         self.marineTime = player.marineTime or 0
         self.alienTime = player.alienTime or 0
-        
+        self.entranceTime = player.entranceTime
+        self.exitTime = player.exitTime
+		
+		self.teamAtEntrance = player.teamAtEntrance
         self.totalKills = player.totalKills
         self.totalAssists = player.totalAssists
         self.totalDeaths = player.totalDeaths
@@ -120,7 +123,7 @@ if Server then
         return self.commanderTime
     end
     
-    function SharedUpdate(self, deltaTime)
+    local function SharedUpdate(self, deltaTime)
     
         if not self.commanderTime then
             self.commanderTime = 0
@@ -183,16 +186,12 @@ function ScoringMixin:AddKill()
     // Skulks With Shotguns: reward kills.
     self:rewardKill()
 
-
     if self.clientIndex and self.clientIndex > 0 then
         if not gSessionKills[self.clientIndex] then
             gSessionKills[self.clientIndex] = 0
         end
         gSessionKills[self.clientIndex] = gSessionKills[self.clientIndex] + 1
     end
-
-
-
 
 end
 
@@ -234,6 +233,31 @@ function ScoringMixin:AddDeaths()
     
 end
 
+function ScoringMixin:SetEntranceTime()
+	local teamNumber = self:GetTeamNumber()
+	
+	if teamNumber ~= self.teamAtEntrance then
+		self.entranceTime = Shared.GetTime()
+		self.teamAtEntrance = teamNumber
+	end
+end
+
+function ScoringMixin:GetEntranceTime()
+    return self.entranceTime
+end
+
+function ScoringMixin:SetExitTime()
+    self.exitTime = Shared.GetTime()
+end
+
+function ScoringMixin:GetExitTime()
+    if not self.exitTime or self.entranceTime > self.exitTime then 
+        return
+    end
+    
+    return self.exitTime
+end
+
 function ScoringMixin:ResetScores()
 
     self.score = 0
@@ -247,6 +271,9 @@ function ScoringMixin:ResetScores()
     self.marineTime = 0
     self.alienTime = 0
 
+    self.entranceTime = Shared.GetTime()
+    self.exitTime = nil
+    
 end
 
 // Only award the pointsGivenOnScore once the amountNeededToScore are added into the score
