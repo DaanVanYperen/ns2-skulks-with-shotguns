@@ -175,6 +175,10 @@ if (Server) then
     
         return numPlayers
     end
+    
+    function NS2Gamerules:GetGameLengthTime()  
+       return math.max( 0, math.floor( Shared.GetTime() ) - self.gameInfo:GetStartTime() )
+    end
    
     function NS2Gamerules:CheckGameEnd()
     
@@ -185,6 +189,25 @@ if (Server) then
                 // no more living players on team, and out of spawns? game lost/deathmatch over!
                 local team1Won = (self.team1:GetPoints() >= kCaptureWinPoints)
                 local team2Won = (self.team2:GetPoints() >= kCaptureWinPoints)
+                
+                // time based mode.
+                if kTeamModeTimelimit > 0 then
+                
+                    if self:GetGameLengthTime() >= kTeamModeTimelimit then                    
+                        team1Won = self.team1:GetPoints() > self.team2:GetPoints()
+                        team2Won = self.team1:GetPoints() < self.team2:GetPoints()
+                    
+                        // draw condition.
+                        if (team1Won == false) and (team2Won == false) then 
+                            Shared:ShotgunMessage("Neither Team Wins!")
+                            self:DrawGame()
+                        end
+                    else 
+                        // timer still ticking.
+                        team1Won = false
+                        team2Won = false
+                    end
+                end
             
                 if team1Won then
                     Shared:ShotgunMessage("Blue Team Wins!")

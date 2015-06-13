@@ -66,3 +66,9 @@ function GetLoadSpecial(mapName, groupName, values)
     return success
     
 end
+
+
+local function Roundtime(client, minutes)
+    kTeamModeTimelimit = minutes * 60
+end
+CreateServerAdminCommand("Console_sv_roundtime", Roundtime, "<minutes>, Capture the gorge round time in minutes, or 0 to disable.")
