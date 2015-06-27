@@ -316,12 +316,19 @@ function GUIFlagScore:Update(deltaTime)
         
         self.timeRemaining:SetColor(kWhite)
         
-        // blinking!
-        if minutes == 0 and seconds % 2 == 1 then 
-            self.timeRemaining:SetColor(kRedColor)
+        if hours == 0 and minutes == 0 then         
+
+            // blinking!
+            if seconds % 2 == 1  then
+                self.timeRemaining:SetColor(kRedColor)
+            end
+
+            // hide if no timer active (or ran out).
+            if seconds == 0 then 
+                self.timeRemaining:SetIsVisible(false)
+            end     
         end
-
-
+    
         local enemyCarrier = AlienUI_GetEnemyCarrierName( teamNumber )
         self.enemyTeamCarrier:SetIsVisible(enemyCarrier ~= nil)
         if enemyCarrier ~= nil then
