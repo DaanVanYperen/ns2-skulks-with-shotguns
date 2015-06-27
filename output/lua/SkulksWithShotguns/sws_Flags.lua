@@ -271,6 +271,22 @@ end
         return self.lastTimeYelled
     end
 
+    function Flag:OnAdjustModelCoords(coords)
+    
+        local scale = 0.5
+        
+        if self:GetParent() == nil then
+          scale = 1
+        end
+    
+        coords.xAxis = coords.xAxis * scale
+        coords.yAxis = coords.yAxis * scale
+        coords.zAxis = coords.zAxis * scale
+        
+        return coords
+    
+    end
+
 
 if Server then 
 
@@ -285,6 +301,7 @@ if Server then
         return true
     end
     
+       
     function Flag:DetachReset()
         if self:GetParent() ~= nil then
             //self:GetParent():DetachAll()   
