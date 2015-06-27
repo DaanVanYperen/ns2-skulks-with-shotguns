@@ -177,7 +177,7 @@ if (Server) then
     end
     
     function NS2Gamerules:GetGameLengthTime()  
-       return math.max( 0, math.floor( Shared.GetTime() ) - self.gameInfo:GetStartTime() )
+       return math.max( 0, (math.floor( Shared.GetTime() ) - self.gameInfo:GetStartTime()) )
     end
    
     function NS2Gamerules:CheckGameEnd()

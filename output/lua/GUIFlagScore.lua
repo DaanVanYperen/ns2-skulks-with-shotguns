@@ -25,6 +25,19 @@ local kEggTexture = "ui/Gorge.dds"
 
 local kSpawnInOffset = GUIScale(Vector(0, -125, 0))
 
+function AlienUI_GetSecondsRemaining( teamNumber )
+
+    local points = 0
+
+        local teamInfo = GetTeamInfoEntity(teamNumber)
+        if teamInfo then
+            points = teamInfo:GetSecondsRemaining()
+        end
+    
+    return points
+        
+end
+
 function AlienUI_GetPoints( teamNumber )
 
     local points = 0
@@ -122,6 +135,16 @@ function GUIFlagScore:Initialize()
     self.pointsDash:SetColor(kFontColor)
     self.pointsDash:SetScale(kFontScale)
     self.pointsDash:SetFontName(kTextFontName)        
+    
+    self.timeRemaining = GUIManager:CreateTextItem()
+    self.timeRemaining:SetFontName(kTextFontName)
+    self.timeRemaining:SetAnchor(GUIItem.Middle, GUIItem.Top)
+    self.timeRemaining:SetPosition(Vector(0, kBarTopOffset + kEggSize.y, 0))
+    self.timeRemaining:SetTextAlignmentX(GUIItem.Align_Center)
+    self.timeRemaining:SetTextAlignmentY(GUIItem.Align_Center)
+    self.timeRemaining:SetColor(kFontColor)
+    self.timeRemaining:SetScale(kFontScale)
+    self.timeRemaining:SetFontName(kTextFontName)        
     
     ///////////////////
         
@@ -222,6 +245,9 @@ function GUIFlagScore:Uninitialize()
     GUI.DestroyItem(self.pointsDash)
     self.pointsDash = nil
     
+    GUI.DestroyItem(self.timeRemaining)
+    self.timeRemaining = nil
+    
     eggCount = nil
     
 end
@@ -239,6 +265,7 @@ function GUIFlagScore:Update(deltaTime)
     self.teamCarrier:SetIsVisible(isVisible)
     self.teamIcon:SetIsVisible(isVisible)
     self.pointsDash:SetIsVisible(isVisible)
+    self.timeRemaining:SetIsVisible(isVisible)
         
     if player then
     
@@ -251,7 +278,7 @@ function GUIFlagScore:Update(deltaTime)
             myTeamColor = kRedColor
             enemyTeamColor = kBlueColor
         end
-
+        
         self.carryGorgeIcon:SetIsVisible(AlienUI_GetIsCarrier(teamNumber))
         self.carryGorgeIcon:SetColor(enemyTeamColor)    
         
@@ -276,6 +303,18 @@ function GUIFlagScore:Update(deltaTime)
         
         self.pointsDash:SetText("-")
         self.pointsDash:SetColor(kWhite)
+
+        local seconds = math.round(AlienUI_GetSecondsRemaining( teamNumber ))
+        local minutes = math.floor(seconds / 60)
+        local hours = math.floor(minutes / 60)
+        minutes = minutes - hours * 60
+        seconds = seconds - minutes * 60 - hours * 3600
+    
+        local gameTimeText = string.format("%d:%02d", minutes, seconds)
+
+        self.timeRemaining:SetText(gameTimeText)
+        self.timeRemaining:SetColor(kWhite)
+
 
         local enemyCarrier = AlienUI_GetEnemyCarrierName( teamNumber )
         self.enemyTeamCarrier:SetIsVisible(enemyCarrier ~= nil)

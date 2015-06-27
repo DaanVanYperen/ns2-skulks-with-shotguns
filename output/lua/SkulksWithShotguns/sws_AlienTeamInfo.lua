@@ -11,6 +11,7 @@
 // ========= For more information, visit us at http://www.unknownworlds.com =====================
 
 Script.Load("lua/TeamInfo.lua")
+Script.Load("lua/NS2Utility.lua")
 
 class 'ShotgunAlienTeamInfo' (AlienTeamInfo)
 
@@ -21,6 +22,7 @@ local networkVars =
     points = "integer (0 to 99)",
     enemyPoints = "integer (0 to 99)",
     carrierId = "integer",
+    secondsRemaining = "integer",
     enemyCarrierId = "integer",
     teamMode = "boolean"
 }
@@ -31,6 +33,7 @@ function ShotgunAlienTeamInfo:OnCreate()
 
     self.points = 0
     self.enemyPoints = 0
+    self.secondsRemaining = 0
     self.teamMode = kTeamModeEnabled
     self.carrierId = nil
     self.enemyCarrierId = nil
@@ -42,6 +45,7 @@ function ShotgunAlienTeamInfo:Reset()
         AlienTeamInfo.Reset(self)
         self.points = 0
         self.enemyPoints = 0
+        self.secondsRemaining = 0
         self.carrierId = nil
         self.enemyCarrierId = nil
         self.teamMode = kTeamModeEnabled
@@ -71,6 +75,7 @@ function ShotgunAlienTeamInfo:OnUpdate(deltaTime)
         self.enemyPoints = GetEnemyTeam(team).points or 0
         self.eggCount    = team:GetTeamResources() // We work with teamres instead.
         self.teamMode    = kTeamModeEnabled
+        self.secondsRemaining = math.max( 0, kTeamModeTimelimit - (math.floor( Shared.GetTime() ) - GetGameInfoEntity():GetStartTime()) )
         
         self.carrierId      = GetFlagCarrierFor(team)
         self.enemyCarrierId = GetFlagCarrierFor(GetEnemyTeam(team))
@@ -84,6 +89,10 @@ end
 
 function AlienTeamInfo:GetPoints()
     return self.points
+end
+
+function ShotgunAlienTeamInfo:GetSecondsRemaining()
+    return self.secondsRemaining
 end
 
 function AlienTeamInfo:GetEnemyPoints()

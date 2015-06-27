@@ -30,7 +30,7 @@ kFlagFloorTimeout = 45
 
 // SWS team mode.
 kTeamModeEnabled = false
-kTeamModeTimelimit = 0 
+kTeamModeTimelimit = 10 * 60 
 
 // Tweak egg spawns.
 kAlienEggsPerHive = 5
