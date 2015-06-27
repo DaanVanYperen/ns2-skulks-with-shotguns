@@ -17,7 +17,6 @@ local kIconTextureAlien = "ui/alien_commander_textures.dds"
 local kIconTextureMarine = "ui/marine_commander_textures.dds"
 local kTeamResourceIconCoords = {192, 363, 240, 411}
 local kResourceTowerIconCoords = {240, 363, 280, 411}
-local kBiomassIconCoords = GetTextureCoordinatesForIcon(kTechId.Biomass)
 local kBuildMenuTexture = "ui/buildmenu.dds"
 
 local kTimeFontName = Fonts.kAgencyFB_Medium
@@ -54,14 +53,11 @@ local alienTeamScore
 
 local marineNameBackground
 local marineTeamName
-local marineResources
 local marineExtractors
 
 local alienNameBackground
 local alienTeamName
-local alienResources
 local alienHarvesters
-local alienBiomass
 
 local function CreateIconTextItem(team, parent, position, texture, coords)
 
@@ -80,7 +76,9 @@ local function CreateIconTextItem(team, parent, position, texture, coords)
     icon:SetAnchor(GUIItem.Left, GUIItem.Top)
     icon:SetPosition(position)
     icon:SetTexture(texture)
-    icon:SetTexturePixelCoordinates(unpack(coords))
+    if coords ~= nil then
+        icon:SetTexturePixelCoordinates(unpack(coords))
+    end
     background:AddChild(icon)
     
     local value = GUIManager:CreateTextItem()
@@ -126,15 +124,7 @@ local function GetTeamInfoStrings(teamInfo)
     
 end
 
-local function GetBioMassString(teamInfo)
-
-    if teamInfo.GetBioMassLevel then
-        return string.format("%d / 12", teamInfo:GetBioMassLevel())
-    end
-    
-    return ""
-
-end
+local kEggTexture = "ui/Gorge.dds"
 
 function GUIInsight_TopBar:Initialize()
 
@@ -215,12 +205,9 @@ function GUIInsight_TopBar:Initialize()
     scoresBackground:AddChild(alienTeamName)
     
     local yoffset = GUIScale(4)
-    marineResources = CreateIconTextItem(kTeam1Index, background, Vector(GUIScale(130),yoffset,0), kIconTextureMarine, kTeamResourceIconCoords)
-    marineExtractors = CreateIconTextItem(kTeam1Index, background, Vector(GUIScale(50),yoffset,0), kIconTextureMarine, kResourceTowerIconCoords)
+    marineExtractors = CreateIconTextItem(kTeam1Index, background, Vector(GUIScale(90),yoffset,0), kEggTexture, nil)
 
-    alienResources = CreateIconTextItem(kTeam2Index, background, Vector(-GUIScale(195),yoffset,0), kIconTextureAlien, kTeamResourceIconCoords)
-    alienHarvesters = CreateIconTextItem(kTeam2Index, background, Vector(-GUIScale(115),yoffset,0), kIconTextureAlien, kResourceTowerIconCoords)
-    alienBiomass = CreateIconTextItem(kTeam2Index, background, Vector(-GUIScale(5),yoffset,0), kBuildMenuTexture, kBiomassIconCoords)
+    alienHarvesters = CreateIconTextItem(kTeam2Index, background, Vector(-GUIScale(155),yoffset,0), kEggTexture, nil)
     
     teamsSwapButton = CreateButtonItem(scoresBackground, kButtonOffset, Color(1,1,1,0.5))
     teamsSwapButton:SetAnchor(GUIItem.Middle, GUIItem.Center)
@@ -307,6 +294,19 @@ function GUIInsight_TopBar:SendKeyEvent(key, down)
 
 end
 
+function PlayerUI_GetPoints( teamNumber )
+
+    local points = 0
+
+        local teamInfo = GetTeamInfoEntity(teamNumber)
+        if teamInfo then
+            points = teamInfo:GetPoints()
+        end
+    
+    return points
+    
+end
+
 
 function PlayerUI_GetSecondsRemaining()
 
@@ -346,27 +346,8 @@ function GUIInsight_TopBar:Update(deltaTime)
 
     gameTime:SetText(gameTimeText)
     
-    local resString
-    local rtString
-    
-    local marineTeamInfo = GetTeamInfoEntity(kTeam1Index)
-    if marineTeamInfo then
-    
-        resString, rtString = GetTeamInfoStrings(marineTeamInfo)
-        marineResources:SetText(resString)
-        marineExtractors:SetText(rtString)
-        
-    end
-
-    local alienTeamInfo = GetTeamInfoEntity(kTeam2Index)
-    if alienTeamInfo then
-    
-        resString, rtString = GetTeamInfoStrings(alienTeamInfo)
-        alienResources:SetText(resString)
-        alienHarvesters:SetText(rtString)
-        alienBiomass:SetText(GetBioMassString(alienTeamInfo))
-        
-    end
+    marineExtractors:SetText(ToString(PlayerUI_GetPoints(kTeam1Index)))
+    alienHarvesters:SetText(ToString(PlayerUI_GetPoints(kTeam2Index)))
 
     local cursor = MouseTracker_GetCursorPos()
     local inBackground, posX, posY = GUIItemContainsPoint(scoresBackground, cursor.x, cursor.y)
