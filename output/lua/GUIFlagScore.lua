@@ -313,7 +313,13 @@ function GUIFlagScore:Update(deltaTime)
         local gameTimeText = string.format("%d:%02d", minutes, seconds)
 
         self.timeRemaining:SetText(gameTimeText)
+        
         self.timeRemaining:SetColor(kWhite)
+        
+        // blinking!
+        if minutes == 0 and seconds % 2 == 1 then 
+            self.timeRemaining:SetColor(kRedColor)
+        end
 
 
         local enemyCarrier = AlienUI_GetEnemyCarrierName( teamNumber )
