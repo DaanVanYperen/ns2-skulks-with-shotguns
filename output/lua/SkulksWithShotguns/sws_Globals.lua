@@ -8,6 +8,7 @@ kSpawnUmbraDuration = 1.25
 kTeam1Name = "Blue"
 kTeam2Name = "Red"
 
+
 kShadowTeamIndex = kTeam1Index
 kVanillaTeamIndex = kTeam2Index
 

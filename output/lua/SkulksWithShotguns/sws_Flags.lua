@@ -285,6 +285,15 @@ if Server then
         return true
     end
     
+    function Flag:DetachReset()
+        if self:GetParent() ~= nil then
+            //self:GetParent():DetachAll()   
+            SendEventMessage(self:GetTeam(), kEventMessageTypes.TeamTimeoutGorge)
+            SendEventMessage(GetEnemyTeam(self:GetTeam()), kEventMessageTypes.EnemyTimeoutGorge)                
+            self:GetTeam():ResetRespawnFlag()                
+        end 
+        self.droppedTime = kFlagFloorTimeout
+    end
 
     /**
      * We need to check when there are entities within the trigger area often.

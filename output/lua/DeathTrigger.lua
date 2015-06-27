@@ -24,14 +24,30 @@ AddMixinNetworkVars(TechMixin, networkVars)
 
 local function KillEntity(self, entity)
 
-    if Server and HasMixin(entity, "Live") and entity:GetIsAlive() and entity:GetCanDie(true) then
-    
-        // SWS - support for team kill triggers.
-        if ( self.teamNumber <= 0 ) or ( self.teamNumber == entity:GetTeamNumber() ) then
-            local direction = GetNormalizedVector(entity:GetModelOrigin() - self:GetOrigin())
-            entity:Kill(self, self, self:GetOrigin(), direction)
+    if Server then
+        if HasMixin(entity, "Live") and entity:GetIsAlive() and entity:GetCanDie(true) then
+
+            // SWS - reset flag in kill zones.        
+            if HasMixin(entity,"Flagbearer") then
+                 if entity:GetFlag() ~= nil then
+                     entity:GetFlag():DetachReset()
+                 end
+            end    
+        
+            // SWS - support for team kill triggers.
+            if ( self.teamNumber <= 0 ) or ( self.teamNumber == entity:GetTeamNumber() ) then
+            
+                local direction = GetNormalizedVector(entity:GetModelOrigin() - self:GetOrigin())
+                entity:Kill(self, self, self:GetOrigin(), direction)
+            end
         end
         
+        // drop flag in killzone.
+        if entity:isa("Flag") then
+            if entity:GetCarrier() ~= nil then 
+                entity:DetachReset()
+            end
+        end
     end
     
 end
